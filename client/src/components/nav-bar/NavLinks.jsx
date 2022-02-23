@@ -52,8 +52,6 @@ export default ({ logout, changeUser,loggedInUser, setChangeUser, setAuthTokens,
             
             <FormControl
             item xs={12}
-           
-            fullWidth
             >
               <InputLabel id="demo-simple-select-label">{loggedInUser.firstName}</InputLabel>
               <Select

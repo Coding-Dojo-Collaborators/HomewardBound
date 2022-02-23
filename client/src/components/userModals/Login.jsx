@@ -75,24 +75,25 @@ export default ({handleClose ,setAuthTokens, setChangeUser, setUser}) => {
 
   const googleSuccess = async (res) => {
     console.log(res.profileObj)
-    axios.post('http://localhost:5000/api/google/login', res.profileObj)
+    axios.post('http://localhost:8080/api/google/login', res.profileObj)
       .then(res => {
         console.log(res.data);
         handleClose()
-        if (res.data) {
-          setAuthTokens(res.data.access_token)
-          setUser(jwt_decode(res.data.access_token))
-          localStorage.setItem('authTokens', JSON.stringify(res))
-          setChangeUser(res.data)
-        }
+        // if (res.data) {
+        //   setAuthTokens(res.data.access_token)
+        //   setUser(jwt_decode(res.data.access_token))
+        //   localStorage.setItem('authTokens', JSON.stringify(res))
+        //   setChangeUser(res.data)
+        // }
         
       
       })
       .catch(err => console.log(err));
   };
 
-  const googleFailure = () => {
+  const googleFailure = (res) => {
     console.log("Google sign in not working!");
+    console.log(res)
   };
 
   return (
@@ -161,7 +162,7 @@ export default ({handleClose ,setAuthTokens, setChangeUser, setUser}) => {
             Sign In
           </Button>
           <GoogleLogin
-            clientId='28144132869-865k00rjanquba9oel14bbtt75rn8tv5.apps.googleusercontent.com'
+            clientId='568067065323-7gvfhrf569i6cqk1m9hcp52qe78r6e3j.apps.googleusercontent.com'
             render={(renderProps) => (
               <Button className={classes.googleButton}
                 color="primary"
