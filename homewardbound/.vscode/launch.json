@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-HomewardboundApplication<homewardbound>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.homewardbound.homewardbound.HomewardboundApplication",
+            "projectName": "homewardbound",
+            "args": ""
+        }
+    ]
+}
