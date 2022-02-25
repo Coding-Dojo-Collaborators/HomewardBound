@@ -3,13 +3,13 @@ import * as React from 'react';
 import { useHistory } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import { FormControl, InputLabel } from '@mui/material';
-import LoginModal from '../userModals/LoginModal'
-import RegistrationModal from '../userModals/RegistrationModal'
+import LoginModal from '../../userModals/LoginModal'
+import RegistrationModal from '../../userModals/RegistrationModal'
 import { MenuItem, Select } from '@mui/material';
 
-import EditModal from '../userModals/EditModal';
+import EditModal from '../../userModals/EditModal';
 import { textAlign } from '@mui/system';
-import { LandingPage } from '../../views/LandingPage';
+import { LandingPage } from '../../../views/LandingPage';
 export default ({ logout, changeUser, loggedInUser, setChangeUser, setLoggedInUser, refresh }) => {
   const history = useHistory()
   const logo = require('../static/img/logo.png')

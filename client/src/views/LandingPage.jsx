@@ -3,7 +3,7 @@ import axios from "axios";
 
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { NavBar } from '../components/nav-bar/NavBar'
+import { NavBar } from '../components/navbar/NavBar'
 import Cookies from 'js-cookie'
 export const LandingPage = ({ loggedInUser, setLoggedInUser }) => {
 
