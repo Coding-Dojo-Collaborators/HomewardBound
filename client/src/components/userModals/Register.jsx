@@ -21,7 +21,7 @@ const Copyright = (props) => {
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
       <Link color="inherit" href='https://mui.com/'>
-        OnlyPans
+        Homeward Bound
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
