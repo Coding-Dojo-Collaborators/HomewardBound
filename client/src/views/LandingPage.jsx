@@ -5,13 +5,13 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { NavBar } from '../components/nav-bar/NavBar'
 import Cookies from 'js-cookie'
-export const Dashboard = ({loggedInUser,setLoggedInUser}) => {
-  
+export const LandingPage = ({ loggedInUser, setLoggedInUser }) => {
+
   const [changeUser, setChangeUser] = useState()
   const history = useHistory()
-  useEffect( async () => {
+  useEffect(async () => {
     axios.get('http://localhost:8080/api/test')
-    .then(res => {console.log(res.data)})
+      .then(res => { console.log(res.data) })
     // loggedInUser &&
     // setUser(localStorage.getItem('authTokens') ?
     //   // jwt_decode(localStorage.getItem('authTokens')) : '')
@@ -35,13 +35,13 @@ export const Dashboard = ({loggedInUser,setLoggedInUser}) => {
     Cookies.remove('user_id')
     history.push('/')
   }
-  
+
   return (
-    <NavBar 
+    <NavBar
       logout={logout} changeUser={changeUser}
-      setChangeUser={setChangeUser} 
+      setChangeUser={setChangeUser}
       loggedInUser={loggedInUser}
-      setLoggedInUser={setLoggedInUser}/>
+      setLoggedInUser={setLoggedInUser} />
 
   )
 };

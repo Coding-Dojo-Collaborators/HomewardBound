@@ -26,7 +26,7 @@ const Copyright = (props) => {
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
       <Link color="inherit" to="#">
-        OnlyPans
+        Homeward Bound
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -45,7 +45,7 @@ export default ({handleClose ,setLoggedInUser, setChangeUser, setUser}) => {
   const history = useHistory();
   const classes = useStyles();
 
-  const logo = require('../static/img/toribio-ecommerce.png')
+  const logo = require('../static/img/logo.png')
 
   const loginChangeHandler = (e) => {
     setLoginInfo({
@@ -104,10 +104,9 @@ export default ({handleClose ,setLoggedInUser, setChangeUser, setUser}) => {
         <Avatar variant="square"
           src={logo} alt="logo"
           sx={{
-            height: 60,
-            width: 200,
+            height: 65,
+            width: 255,
             mb: 3,
-            pl: 1
           }}
         >
         </Avatar>
