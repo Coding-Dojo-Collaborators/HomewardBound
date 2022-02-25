@@ -8,7 +8,7 @@ import NavLinks from './NavLinks';
 import { Button, Grid } from '@material-ui/core';
 
 export const NavBar = ({ setLoggedInUser, loggedInUser, logout, changeUser, setUser, user, setChangeUser }) => {
-    const logo = require('../static/img/toribio-ecommerce.png')
+    
 
 
     return (

@@ -12,7 +12,7 @@ import { textAlign } from '@mui/system';
 import { LandingPage } from '../../../views/LandingPage';
 export default ({ logout, changeUser, loggedInUser, setChangeUser, setLoggedInUser, refresh }) => {
   const history = useHistory()
-  const logo = require('../static/img/logo.png')
+  const logo = require('../../static/img/logo.png')
   const buttonStyle = {
     ':hover': {
       bgcolor: '#ef5350', // theme.palette.primary.main
