@@ -1,15 +1,17 @@
 /* eslint-disable import/no-anonymous-default-export */
 import * as React from 'react';
 import {  useHistory } from 'react-router-dom';
-
+import Avatar from '@mui/material/Avatar';
 import { FormControl, InputLabel } from '@mui/material';
 import LoginModal from '../userModals/LoginModal'
+import RegistrationModal from '../userModals/RegistrationModal'
 import { MenuItem, Select } from '@mui/material';
 
 import EditModal from '../userModals/EditModal';
+import { textAlign } from '@mui/system';
 export default ({ logout, changeUser,loggedInUser, setChangeUser, setLoggedInUser, refresh }) => {
   const history = useHistory()
-
+  const logo = require('../static/img/logo.png')
   const buttonStyle = {
     ':hover': {
       bgcolor: '#ef5350', // theme.palette.primary.main
@@ -31,12 +33,33 @@ export default ({ logout, changeUser,loggedInUser, setChangeUser, setLoggedInUse
   console.log(loggedInUser);
 
   return (
+    
     <div className='nav-links'>
    
 
    
         {loggedInUser == 'no user' ?
           <ul className='navlinks d-flex pt-3 px-3'>
+
+
+
+          <li>
+
+          <Avatar variant="square"
+          src={logo} alt="logo"
+          sx={{
+            height: 65,
+            width: 255,
+            mb: 3,
+            pl: 3,
+            textAlign: 'center'
+          }}
+        >
+        </Avatar>
+
+
+          </li>
+
             <li className='list-unstyled ps-2'>
               <LoginModal
                loggedInUser={loggedInUser}
@@ -45,7 +68,15 @@ export default ({ logout, changeUser,loggedInUser, setChangeUser, setLoggedInUse
               >
                 Log In
               </LoginModal>
+            
+
             </li>
+            <li className='list-unstyled ps-2'>
+            <RegistrationModal>
+                Register
+              </RegistrationModal>
+            
+              </li>
           </ul>
           :
          

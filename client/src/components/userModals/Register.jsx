@@ -41,7 +41,7 @@ export default ({handleClose, setUser}) => {
   const [errors, setErrors] = useState(false);
   const history = useHistory();
 
-  const logo = require('../static/img/toribio-ecommerce.png')
+  const logo = require('../static/img/logo.png')
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -94,10 +94,9 @@ export default ({handleClose, setUser}) => {
         <Avatar variant="square"
           src={logo} alt="logo"
           sx={{
-            height: 42,
-            width: 53,
+            height: 65,
+            width: 255,
             mb: 3,
-            pl: 1
           }}
         >
         </Avatar>

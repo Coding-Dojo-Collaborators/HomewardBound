@@ -102,10 +102,9 @@ export default ({handleClose ,setLoggedInUser, setChangeUser, setUser}) => {
         <Avatar variant="square"
           src={logo} alt="logo"
           sx={{
-            height: 60,
-            width: 200,
+            height: 65,
+            width: 255,
             mb: 3,
-            pl: 1
           }}
         >
         </Avatar>
