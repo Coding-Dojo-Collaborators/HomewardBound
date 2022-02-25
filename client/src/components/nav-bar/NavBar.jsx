@@ -7,7 +7,7 @@ import { Box } from '@mui/system';
 import NavLinks from './NavLinks';
 import { Button, Grid } from '@material-ui/core';
 
-export const NavBar = ({setAuthTokens,loggedInUser, logout, changeUser,setUser,user,setChangeUser }) => {
+export const NavBar = ({setLoggedInUser,loggedInUser, logout, changeUser,setUser,user,setChangeUser }) => {
     const logo = require('../static/img/toribio-ecommerce.png')
  
 
@@ -20,7 +20,7 @@ export const NavBar = ({setAuthTokens,loggedInUser, logout, changeUser,setUser,u
                 
 
                 {/* <div> */}
-                    <NavLinks setAuthTokens={setAuthTokens}
+                    <NavLinks setLoggedInUser={setLoggedInUser}
                     logout={logout} setUser={setUser} user={user} changeUser={changeUser}
                     setChangeUser={setChangeUser} loggedInUser={loggedInUser}/>
               

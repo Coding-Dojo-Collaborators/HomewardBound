@@ -1,13 +1,13 @@
 
 import axios from "axios";
-import jwt_decode from "jwt-decode";
+
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { NavBar } from '../components/nav-bar/NavBar'
-export const Dashboard = () => {
-  const [loggedInUser, setLoggedInUser] = useState(false)
+import Cookies from 'js-cookie'
+export const Dashboard = ({loggedInUser,setLoggedInUser}) => {
+  
   const [changeUser, setChangeUser] = useState()
-  const [user, setUser] = useState()
   const history = useHistory()
   useEffect( async () => {
     axios.get('http://localhost:8080/api/test')
@@ -31,20 +31,17 @@ export const Dashboard = () => {
     // : '')
   }, [changeUser]);
   let logout = () => {
-    setAuthTokens(null)
-    setUser('')
-    localStorage.removeItem('authTokens')
+    setLoggedInUser('no user')
+    Cookies.remove('user_id')
     history.push('/')
   }
-  let [authTokens, setAuthTokens] = useState(() => localStorage.getItem('authTokens') ?
-    JSON.parse(localStorage.getItem('authTokens')) : null)
-  // console.log(JSON.stringify(jwt_decode(localStorage.getItem('authTokens'))))
+  
   return (
-    <NavBar setAuthTokens={setAuthTokens}
+    <NavBar 
       logout={logout} changeUser={changeUser}
-      setUser={setUser} user={user}
       setChangeUser={setChangeUser} 
-      loggedInUser={loggedInUser}/>
+      loggedInUser={loggedInUser}
+      setLoggedInUser={setLoggedInUser}/>
 
   )
 };
