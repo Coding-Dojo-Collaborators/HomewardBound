@@ -8,7 +8,6 @@ import java.util.Date;
 import com.homewardbound.homewardbound.models.User;
 import com.homewardbound.homewardbound.services.UserService;
 
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
