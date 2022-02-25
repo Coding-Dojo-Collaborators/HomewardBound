@@ -9,6 +9,7 @@ import { MenuItem, Select } from '@mui/material';
 
 import EditModal from '../userModals/EditModal';
 import { textAlign } from '@mui/system';
+import { Dashboard } from '../../views/Dashboard';
 export default ({ logout, changeUser,loggedInUser, setChangeUser, setLoggedInUser, refresh }) => {
   const history = useHistory()
   const logo = require('../static/img/logo.png')
@@ -76,6 +77,9 @@ export default ({ logout, changeUser,loggedInUser, setChangeUser, setLoggedInUse
                 Register
               </RegistrationModal>
             
+              </li>
+              <li>
+
               </li>
           </ul>
           :
