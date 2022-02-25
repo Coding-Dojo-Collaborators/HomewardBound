@@ -5,6 +5,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.Base64;
 import java.util.Date;
 
+import com.homewardbound.homewardbound.models.GoogleLogin;
 import com.homewardbound.homewardbound.models.User;
 import com.homewardbound.homewardbound.services.UserService;
 
@@ -29,14 +30,14 @@ public class UserController {
     
 
     @PostMapping("/api/google/login")
-    public String test(@RequestBody User test){
+    public String test(@RequestBody GoogleLogin test){
         Instant now = Instant.now();
         System.out.println(test);
         int id =1;
         String jwt = Jwts.builder()
         .claim("id", id)
-        .claim("firstName",test.getFirstName())
-        .claim("lastName",test.getLastName())
+        .claim("firstName",test.getGivenName())
+        .claim("lastName",test.getFamilyName())
         .setIssuedAt(Date.from(now))
         .setExpiration(Date.from(now.minus(1, ChronoUnit.MINUTES)))
         .signWith(Keys.hmacShaKeyFor(secret))

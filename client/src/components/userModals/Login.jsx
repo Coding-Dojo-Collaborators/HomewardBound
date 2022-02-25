@@ -74,10 +74,12 @@ export default ({handleClose ,setLoggedInUser, setChangeUser, setUser}) => {
 
   const googleSuccess = async (res) => {
     console.log(res.profileObj)
-    axios.post('http://localhost:8080/api/google/login', {
-      "firstName": res.profileObj.givenName,
-      "lastName" : res.profileObj.familyName
-    }).then(res => {
+    axios.post('http://localhost:8080/api/google/login', res.profileObj
+    // {
+    //   "firstName": res.profileObj.givenName,
+    //   "lastName" : res.profileObj.familyName
+    // }
+    ).then(res => {
         console.log(res.data);
         Cookies.set("user_id",res.data, {path: '/'})
         setLoggedInUser(jwt_decode(Cookies.get("user_id")))
