@@ -4,6 +4,6 @@ public class GoogleLogin {
 
     private String givenName;
 
-    private
-    
+    // private
+
 }
