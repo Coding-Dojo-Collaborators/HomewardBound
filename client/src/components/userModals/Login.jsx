@@ -20,7 +20,7 @@ import Stack from '@mui/material/Stack';
 import useStyles from './Styles';
 import RegistrationModal from './RegistrationModal';
 import jwt_decode from "jwt-decode";
-
+import Cookies from 'js-cookie'
 const Copyright = (props) => {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -33,11 +33,10 @@ const Copyright = (props) => {
     </Typography>
   );
 }
-
 // eslint-disable-next-line no-unused-vars
 const theme = createTheme();
 
-export default ({handleClose ,setAuthTokens, setChangeUser, setUser}) => {
+export default ({handleClose ,setLoggedInUser, setChangeUser, setUser}) => {
   const [errors, setErrors] = useState("");
   const [loginInfo, setLoginInfo] = useState({
     email: "",
@@ -45,7 +44,7 @@ export default ({handleClose ,setAuthTokens, setChangeUser, setUser}) => {
   });
   const history = useHistory();
   const classes = useStyles();
-  
+
   const logo = require('../static/img/toribio-ecommerce.png')
 
   const loginChangeHandler = (e) => {
@@ -75,27 +74,20 @@ export default ({handleClose ,setAuthTokens, setChangeUser, setUser}) => {
 
   const googleSuccess = async (res) => {
     console.log(res.profileObj)
-    axios.post('http://localhost:8080/api/google/login', res.profileObj)
-      .then(res => {
+    axios.post('http://localhost:8080/api/google/login', {
+      "firstName": res.profileObj.givenName,
+      "lastName" : res.profileObj.familyName
+    }).then(res => {
         console.log(res.data);
+        Cookies.set("user_id",res.data, {path: '/'})
+        setLoggedInUser(jwt_decode(Cookies.get("user_id")))
         handleClose()
-        // if (res.data) {
-        //   setAuthTokens(res.data.access_token)
-        //   setUser(jwt_decode(res.data.access_token))
-        //   localStorage.setItem('authTokens', JSON.stringify(res))
-        //   setChangeUser(res.data)
-        // }
-        
-      
-      })
-      .catch(err => console.log(err));
+      }).catch(err => console.log(err));
   };
-
   const googleFailure = (res) => {
     console.log("Google sign in not working!");
     console.log(res)
   };
-
   return (
     // <ThemeProvider theme={theme}>
     <Container component="main" maxWidth="xs">

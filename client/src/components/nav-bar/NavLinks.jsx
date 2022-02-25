@@ -7,7 +7,7 @@ import LoginModal from '../userModals/LoginModal'
 import { MenuItem, Select } from '@mui/material';
 
 import EditModal from '../userModals/EditModal';
-export default ({ logout, changeUser,loggedInUser, setChangeUser, setAuthTokens, setUser, user, refresh }) => {
+export default ({ logout, changeUser,loggedInUser, setChangeUser, setLoggedInUser, refresh }) => {
   const history = useHistory()
 
   const buttonStyle = {
@@ -35,13 +35,13 @@ export default ({ logout, changeUser,loggedInUser, setChangeUser, setAuthTokens,
    
 
    
-        {user == '' ?
+        {loggedInUser == 'no user' ?
           <ul className='navlinks d-flex pt-3 px-3'>
             <li className='list-unstyled ps-2'>
               <LoginModal
-                setAuthTokens={setAuthTokens}
+               loggedInUser={loggedInUser}
                 setChangeUser={setChangeUser}
-                setUser={setUser}
+                setLoggedInUser={setLoggedInUser}
               >
                 Log In
               </LoginModal>
@@ -78,7 +78,7 @@ export default ({ logout, changeUser,loggedInUser, setChangeUser, setAuthTokens,
             
               >{
                 loggedInUser.googleUser !=1 &&
-                  <EditModal  setUser={setUser}/>
+                  <EditModal  />
               }
                 {
                   loggedInUser.admin == 1 &&

@@ -19,11 +19,11 @@ const style = {
   p: 4,
 };
 
-export default function TransitionsModal({ changeUser,setUser, setChangeUser, setAuthTokens}) {
+export default function TransitionsModal({ changeUser,setUser, setChangeUser, setLoggedInUser,loggedInUser}) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
- 
+  console.log(loggedInUser)
   const buttonStyle = {
     ':hover': {
       bgcolor: '#ef5350', // theme.palette.primary.main
@@ -57,7 +57,7 @@ export default function TransitionsModal({ changeUser,setUser, setChangeUser, se
             <Login 
             setUser={setUser}
             setChangeUser={setChangeUser}
-            setAuthTokens={setAuthTokens}
+            setLoggedInUser={setLoggedInUser}
              handleClose={handleClose} 
             />
           </Box>
