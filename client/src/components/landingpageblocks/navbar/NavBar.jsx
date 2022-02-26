@@ -12,7 +12,7 @@ export const NavBar = ({ setLoggedInUser, loggedInUser, logout, changeUser, setU
 
 
     return (
-        <div className='bg-dark'>
+        <div className='bg-black'>
             <Box >
 
                 <Grid>

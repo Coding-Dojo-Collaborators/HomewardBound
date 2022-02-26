@@ -1,0 +1,57 @@
+#container {
+      
+    height: 5px;
+    text-align: justify;
+    -ms-text-justify: distribute-all-lines;
+    text-justify: distribute-all-lines;
+    /* just for demo */
+    min-width: 612px;
+  }
+  
+  .box1,
+  .box2,
+  .box3{
+      background-color: lightgray;
+      margin: 60px;
+    width: 300px;
+    height: 250px;
+    vertical-align: top;
+    display: inline-block;
+    *display: inline;
+    
+    
+  }
+  
+  .stretch {
+    width: 100%;
+    display: inline-block;
+    font-size: 0;
+    line-height: 0
+  }
+  
+  .service {
+    background-color: white;
+    margin: 1rem auto;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+  }
+    .imgContainer{
+        float:left;
+
+    }
+
+
+    .row {
+        display: flex;
+      }
+      
+      .column {
+        flex: 20%;
+        padding: 15px;
+        margin: 10px;
+        
+      }
