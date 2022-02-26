@@ -2,9 +2,15 @@ package com.homewardbound.homewardbound.models;
 
 public class GoogleLogin {
 
+    private String email;
+
     private String givenName;
 
     private String familyName;
+
+    private String googleId;
+
+    private String imageUrl;
 
     public GoogleLogin() {
     }
@@ -23,6 +29,30 @@ public class GoogleLogin {
 
     public void setFamilyName(String familyName) {
         this.familyName = familyName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getGoogleId() {
+        return googleId;
+    }
+
+    public void setGoogleId(String googleId) {
+        this.googleId = googleId;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     

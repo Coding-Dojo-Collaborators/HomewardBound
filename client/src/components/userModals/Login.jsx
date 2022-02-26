@@ -55,30 +55,25 @@ export default ({handleClose ,setLoggedInUser, setChangeUser, setUser}) => {
   };
 
   const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   axios.post('http://localhost:5000/api/login', loginInfo)
-  //     .then(res => {
-  //       // console.log(res.data)
-  //       if (res.data) {
-  //         setAuthTokens(res.data.access_token)
-  //         setUser(jwt_decode(res.data.access_token))
-  //         localStorage.setItem('authTokens', JSON.stringify(res))
-  //         setChangeUser(res.data)
-  //         handleClose()
-  //         }
-  //         else {
-  //             alert('Invalid username or password')
-  //         }
-  //     })
+    e.preventDefault();
+    axios.post('http://localhost:8080/api/login', loginInfo)
+      .then(res => {
+        // console.log(res.data)
+        if (res.data) {
+          Cookies.set("user_id",res.data, {path: '/'})
+          setLoggedInUser(jwt_decode(Cookies.get("user_id")))
+          handleClose()
+          }
+          else {
+              alert('Invalid username or password')
+          }
+      })
   };
 
   const googleSuccess = async (res) => {
     console.log(res.profileObj)
     axios.post('http://localhost:8080/api/google/login', res.profileObj
-    // {
-    //   "firstName": res.profileObj.givenName,
-    //   "lastName" : res.profileObj.familyName
-    // }
+  
     ).then(res => {
         console.log(res.data);
         Cookies.set("user_id",res.data, {path: '/'})

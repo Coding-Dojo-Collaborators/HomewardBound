@@ -26,8 +26,6 @@ export default ({ logout, changeUser, loggedInUser, setChangeUser, setLoggedInUs
       logout()
       :
       // val === 'editUser'?
-
-
       history.push(`/${val}`)
   }
 
