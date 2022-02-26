@@ -7,6 +7,7 @@ import {
 import jwt_decode from "jwt-decode";
 import Cookies from 'js-cookie';
 import './App.css';
+import { test } from "./views/test";
 import { LandingPage } from './views/LandingPage';
 function App() {
   const [loggedInUser, setLoggedInUser] = useState(
@@ -20,7 +21,7 @@ function App() {
           <LandingPage loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />
         </Route>
         <Route exact path='/hello'>
-          <LandingPage loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />
+        <test/>
         </Route>
       </Switch>
     </BrowserRouter>
