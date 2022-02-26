@@ -28,64 +28,96 @@ public class UserService {
     String dotenv = Dotenv.load().get("SECRET");
     byte[] secret = Base64.getDecoder().decode(dotenv);
 
-    public User oneUser(String email) {
-        Optional<User> user = userRepo.findByEmail(email);
-        return user.get();
+    public User oneUser(Long id) {
+        Optional<User> user = userRepo.findById(id);
+    return user.get();
     }
 
+    // ------------Regular Login---------------- //
     public String login(LoginUser newLoginObject) {
-		
-		String emailEntered=newLoginObject.getEmail();
-		String passwordEntered=newLoginObject.getPassword();
-		
-		Optional<User> isUser = userRepo.findByEmail(emailEntered);	
-		if (!isUser.isPresent()) {
-		return "No User Found";
-			
-			}
-		if(!BCrypt.checkpw(passwordEntered, isUser.get().getPassword())) {
-		    return "Invalid Email or Password";
-		}
 
-		else {
-        User user = isUser.get();
-        String jwt = Jwts.builder()
-        .claim("googleUser", user.isGoogleUser())
-        .claim("firstName",user.getFirstName())
-        .claim("lastName",user.getLastName())
-        .setIssuedAt(Date.from(now))
-        .setExpiration(Date.from(now.minus(1, ChronoUnit.MINUTES)))
-        .signWith(Keys.hmacShaKeyFor(secret))
-        .compact();
+        String emailEntered = newLoginObject.getEmail();
+        String passwordEntered = newLoginObject.getPassword();
 
-			return jwt;
-		}
-	}
+        Optional<User> isUser = userRepo.findByEmail(emailEntered);
+        if (!isUser.isPresent()) {
+            return "No User Found";
+        }
+        if (!BCrypt.checkpw(passwordEntered, isUser.get().getPassword())) {
+            return "Invalid Email or Password";
+        } else {
+            User user = isUser.get();
+            String jwt = Jwts.builder()
+                    .claim("id", user.getId())
+                    .claim("firstName", user.getFirstName())
+                    .claim("lastName", user.getLastName())
+                    .claim("googleUser", user.isGoogleUser())
+                    .setIssuedAt(Date.from(now))
+                    .setExpiration(Date.from(now.minus(1, ChronoUnit.MINUTES)))
+                    .signWith(Keys.hmacShaKeyFor(secret))
+                    .compact();
 
+            return jwt;
+        }
+    }
+
+    // -------------Google Login-------------------//
     public String googleLogin(GoogleLogin newLogin) {
-		User user;
-		String emailEntered=newLogin.getEmail();
-		
-		Optional<User> isUser = userRepo.findByEmail(emailEntered);	
-		if (!isUser.isPresent()) {
+        User user;
+        String emailEntered = newLogin.getEmail();
+
+        Optional<User> isUser = userRepo.findByEmail(emailEntered);
+        if (!isUser.isPresent()) {
             user = new User();
             user.setFirstName(newLogin.getGivenName());
             user.setLastName(newLogin.getFamilyName());
             user.setEmail(newLogin.getEmail());
             user.setPassword(newLogin.getGoogleId());
             user.setGoogleUser(true);
-        }
-		else {
+        } else {
             user = isUser.get();
-		}
+        }
         String jwt = Jwts.builder()
-        .claim("firstName",user.getFirstName())
-        .claim("lastName",user.getLastName())
-        .setIssuedAt(Date.from(now))
-        .setExpiration(Date.from(now.minus(1, ChronoUnit.MINUTES)))
-        .signWith(Keys.hmacShaKeyFor(secret))
-        .compact();
+                .claim("id", user.getId())
+                .claim("firstName", user.getFirstName())
+                .claim("lastName", user.getLastName())
+                .claim("googleUser", user.isGoogleUser())
+                .setIssuedAt(Date.from(now))
+                .setExpiration(Date.from(now.minus(1, ChronoUnit.MINUTES)))
+                .signWith(Keys.hmacShaKeyFor(secret))
+                .compact();
 
         return jwt;
-	}
+    }
+
+    // ------------Registration-------------------//
+    public String register(User newUser) {
+        String emailEntered = newUser.getEmail();
+        Optional<User> isUser = userRepo.findByEmail(emailEntered);
+        if (!isUser.isPresent()) {
+            if (newUser.getPassword().equals(newUser.getConfirm())) {
+                User user = new User();
+                user.setFirstName(newUser.getFirstName());
+                user.setLastName(newUser.getLastName());
+                user.setEmail(newUser.getEmail());
+                user.setPassword(newUser.getPassword());
+                user.setGoogleUser(false);
+
+                String jwt = Jwts.builder()
+                        .claim("id", user.getId())
+                        .claim("firstName", user.getFirstName())
+                        .claim("lastName", user.getLastName())
+                        .claim("googleUser", user.isGoogleUser())
+                        .setIssuedAt(Date.from(now))
+                        .setExpiration(Date.from(now.minus(1, ChronoUnit.MINUTES)))
+                        .signWith(Keys.hmacShaKeyFor(secret))
+                        .compact();
+
+                return jwt;
+            } else {
+                return "Passwords don't match";
+            }
+        }
+        return "Please sign in User already exist";
+    }
 }

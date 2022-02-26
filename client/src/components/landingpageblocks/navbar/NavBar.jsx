@@ -16,10 +16,6 @@ export const NavBar = ({ setLoggedInUser, loggedInUser, logout, changeUser, setU
             <Box >
 
                 <Grid>
-
-
-
-                    {/* <div> */}
                     <NavLinks setLoggedInUser={setLoggedInUser}
                         logout={logout} setUser={setUser} user={user} changeUser={changeUser}
                         setChangeUser={setChangeUser} loggedInUser={loggedInUser} />
