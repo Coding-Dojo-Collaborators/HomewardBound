@@ -17,7 +17,7 @@ import Block4About from '../views/LandingPageBlocks/Block4About';
 // Login
 import Cookies from 'js-cookie';
 
-export default ({ loggedInUser, setLoggedInUser }) => {
+export default ({ setUser, loggedInUser, setLoggedInUser }) => {
   const [changeUser, setChangeUser] = useState();
   const history = useHistory();
 

@@ -11,16 +11,7 @@ import Fade from '@mui/material/Fade';
 import Login from './Login';
 
 // Reactstrap Components
-import {
-  Collapse,
-  NavbarBrand,
-  Navbar,
-  NavItem,
-  NavLink,
-  Nav,
-  Container,
-  Button,
-} from 'reactstrap';
+import { Button } from 'reactstrap';
 
 const style = {
   position: 'absolute',
@@ -41,21 +32,11 @@ export default function TransitionsModal({ setLoggedInUser, loggedInUser }) {
 
   console.log(loggedInUser);
 
-  const buttonStyle = {
-    ':hover': {
-      bgcolor: '#ef5350', // theme.palette.primary.main
-      color: 'white',
-    },
-    color: '#fff',
-    fontWeight: 'bold'
-  }
-
   return (
     <div>
       <Button
-      onClick={handleOpen}
-        className='btn'
-        color='danger'
+        onClick={handleOpen}
+        className='btn loginbtn'
         type='button'
         component={Link} to={'/dashboard'
           // `/dashboard/${user._id}`

@@ -22,15 +22,21 @@ const style = {
   p: 4,
 };
 
-export default function TransitionsModal({setClose, setLoggedInUser, loggedIn}) {
+export default function TransitionsModal({ setClose, setLoggedInUser, loggedIn }) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
     <div>
-      <Button onClick={handleOpen}>
-        Sign Up Here
+      <Button
+        onClick={handleOpen}
+        className='mt-3'
+        color='neutral'
+        type='button' outline
+        size='lg'
+      >
+        Sign Up
       </Button>
       <Modal
         aria-labelledby='transition-modal-title'
@@ -46,7 +52,7 @@ export default function TransitionsModal({setClose, setLoggedInUser, loggedIn}) 
         <Fade in={open}>
           <Box sx={style}>
             {/* ENTER REGISTER HERE */}
-            <Register handleClose={handleClose} loggedIn={loggedIn} setLoggedInUser={setLoggedInUser} setClose={setClose}/>
+            <Register handleClose={handleClose} loggedIn={loggedIn} setLoggedInUser={setLoggedInUser} setClose={setClose} />
           </Box >
         </Fade >
       </Modal >

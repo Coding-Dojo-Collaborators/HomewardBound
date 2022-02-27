@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 // NodeJS library that concatenates strings
@@ -14,22 +14,18 @@ import {
   NavLink,
   Nav,
   Container,
-  Button,
 } from 'reactstrap';
 
 // MUI
 import { Avatar } from '@mui/material';
-// import { Box } from '@mui/system';
-// import { Grid } from '@material-ui/core';
-// import NavLinks from './NavLinks';
 
 // Modals
 import LoginModal from '../Modals/LoginModal'
 
-export default ({ setLoggedInUser, loggedInUser, logout  }) => {
+export default ({ setLoggedInUser, loggedInUser, logout }) => {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [navbarCollapse, setNavbarCollapse] = React.useState(false);
-  const [openModal, setOpenModal] = useState(false)
+  // const [openModal, setOpenModal] = useState(false);
   const toggleNavbarCollapse = () => {
     setNavbarCollapse(!navbarCollapse);
     document.documentElement.classList.toggle('nav-open');
@@ -61,24 +57,13 @@ export default ({ setLoggedInUser, loggedInUser, logout  }) => {
   //   window.scrollTo({ top: 0, behavior: 'smooth' });
   // });
 
-  const scrollHandler = (e) => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+  // const scrollHandler = (e) => {
+  //   window.scrollTo({ top: 0, behavior: 'smooth' });
+  // }
 
   const logo = require('../../assets/img/brandlogo/logo_transparent_background.png');
 
   return (
-    // <div className=''>
-    //   <Box >
-    //     <Grid>
-    //       <NavLinks setLoggedInUser={setLoggedInUser}
-    //         logout={logout} setUser={setUser} user={user} changeUser={changeUser}
-    //         setChangeUser={setChangeUser} loggedInUser={loggedInUser} />
-    //       </Grid>
-    //     </Box>
-    //     <div>
-    //     </div>
-    //   </div>
     <Navbar
       className={classnames('fixed-top', navbarColor)}
       color-on-scroll='300'
@@ -153,10 +138,10 @@ export default ({ setLoggedInUser, loggedInUser, logout  }) => {
               </NavLink>
             </NavItem>
             <NavItem>
-                <LoginModal
-              loggedInUser={loggedInUser}
-              setLoggedInUser={setLoggedInUser} 
-            />
+              <LoginModal
+                loggedInUser={loggedInUser}
+                setLoggedInUser={setLoggedInUser}
+              />
             </NavItem>
           </Nav>
         </Collapse>
