@@ -4247,7 +4247,7 @@ License - nucleoapp.com/license/
 .navbar .navbar-brand {
   font-weight: 600;
   margin: 5px 0px;
-  padding: 20px 15px;
+  padding: 20px 15px 0 15px !important;
   font-size: 14px;
   color: #66615b;
   text-transform: uppercase;

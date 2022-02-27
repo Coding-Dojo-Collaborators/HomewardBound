@@ -71,14 +71,13 @@ export default ({ setLoggedInUser, loggedInUser, logout, changeUser, setUser, us
     <Navbar
       className={classnames('fixed-top', navbarColor)}
       color-on-scroll='300'
-      expand='lg'
+      expand='md'
     >
-      <Container>
+      <Container className='d-flex'>
         <div className='navbar-translate'>
           <NavbarBrand
             data-placement='bottom'
             to='/'
-            target='_blank'
             title='Home'
             tag={Link}
           >
@@ -92,7 +91,7 @@ export default ({ setLoggedInUser, loggedInUser, logout, changeUser, setUser, us
               }}
             >
             </Avatar>
-            </NavbarBrand>
+          </NavbarBrand>
           <button
             aria-expanded={navbarCollapse}
             className={classnames('navbar-toggler navbar-toggler', {
@@ -144,12 +143,9 @@ export default ({ setLoggedInUser, loggedInUser, logout, changeUser, setUser, us
             </NavItem>
             <NavItem>
               <Button
-                className="bg-danger"
+                className='btn'
+                color='danger'
                 type='button'
-                sx={{
-                  borderWidth: '0px !important',
-                  borderColor: 'transparent !important',
-                }}
                 component={Link} to={'/dashboard'
                   // `/dashboard/${user._id}`
                 }
