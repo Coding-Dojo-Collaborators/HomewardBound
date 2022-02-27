@@ -55,7 +55,7 @@ export default ({ setLoggedInUser, loggedInUser, logout, changeUser, setUser, us
   });
 
   const logo = require('../../assets/img/brandlogo/logo_transparent_background.png');
-// jjjj
+
   return (
     // <div className=''>
     //   <Box >
@@ -69,9 +69,10 @@ export default ({ setLoggedInUser, loggedInUser, logout, changeUser, setUser, us
     //     </div>
     //   </div>
     <Navbar
-      className={classnames('fixed-top', navbarColor)}
+      className={classnames('fixed-top', navbarColor )}
       color-on-scroll='300'
       expand='lg'
+      
     >
       <Container>
         <div className='navbar-translate'>
