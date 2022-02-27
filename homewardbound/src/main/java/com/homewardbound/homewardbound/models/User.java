@@ -41,11 +41,12 @@ public class User {
     private String password;
     
     @Transient
-    @NotEmpty(message="Confirm Password is required!")
     @Size(min=8, max=128, message="Confirm Password must be between 8 and 128 characters")
     private String confirm;
 
-    private boolean googleUser;
+    private boolean oAuthUser;
+
+    private String picture;
 
     @Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
@@ -127,12 +128,20 @@ public class User {
         this.updatedAt = updatedAt;
     }
 
-    public boolean isGoogleUser() {
-        return googleUser;
+    public boolean isoAuthUser() {
+        return oAuthUser;
     }
 
-    public void setGoogleUser(boolean googleUser) {
-        this.googleUser = googleUser;
+    public void setoAuthUser(boolean oAuthUser) {
+        this.oAuthUser = oAuthUser;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
     
 }

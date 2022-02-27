@@ -14,8 +14,8 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
-// import LoginModal from './LoginModal';
-
+import Cookies from 'js-cookie'
+import jwt_decode from "jwt-decode";
 const Copyright = (props) => {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -29,59 +29,48 @@ const Copyright = (props) => {
   );
 }
 
-// eslint-disable-next-line no-unused-vars
-const theme = createTheme();
 
-export default ({handleClose, setUser}) => {
+export default ({handleClose, setLoggedInUser,setClose }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [confirmPassword, setConfirmPassword] = useState("");
+  const [confirm, setConfirm] = useState("");
   const [errors, setErrors] = useState(false);
   const history = useHistory();
 
   const logo = require('../static/img/logo.png')
 
-  const handleSubmit = async (e) => {
+  React.useEffect(() => {
+    setClose(false)
+  },[])
+
+  const handleRegister = async (e) => {
     e.preventDefault();
-    await axios.post(`http://localhost:8080/api/new/user/`, {
+    await axios.post(`http://localhost:8080/api/register/`, {
 
       "firstName": firstName,
       "lastName": lastName,
       "email": email,
       "password": password,
+      "confirm" : confirm
     
   })
       .then(res => {
         console.log("response from registering", res);
-        if (res.data.errors) {
-          setErrors(res.data.message)
-        // } else {
-        //   axios.post('http://localhost:8000/api/login', {
-        //     email: email,
-        //     password: password
-        //   }, { withCredentials: true })
-        //     .then(res => {
-        //       console.log(res)
-        //       if (res.data.message === "success!") {
-        //         setUser(res.data)
-        //         handleClose()
-
-        //       } else if (res.data.message) {
-        //         console.log(res.data.message)
-        //         setErrors(res.data)
-        //       }
-        //     })
-        //     .catch(err => console.log(err))
-        //   // login()
-        }
+        res.data === "Passwords don't match" ?
+        setErrors({"message" : res.data }) :
+        res.data === "Please sign in User already exist" ?
+        setErrors({"message" : res.data }) :
+        Cookies.set("user_id",res.data, {path: '/'})
+        setLoggedInUser(jwt_decode(Cookies.get("user_id")))
+        handleClose()
+        
       })
       .catch(err => console.log(err))
   };
 
   return (
-    // <ThemeProvider theme={theme}>
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <Box
@@ -103,7 +92,7 @@ export default ({handleClose, setUser}) => {
         <Typography component="h1" variant="h5">
           Sign Up
         </Typography>
-        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+        <Box component="form" noValidate onSubmit={handleRegister} sx={{ mt: 3 }}>
           <Grid container spacing={2}>
             <Grid item xs={12} >
               {
@@ -166,19 +155,19 @@ export default ({handleClose, setUser}) => {
               />
               {/* {errors.password? <p className="text-danger">{errors.password}</p>: ""} */}
             </Grid>
-            {/* <Grid item xs={12}>
+            <Grid item xs={12}>
               <TextField
-                onChange={(e) => setConfirmPassword(e.target.value)}
+                onChange={(e) => setConfirm(e.target.value)}
                 required
                 fullWidth
-                name="confirmPassword"
+                name="confirm"
                 label="Confirm Password"
                 type="password"
-                id="confirmPassword"
-                autoComplete="new-password"
-              /> */}
+                id="confirm"
+                autoComplete="confirm-password"
+              />
               {/* {errors.confirm_password? <p className="text-danger">{errors.confirm_password}</p>: ""} */}
-            {/* </Grid> */}
+            </Grid>
           </Grid>
           <Button
             type="submit"

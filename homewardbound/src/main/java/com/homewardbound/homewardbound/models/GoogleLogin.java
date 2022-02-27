@@ -12,7 +12,17 @@ public class GoogleLogin {
 
     private String imageUrl;
 
+    private Object picture;
+    
     public GoogleLogin() {
+    }
+
+    public Object getPicture() {
+        return picture;
+    }
+
+    public void setPicture(Object picture) {
+        this.picture = picture;
     }
 
     public String getGivenName() {

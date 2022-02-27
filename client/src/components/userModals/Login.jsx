@@ -21,9 +21,8 @@ import useStyles from './Styles';
 import RegistrationModal from './RegistrationModal';
 import jwt_decode from "jwt-decode";
 import Cookies from 'js-cookie'
-import GitHubLogin from 'react-github-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
-import GithubButton from 'react-github-login-button'
+
 const Copyright = (props) => {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -39,15 +38,15 @@ const Copyright = (props) => {
 // eslint-disable-next-line no-unused-vars
 const theme = createTheme();
 
-export default ({handleClose ,setLoggedInUser, setChangeUser, setUser}) => {
+export default ({handleClose ,setLoggedInUser, handleOpen}) => {
   const [errors, setErrors] = useState("");
+  const [close, setClose] = useState(true);
   const [loginInfo, setLoginInfo] = useState({
     email: "",
     password: "",
   });
   const history = useHistory();
   const classes = useStyles();
-
   const logo = require('../static/img/logo.png')
 
   const loginChangeHandler = (e) => {
@@ -57,19 +56,22 @@ export default ({handleClose ,setLoggedInUser, setChangeUser, setUser}) => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axios.post('http://localhost:8080/api/login', loginInfo)
+    close &&
+    await axios.post('http://localhost:8080/api/login', loginInfo)
       .then(res => {
-        // console.log(res.data)
-        if (res.data) {
+        console.log(res)
+        res.data === "No User Found" ? 
+        setErrors({"message" : res.data }) :
+        res.data ===  "Invalid Email or Password" ?
+        setErrors({"message" : res.data }) :
           Cookies.set("user_id",res.data, {path: '/'})
           setLoggedInUser(jwt_decode(Cookies.get("user_id")))
           handleClose()
-          }
-          else {
-              alert('Invalid username or password')
-          }
+          
+          
+          
       })
   };
 
@@ -78,7 +80,6 @@ export default ({handleClose ,setLoggedInUser, setChangeUser, setUser}) => {
     axios.post('http://localhost:8080/api/google/login', res.profileObj
   
     ).then(res => {
-        console.log(res.data);
         Cookies.set("user_id",res.data, {path: '/'})
         setLoggedInUser(jwt_decode(Cookies.get("user_id")))
         handleClose()
@@ -90,6 +91,12 @@ export default ({handleClose ,setLoggedInUser, setChangeUser, setUser}) => {
   };
   const facebookSuccess = async (res) => {
     console.log(res)
+    await axios.post("http://localhost:8080/api/facebook/login", {...res , "picture" : res.picture.data.url})
+    .then(res => {
+      Cookies.set("user_id",res.data, {path: '/'})
+        setLoggedInUser(jwt_decode(Cookies.get("user_id")))
+        handleClose()
+    })
   }
   const facebookFailure = (res) => {
     console.log(res)
@@ -140,7 +147,7 @@ export default ({handleClose ,setLoggedInUser, setChangeUser, setUser}) => {
             required
             fullWidth
             name="password"
-            label="Password"
+            label="Password"etUser
             type="password"
             id="password"
             autoComplete="current-password"
@@ -179,6 +186,7 @@ export default ({handleClose ,setLoggedInUser, setChangeUser, setUser}) => {
   appId="1012699556009640"
   autoLoad={false}
   callback={facebookSuccess}
+  fields="name,email,picture,first_name,last_name"
   render={renderProps => (
     <Button 
     color='primary'
@@ -186,9 +194,10 @@ export default ({handleClose ,setLoggedInUser, setChangeUser, setUser}) => {
     variant="contained"
             sx={{ mb: 2 }}
     className={classes.facebookButton}
-    onClick={renderProps.onClick}>Facebook Login</Button>
+    onClick={renderProps.onClick}> Facebook Login</Button>
   )}
 />
+
           <Grid container
             sx={{
               display: 'flex',
@@ -197,7 +206,7 @@ export default ({handleClose ,setLoggedInUser, setChangeUser, setUser}) => {
           >
             <Grid item sx={{ textAlign: 'center' }}>
               Don't have an Account?
-              <RegistrationModal variant="body2" setUser={setUser}/>
+              <RegistrationModal variant="body2" setLoggedInUser={setLoggedInUser} setClose={setClose}/>
             </Grid>
           </Grid>
         </Box>

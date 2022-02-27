@@ -55,10 +55,11 @@ export default function TransitionsModal({ changeUser,setUser, setChangeUser, se
           <Box sx={style}>
             {/* ENTER LOGIN HERE */}
             <Login 
-            setUser={setUser}
-            setChangeUser={setChangeUser}
-            setLoggedInUser={setLoggedInUser}
-             handleClose={handleClose} 
+            setUser = {setUser}
+            setChangeUser = {setChangeUser}
+            setLoggedInUser = {setLoggedInUser}
+             handleClose = {handleClose} 
+             handleOpen = {handleOpen}
             />
           </Box>
         </Fade>
