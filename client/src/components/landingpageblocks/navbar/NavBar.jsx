@@ -12,14 +12,10 @@ export const NavBar = ({ setLoggedInUser, loggedInUser, logout, changeUser, setU
 
 
     return (
-        <div className='bg-dark'>
+        <div className='bg-black'>
             <Box >
 
                 <Grid>
-
-
-
-                    {/* <div> */}
                     <NavLinks setLoggedInUser={setLoggedInUser}
                         logout={logout} setUser={setUser} user={user} changeUser={changeUser}
                         setChangeUser={setChangeUser} loggedInUser={loggedInUser} />

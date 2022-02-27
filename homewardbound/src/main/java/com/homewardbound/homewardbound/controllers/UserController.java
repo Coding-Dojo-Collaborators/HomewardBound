@@ -43,7 +43,8 @@ public class UserController {
 //------------Registration-------------------//
 @PostMapping("/api/register")
 public String register(@RequestBody User newUser){
-    Stwri
+    String potentialUser = userService.register(newUser);
+    return potentialUser;
 }
 
 

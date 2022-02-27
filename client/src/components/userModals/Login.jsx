@@ -21,6 +21,9 @@ import useStyles from './Styles';
 import RegistrationModal from './RegistrationModal';
 import jwt_decode from "jwt-decode";
 import Cookies from 'js-cookie'
+import GitHubLogin from 'react-github-login';
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
+import GithubButton from 'react-github-login-button'
 const Copyright = (props) => {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -85,6 +88,18 @@ export default ({handleClose ,setLoggedInUser, setChangeUser, setUser}) => {
     console.log("Google sign in not working!");
     console.log(res)
   };
+  const facebookSuccess = async (res) => {
+    console.log(res)
+  }
+  const facebookFailure = (res) => {
+    console.log(res)
+  }
+  const githubSuccess = async (res) => {
+    console.log(res)
+  }
+  const githubFailure = (res) => {
+    console.log(res)
+  }
   return (
     // <ThemeProvider theme={theme}>
     <Container component="main" maxWidth="xs">
@@ -153,7 +168,7 @@ export default ({handleClose ,setLoggedInUser, setChangeUser, setUser}) => {
             clientId='568067065323-7gvfhrf569i6cqk1m9hcp52qe78r6e3j.apps.googleusercontent.com'
             render={(renderProps) => (
               <Button className={classes.googleButton}
-                color="primary"
+                color="success"
                 fullWidth
                 onClick={renderProps.onClick}
                 disabled={renderProps.disabled}
@@ -166,6 +181,25 @@ export default ({handleClose ,setLoggedInUser, setChangeUser, setUser}) => {
             onFailure={googleFailure}
             cookiePolicy='single_host_origin'
           />
+          <FacebookLogin
+  appId="1012699556009640"
+  autoLoad={false}
+  callback={facebookSuccess}
+  render={renderProps => (
+    <Button 
+    color='primary'
+    fullWidth
+    variant="contained"
+            sx={{ mb: 2 }}
+    className={classes.facebookButton}
+    onClick={renderProps.onClick}>Facebook Login</Button>
+  )}
+/>
+
+<GitHubLogin clientId="ca0d54ff127cbeeccc8c"
+    onSuccess={githubSuccess}
+    onFailure={githubFailure}/>
+    
           <Grid container
             sx={{
               display: 'flex',
