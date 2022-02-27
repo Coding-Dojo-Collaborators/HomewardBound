@@ -16,14 +16,8 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
-<<<<<<< HEAD:client/src/components/Modals/Register.jsx
-
-// import LoginModal from './LoginModal';
-
-=======
 import Cookies from 'js-cookie'
 import jwt_decode from "jwt-decode";
->>>>>>> 44e6066aebd257b28f081ae6defb488083541247:client/src/components/userModals/Register.jsx
 const Copyright = (props) => {
   return (
     <Typography variant='body2' color='text.secondary' align='center' {...props}>
@@ -38,11 +32,7 @@ const Copyright = (props) => {
 }
 
 
-<<<<<<< HEAD:client/src/components/Modals/Register.jsx
-export default ({ handleClose, setUser }) => {
-=======
 export default ({handleClose, setLoggedInUser,setClose }) => {
->>>>>>> 44e6066aebd257b28f081ae6defb488083541247:client/src/components/userModals/Register.jsx
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -59,42 +49,12 @@ export default ({handleClose, setLoggedInUser,setClose }) => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-<<<<<<< HEAD:client/src/components/Modals/Register.jsx
-    await axios.post(`http://localhost:8080/api/new/user/`, {
-=======
     await axios.post(`http://localhost:8080/api/register/`, {
 
->>>>>>> 44e6066aebd257b28f081ae6defb488083541247:client/src/components/userModals/Register.jsx
       "firstName": firstName,
       "lastName": lastName,
       "email": email,
       "password": password,
-<<<<<<< HEAD:client/src/components/Modals/Register.jsx
-    })
-      .then(res => {
-        console.log("response from registering", res);
-        if (res.data.errors) {
-          setErrors(res.data.message)
-          // } else {
-          //   axios.post('http://localhost:8000/api/login', {
-          //     email: email,
-          //     password: password
-          //   }, { withCredentials: true })
-          //     .then(res => {
-          //       console.log(res)
-          //       if (res.data.message === "success!") {
-          //         setUser(res.data)
-          //         handleClose()
-
-          //       } else if (res.data.message) {
-          //         console.log(res.data.message)
-          //         setErrors(res.data)
-          //       }
-          //     })
-          //     .catch(err => console.log(err))
-          //   // login()
-        }
-=======
       "confirm" : confirm
     
   })
@@ -108,18 +68,12 @@ export default ({handleClose, setLoggedInUser,setClose }) => {
         setLoggedInUser(jwt_decode(Cookies.get("user_id")))
         handleClose()
         
->>>>>>> 44e6066aebd257b28f081ae6defb488083541247:client/src/components/userModals/Register.jsx
       })
       .catch(err => console.log(err));
   };
 
   return (
-<<<<<<< HEAD:client/src/components/Modals/Register.jsx
-    // <ThemeProvider theme={theme}>
-    <Container component='main' maxWidth='xs'>
-=======
     <Container component="main" maxWidth="xs">
->>>>>>> 44e6066aebd257b28f081ae6defb488083541247:client/src/components/userModals/Register.jsx
       <CssBaseline />
       <Box
         sx={{
@@ -140,11 +94,7 @@ export default ({handleClose, setLoggedInUser,setClose }) => {
         <Typography component='h1' variant='h5'>
           Sign Up
         </Typography>
-<<<<<<< HEAD:client/src/components/Modals/Register.jsx
-        <Box component='form' noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-=======
         <Box component="form" noValidate onSubmit={handleRegister} sx={{ mt: 3 }}>
->>>>>>> 44e6066aebd257b28f081ae6defb488083541247:client/src/components/userModals/Register.jsx
           <Grid container spacing={2}>
             <Grid item xs={12} >
               {
@@ -212,16 +162,6 @@ export default ({handleClose, setLoggedInUser,setClose }) => {
                 onChange={(e) => setConfirm(e.target.value)}
                 required
                 fullWidth
-<<<<<<< HEAD:client/src/components/Modals/Register.jsx
-                name='confirmPassword'
-                label='Confirm Password'
-                type='password'
-                id='confirmPassword'
-                autoComplete='new-password'
-              /> */}
-            {/* {errors.confirm_password? <p className='text-danger'>{errors.confirm_password}</p>: ""} */}
-            {/* </Grid> */}
-=======
                 name="confirm"
                 label="Confirm Password"
                 type="password"
@@ -230,7 +170,6 @@ export default ({handleClose, setLoggedInUser,setClose }) => {
               />
               {/* {errors.confirm_password? <p className="text-danger">{errors.confirm_password}</p>: ""} */}
             </Grid>
->>>>>>> 44e6066aebd257b28f081ae6defb488083541247:client/src/components/userModals/Register.jsx
           </Grid>
           <Button
             type='submit'

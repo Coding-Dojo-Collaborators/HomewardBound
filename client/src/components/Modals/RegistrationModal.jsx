@@ -22,11 +22,7 @@ const style = {
   p: 4,
 };
 
-<<<<<<< HEAD:client/src/components/Modals/RegistrationModal.jsx
-export default function TransitionsModal({ setUser }) {
-=======
 export default function TransitionsModal({setClose, setLoggedInUser}) {
->>>>>>> 44e6066aebd257b28f081ae6defb488083541247:client/src/components/userModals/RegistrationModal.jsx
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -50,11 +46,7 @@ export default function TransitionsModal({setClose, setLoggedInUser}) {
         <Fade in={open}>
           <Box sx={style}>
             {/* ENTER REGISTER HERE */}
-<<<<<<< HEAD:client/src/components/Modals/RegistrationModal.jsx
-            <Register handleClose={handleClose} setUser={setUser} />
-=======
             <Register handleClose={handleClose} setLoggedInUser={setLoggedInUser} setClose={setClose}/>
->>>>>>> 44e6066aebd257b28f081ae6defb488083541247:client/src/components/userModals/RegistrationModal.jsx
           </Box >
         </Fade >
       </Modal >

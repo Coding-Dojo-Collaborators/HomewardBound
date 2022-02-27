@@ -92,7 +92,7 @@ export default ({ setLoggedInUser, loggedInUser, logout, changeUser, setUser, us
               }}
             >
             </Avatar>
-          </NavbarBrand>
+            </NavbarBrand>
           <button
             aria-expanded={navbarCollapse}
             className={classnames('navbar-toggler navbar-toggler', {

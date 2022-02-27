@@ -22,7 +22,6 @@ import Stack from '@mui/material/Stack';
 
 // Styles
 import useStyles from './Styles';
-<<<<<<< HEAD:client/src/components/Modals/Login.jsx
 
 // Login
 import jwt_decode from 'jwt-decode';
@@ -33,12 +32,6 @@ import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props
 
 // Others
 import RegistrationModal from './RegistrationModal';
-=======
-import RegistrationModal from './RegistrationModal';
-import jwt_decode from "jwt-decode";
-import Cookies from 'js-cookie'
-import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
->>>>>>> 44e6066aebd257b28f081ae6defb488083541247:client/src/components/userModals/Login.jsx
 
 const Copyright = (props) => {
   return (
@@ -55,11 +48,7 @@ const Copyright = (props) => {
 // eslint-disable-next-line no-unused-vars
 const theme = createTheme();
 
-<<<<<<< HEAD:client/src/components/Modals/Login.jsx
 export default ({ handleClose, setLoggedInUser, setChangeUser, setUser }) => {
-=======
-export default ({handleClose ,setLoggedInUser, handleOpen}) => {
->>>>>>> 44e6066aebd257b28f081ae6defb488083541247:client/src/components/userModals/Login.jsx
   const [errors, setErrors] = useState("");
   const [close, setClose] = useState(true);
   const [loginInfo, setLoginInfo] = useState({
@@ -68,12 +57,8 @@ export default ({handleClose ,setLoggedInUser, handleOpen}) => {
   });
   const history = useHistory();
   const classes = useStyles();
-<<<<<<< HEAD:client/src/components/Modals/Login.jsx
 
   const logo = require('../../assets/img/logo.png');
-=======
-  const logo = require('../static/img/logo.png')
->>>>>>> 44e6066aebd257b28f081ae6defb488083541247:client/src/components/userModals/Login.jsx
 
   const loginChangeHandler = (e) => {
     setLoginInfo({
@@ -87,28 +72,6 @@ export default ({handleClose ,setLoggedInUser, handleOpen}) => {
     close &&
     await axios.post('http://localhost:8080/api/login', loginInfo)
       .then(res => {
-<<<<<<< HEAD:client/src/components/Modals/Login.jsx
-        // console.log(res.data)
-        if (res.data) {
-          Cookies.set('user_id', res.data, { path: '/' });
-          setLoggedInUser(jwt_decode(Cookies.get('user_id')));
-          handleClose();
-        }
-        else {
-          alert("Invalid username or password");
-        }
-      });
-  };
-
-  const googleSuccess = async (res) => {
-    console.log(res.profileObj);
-    axios.post('http://localhost:8080/api/google/login', res.profileObj)
-      .then(res => {
-        console.log(res.data);
-        Cookies.set('user_id', res.data, { path: '/' });
-        setLoggedInUser(jwt_decode(Cookies.get('user_id')));
-        handleClose();
-=======
         console.log(res)
         res.data === "No User Found" ? 
         setErrors({"message" : res.data }) :
@@ -131,7 +94,6 @@ export default ({handleClose ,setLoggedInUser, handleOpen}) => {
         Cookies.set("user_id",res.data, {path: '/'})
         setLoggedInUser(jwt_decode(Cookies.get("user_id")))
         handleClose()
->>>>>>> 44e6066aebd257b28f081ae6defb488083541247:client/src/components/userModals/Login.jsx
       }).catch(err => console.log(err));
   };
   const googleFailure = (res) => {
@@ -139,9 +101,6 @@ export default ({handleClose ,setLoggedInUser, handleOpen}) => {
     console.log(res);
   };
   const facebookSuccess = async (res) => {
-<<<<<<< HEAD:client/src/components/Modals/Login.jsx
-    console.log(res);
-=======
     console.log(res)
     await axios.post("http://localhost:8080/api/facebook/login", {...res , "picture" : res.picture.data.url})
     .then(res => {
@@ -149,21 +108,10 @@ export default ({handleClose ,setLoggedInUser, handleOpen}) => {
         setLoggedInUser(jwt_decode(Cookies.get("user_id")))
         handleClose()
     })
->>>>>>> 44e6066aebd257b28f081ae6defb488083541247:client/src/components/userModals/Login.jsx
   }
   const facebookFailure = (res) => {
     console.log(res);
   }
-<<<<<<< HEAD:client/src/components/Modals/Login.jsx
-  const githubSuccess = async (res) => {
-    console.log(res);
-  }
-  const githubFailure = (res) => {
-    console.log(res);
-  }
-
-=======
->>>>>>> 44e6066aebd257b28f081ae6defb488083541247:client/src/components/userModals/Login.jsx
   return (
     // <ThemeProvider theme={theme}>
     <Container component='main' maxWidth='xs'>
@@ -209,19 +157,11 @@ export default ({handleClose ,setLoggedInUser, handleOpen}) => {
             margin='normal'
             required
             fullWidth
-<<<<<<< HEAD:client/src/components/Modals/Login.jsx
             name='password'
             label='Password'
             type='password'
             id='password'
             autoComplete='current-password'
-=======
-            name="password"
-            label="Password"etUser
-            type="password"
-            id="password"
-            autoComplete="current-password"
->>>>>>> 44e6066aebd257b28f081ae6defb488083541247:client/src/components/userModals/Login.jsx
             onChange={loginChangeHandler}
           />
           <FormControlLabel
@@ -254,24 +194,6 @@ export default ({handleClose ,setLoggedInUser, handleOpen}) => {
             cookiePolicy='single_host_origin'
           />
           <FacebookLogin
-<<<<<<< HEAD:client/src/components/Modals/Login.jsx
-            appId='1012699556009640'
-            autoLoad={false}
-            callback={facebookSuccess}
-            render={renderProps => (
-              <Button
-                color='primary'
-                fullWidth
-                variant='contained'
-                sx={{ mb: 2 }}
-                className={classes.facebookButton}
-                onClick={renderProps.onClick}>Facebook Login</Button>
-            )}
-          />
-          <GitHubLogin clientId='ca0d54ff127cbeeccc8c'
-            onSuccess={githubSuccess}
-            onFailure={githubFailure} />
-=======
   appId="1012699556009640"
   autoLoad={false}
   callback={facebookSuccess}
@@ -287,7 +209,6 @@ export default ({handleClose ,setLoggedInUser, handleOpen}) => {
   )}
 />
 
->>>>>>> 44e6066aebd257b28f081ae6defb488083541247:client/src/components/userModals/Login.jsx
           <Grid container
             sx={{
               display: 'flex',
@@ -296,11 +217,7 @@ export default ({handleClose ,setLoggedInUser, handleOpen}) => {
           >
             <Grid item sx={{ textAlign: 'center' }}>
               Don't have an Account?
-<<<<<<< HEAD:client/src/components/Modals/Login.jsx
-              <RegistrationModal variant='body2' setUser={setUser} />
-=======
               <RegistrationModal variant="body2" setLoggedInUser={setLoggedInUser} setClose={setClose}/>
->>>>>>> 44e6066aebd257b28f081ae6defb488083541247:client/src/components/userModals/Login.jsx
             </Grid>
           </Grid>
         </Box>
