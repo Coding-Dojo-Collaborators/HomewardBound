@@ -31,7 +31,6 @@ public class UserController {
 //------------Regular Login---------------- //
     @PostMapping("/api/login")
     public String login(@RequestBody LoginUser newLogin){
-        System.out.println(1);
         String loginResponse =  userService.login(newLogin);
             return loginResponse;
     }
@@ -46,7 +45,6 @@ public class UserController {
 //------------Registration-------------------//
     @PostMapping("/api/register")
     public <T> T register(@Valid @RequestBody User newUser,BindingResult result){
-        System.out.println(2);
         if(result.hasErrors()){
             return (T) result.getFieldErrors();
         }

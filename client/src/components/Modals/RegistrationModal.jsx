@@ -22,7 +22,7 @@ const style = {
   p: 4,
 };
 
-export default function TransitionsModal({setClose, setLoggedInUser}) {
+export default function TransitionsModal({setClose, setLoggedInUser, loggedIn}) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -46,7 +46,7 @@ export default function TransitionsModal({setClose, setLoggedInUser}) {
         <Fade in={open}>
           <Box sx={style}>
             {/* ENTER REGISTER HERE */}
-            <Register handleClose={handleClose} setLoggedInUser={setLoggedInUser} setClose={setClose}/>
+            <Register handleClose={handleClose} loggedIn={loggedIn} setLoggedInUser={setLoggedInUser} setClose={setClose}/>
           </Box >
         </Fade >
       </Modal >

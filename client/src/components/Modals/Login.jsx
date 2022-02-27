@@ -48,7 +48,7 @@ const Copyright = (props) => {
 // eslint-disable-next-line no-unused-vars
 const theme = createTheme();
 
-export default ({ handleClose, setLoggedInUser, setChangeUser, setUser }) => {
+export default ({ handleClose, setLoggedInUser}) => {
   const [errors, setErrors] = useState("");
   const [close, setClose] = useState(true);
   const [loginInfo, setLoginInfo] = useState({
@@ -217,7 +217,7 @@ export default ({ handleClose, setLoggedInUser, setChangeUser, setUser }) => {
           >
             <Grid item sx={{ textAlign: 'center' }}>
               Don't have an Account?
-              <RegistrationModal variant="body2" setLoggedInUser={setLoggedInUser} setClose={setClose}/>
+              <RegistrationModal variant="body2" loggedIn={handleClose} setLoggedInUser={setLoggedInUser} setClose={setClose}/>
             </Grid>
           </Grid>
         </Box>

@@ -5,7 +5,6 @@ import axios from 'axios'
 import { Link, useHistory } from 'react-router-dom';
 
 // MUI
-import { createTheme } from '@mui/material/styles';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -32,7 +31,7 @@ const Copyright = (props) => {
 }
 
 
-export default ({handleClose, setLoggedInUser,setClose }) => {
+export default ({handleClose, setLoggedInUser,setClose,loggedIn }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -67,6 +66,7 @@ export default ({handleClose, setLoggedInUser,setClose }) => {
         setErrors({"message" : res.data }) :
         Cookies.set("user_id",res.data, {path: '/'})
         setLoggedInUser(jwt_decode(Cookies.get("user_id")))
+        loggedIn()
         handleClose()
         
       })
@@ -98,12 +98,12 @@ export default ({handleClose, setLoggedInUser,setClose }) => {
         <Box component="form" noValidate onSubmit={handleRegister} sx={{ mt: 3 }}>
           <Grid container spacing={2}>
             <Grid item xs={12} >
-              {/* {
+              {
                 errors.message ?
                   <Stack sx={{ width: '100%', mt: 2 }} spacing={2}>
                     <Alert severity='error'>{errors.message}</Alert>
                   </Stack> : ""
-              } */}
+              }
               <TextField
                 onChange={(e) => setFirstName(e.target.value)}
                 required
@@ -113,15 +113,14 @@ export default ({handleClose, setLoggedInUser,setClose }) => {
                 name='firstName'
                 autoComplete='family-name'
               />
-              {errors.firstName? <p className='text-danger'>{errors.firstName}</p>: ""}
-            </Grid>
-            <Grid item xs={12} >
-              {
-                errors.message ?
+             {
+                (firstName.length != 0 && firstName.length < 3 )?
                   <Stack sx={{ width: '100%', mt: 2 }} spacing={2}>
-                    <Alert severity="error">{errors.message}</Alert>
+                    <Alert severity='error'>Enter valid First Name</Alert>
                   </Stack> : ""
               }
+            </Grid>
+            <Grid item xs={12} >
               <TextField
                 onChange={(e) => setLastName(e.target.value)}
                 required
@@ -131,7 +130,12 @@ export default ({handleClose, setLoggedInUser,setClose }) => {
                 name='lastName'
                 autoComplete='family-name'
               />
-              {/* {errors.last_name? <p className='text-danger'>{errors.last_name}</p>: ""} */}
+               {
+                (lastName.length != 0 && lastName.length < 3 )?
+                  <Stack sx={{ width: '100%', mt: 2 }} spacing={2}>
+                    <Alert severity='error'>Enter valid Last Name</Alert>
+                  </Stack> : ""
+              }
             </Grid>
             <Grid item xs={12}>
               <TextField
@@ -143,7 +147,12 @@ export default ({handleClose, setLoggedInUser,setClose }) => {
                 name='email'
                 autoComplete='email'
               />
-              {/* {errors.email? <p className='text-danger'>{errors.email}</p>: ""} */}
+                 {/* {
+                (lastName.length != 0 && lastName.length < 3 )?
+                  <Stack sx={{ width: '100%', mt: 2 }} spacing={2}>
+                    <Alert severity='error'>Enter valid Last Name</Alert>
+                  </Stack> : ""
+              } */}
             </Grid>
             <Grid item xs={12}>
               <TextField
@@ -156,7 +165,12 @@ export default ({handleClose, setLoggedInUser,setClose }) => {
                 id='password'
                 autoComplete='new-password'
               />
-              {/* {errors.password? <p className='text-danger'>{errors.password}</p>: ""} */}
+               {
+                (password.length != 0 && password.length < 8 )?
+                  <Stack sx={{ width: '100%', mt: 2 }} spacing={2}>
+                    <Alert severity='error'>Password must be at least 8 characters</Alert>
+                  </Stack> : ""
+              }
             </Grid>
             <Grid item xs={12}>
               <TextField
@@ -169,10 +183,21 @@ export default ({handleClose, setLoggedInUser,setClose }) => {
                 id="confirm"
                 autoComplete="confirm-password"
               />
-              {/* {errors.confirm_password? <p className="text-danger">{errors.confirm_password}</p>: ""} */}
+               {
+                (confirm.length != 0 && confirm != password )?
+                  <Stack sx={{ width: '100%', mt: 2 }} spacing={2}>
+                    <Alert severity='error'>Passwords must match</Alert>
+                  </Stack> : ""
+              }
             </Grid>
           </Grid>
           <Button
+          disabled={
+            confirm != password ||
+            password.length < 8 ||
+            lastName.length < 3 ||
+            firstName.length < 3
+          }
             type='submit'
             fullWidth
             variant='contained'
@@ -183,7 +208,11 @@ export default ({handleClose, setLoggedInUser,setClose }) => {
           <Grid container justifyContent='center'>
             <Grid item sx={{ textAlign: 'center' }}>
               Already have an Account?
-              <Button onClick={handleClose} variant='body2' >
+              <Button 
+              onClick={handleClose} 
+              variant='body2' 
+             
+              >
                 Log In
               </Button>
             </Grid>
