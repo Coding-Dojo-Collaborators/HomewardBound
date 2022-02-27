@@ -94,12 +94,6 @@ export default ({handleClose ,setLoggedInUser, setChangeUser, setUser}) => {
   const facebookFailure = (res) => {
     console.log(res)
   }
-  const githubSuccess = async (res) => {
-    console.log(res)
-  }
-  const githubFailure = (res) => {
-    console.log(res)
-  }
   return (
     // <ThemeProvider theme={theme}>
     <Container component="main" maxWidth="xs">
@@ -195,11 +189,6 @@ export default ({handleClose ,setLoggedInUser, setChangeUser, setUser}) => {
     onClick={renderProps.onClick}>Facebook Login</Button>
   )}
 />
-
-<GitHubLogin clientId="ca0d54ff127cbeeccc8c"
-    onSuccess={githubSuccess}
-    onFailure={githubFailure}/>
-    
           <Grid container
             sx={{
               display: 'flex',
