@@ -3,7 +3,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import axios from 'axios'
 import { Link, useHistory } from 'react-router-dom';
-
+import validator from 'validator'
 // MUI
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -39,15 +39,29 @@ export default ({handleClose, setLoggedInUser,setClose,loggedIn }) => {
   const [confirm, setConfirm] = useState("");
   const [errors, setErrors] = useState(false);
   const history = useHistory();
-
+  const [emailError, setEmailError] = useState('')
   const logo = require('../../assets/img/brandlogo/logo_white_background.jpg');
-
+  const validateEmail = (e) => {
+    setEmail(e.target.value)
+  
+    if (validator.isEmail(email)) {
+      setEmailError('')
+    } else {
+      setEmailError('Enter valid Email!')
+    }
+  }
   React.useEffect(() => {
     setClose(false)
   },[])
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    if (validator.isEmail(email)) {
+      setEmailError('')
+    } else {
+      setEmailError('Enter valid Email!')
+      return "error"
+    }
     await axios.post(`http://localhost:8080/api/register/`, {
 
       "firstName": firstName,
@@ -111,7 +125,7 @@ export default ({handleClose, setLoggedInUser,setClose,loggedIn }) => {
                 id='firstName'
                 label='First Name'
                 name='firstName'
-                autoComplete='family-name'
+                autoComplete="off"
               />
              {
                 (firstName.length != 0 && firstName.length < 3 )?
@@ -128,8 +142,7 @@ export default ({handleClose, setLoggedInUser,setClose,loggedIn }) => {
                 id='lastName'
                 label='Last Name'
                 name='lastName'
-                autoComplete='family-name'
-              />
+                autoComplete="off"              />
                {
                 (lastName.length != 0 && lastName.length < 3 )?
                   <Stack sx={{ width: '100%', mt: 2 }} spacing={2}>
@@ -145,14 +158,14 @@ export default ({handleClose, setLoggedInUser,setClose,loggedIn }) => {
                 id='email'
                 label='Email Address'
                 name='email'
-                autoComplete='email'
+                autoComplete="off"
               />
-                 {/* {
-                (lastName.length != 0 && lastName.length < 3 )?
+                 {
+                  (email.length != 0 &&emailError != '') ? 
                   <Stack sx={{ width: '100%', mt: 2 }} spacing={2}>
-                    <Alert severity='error'>Enter valid Last Name</Alert>
+                    <Alert severity='error'>{emailError}</Alert>
                   </Stack> : ""
-              } */}
+              }
             </Grid>
             <Grid item xs={12}>
               <TextField
