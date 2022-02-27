@@ -54,6 +54,14 @@ export default ({ setLoggedInUser, loggedInUser, logout, changeUser, setUser, us
     };
   });
 
+  // NavLink.addEventListener("click", function () {
+  //   window.scrollTo({ top: 0, behavior: 'smooth' });
+  // });
+
+  const scrollHandler = (e) => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   const logo = require('../../assets/img/brandlogo/logo_transparent_background.png');
 
   return (

@@ -2,23 +2,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-// Reactstrap Components
-// import {
-//   Button,
-//   Card,
-//   CardBody,
-//   CardFooter,
-//   CardTitle,
-//   Form,
-//   Input,
-//   InputGroupAddon,
-//   InputGroupText,
-//   InputGroup,
-//   Container,
-//   Row,
-//   Col,
-// } from 'reactstrap';
-
 // Core components
 import Navbar from '../components/Navbars/Navbar';
 import LandingPageHeader from '../components/Headers/LandingPageHeader';
