@@ -48,7 +48,7 @@ public class UserController {
     public <T> T register(@Valid @RequestBody User newUser,BindingResult result){
         System.out.println(2);
         if(result.hasErrors()){
-            return (T) result.getAllErrors();
+            return (T) result.getFieldErrors();
         }
         String potentialUser = userService.register(newUser);
         return (T) potentialUser;

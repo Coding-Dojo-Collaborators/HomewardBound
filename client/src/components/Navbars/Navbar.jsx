@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // NodeJS library that concatenates strings
@@ -23,10 +23,13 @@ import { Avatar } from '@mui/material';
 // import { Grid } from '@material-ui/core';
 // import NavLinks from './NavLinks';
 
-export default ({ setLoggedInUser, loggedInUser, logout, changeUser, setUser, user, setChangeUser }) => {
+// Modals
+import LoginModal from '../Modals/LoginModal'
+
+export default ({ setLoggedInUser, loggedInUser, logout  }) => {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [navbarCollapse, setNavbarCollapse] = React.useState(false);
-
+  const [openModal, setOpenModal] = useState(false)
   const toggleNavbarCollapse = () => {
     setNavbarCollapse(!navbarCollapse);
     document.documentElement.classList.toggle('nav-open');
@@ -150,16 +153,10 @@ export default ({ setLoggedInUser, loggedInUser, logout, changeUser, setUser, us
               </NavLink>
             </NavItem>
             <NavItem>
-              <Button
-                className='btn'
-                color='danger'
-                type='button'
-                component={Link} to={'/dashboard'
-                  // `/dashboard/${user._id}`
-                }
-              >
-                <i className='nc-icon nc-badge'></i> Log In
-              </Button>
+                <LoginModal
+              loggedInUser={loggedInUser}
+              setLoggedInUser={setLoggedInUser} 
+            />
             </NavItem>
           </Nav>
         </Collapse>

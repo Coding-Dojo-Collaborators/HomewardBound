@@ -1,15 +1,26 @@
 /* eslint-disable import/no-anonymous-default-export */
 import * as React from 'react';
-
+import { Link } from 'react-router-dom';
 // MUI
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
-import Button from '@mui/material/Button';
 
 // Others
 import Login from './Login';
+
+// Reactstrap Components
+import {
+  Collapse,
+  NavbarBrand,
+  Navbar,
+  NavItem,
+  NavLink,
+  Nav,
+  Container,
+  Button,
+} from 'reactstrap';
 
 const style = {
   position: 'absolute',
@@ -23,7 +34,7 @@ const style = {
   p: 4,
 };
 
-export default function TransitionsModal({ changeUser, setUser, setChangeUser, setLoggedInUser, loggedInUser }) {
+export default function TransitionsModal({ setLoggedInUser, loggedInUser }) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -41,10 +52,17 @@ export default function TransitionsModal({ changeUser, setUser, setChangeUser, s
 
   return (
     <div>
-      <Button onClick={handleOpen}
-        sx={buttonStyle}
+      <Button
+      onClick={handleOpen}
+        className='btn'
+        color='danger'
+        type='button'
+        component={Link} to={'/dashboard'
+          // `/dashboard/${user._id}`
+        }
       >
-        Log In
+        <i className='nc-icon nc-badge '>
+        </i>  Log In
       </Button>
       <Modal
         aria-labelledby="transition-modal-title"
@@ -60,12 +78,10 @@ export default function TransitionsModal({ changeUser, setUser, setChangeUser, s
         <Fade in={open}>
           <Box sx={style}>
             {/* ENTER LOGIN HERE */}
-            <Login 
-            setUser = {setUser}
-            setChangeUser = {setChangeUser}
-            setLoggedInUser = {setLoggedInUser}
-             handleClose = {handleClose} 
-             handleOpen = {handleOpen}
+            <Login
+              setLoggedInUser={setLoggedInUser}
+              handleClose={handleClose}
+              handleOpen={handleOpen}
             />
           </Box>
         </Fade>

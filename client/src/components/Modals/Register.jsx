@@ -41,7 +41,7 @@ export default ({handleClose, setLoggedInUser,setClose }) => {
   const [errors, setErrors] = useState(false);
   const history = useHistory();
 
-  const logo = require('../../assets/img/logo.png');
+  const logo = require('../../assets/img/brandlogo/logo_white_background.jpg');
 
   React.useEffect(() => {
     setClose(false)
@@ -59,6 +59,7 @@ export default ({handleClose, setLoggedInUser,setClose }) => {
     
   })
       .then(res => {
+
         console.log("response from registering", res);
         res.data === "Passwords don't match" ?
         setErrors({"message" : res.data }) :
@@ -97,12 +98,12 @@ export default ({handleClose, setLoggedInUser,setClose }) => {
         <Box component="form" noValidate onSubmit={handleRegister} sx={{ mt: 3 }}>
           <Grid container spacing={2}>
             <Grid item xs={12} >
-              {
+              {/* {
                 errors.message ?
                   <Stack sx={{ width: '100%', mt: 2 }} spacing={2}>
                     <Alert severity='error'>{errors.message}</Alert>
                   </Stack> : ""
-              }
+              } */}
               <TextField
                 onChange={(e) => setFirstName(e.target.value)}
                 required
@@ -112,7 +113,7 @@ export default ({handleClose, setLoggedInUser,setClose }) => {
                 name='firstName'
                 autoComplete='family-name'
               />
-              {/* {errors.last_name? <p className='text-danger'>{errors.last_name}</p>: ""} */}
+              {errors.firstName? <p className='text-danger'>{errors.firstName}</p>: ""}
             </Grid>
             <Grid item xs={12} >
               {

@@ -26,7 +26,7 @@ import useStyles from './Styles';
 // Login
 import jwt_decode from 'jwt-decode';
 import Cookies from 'js-cookie';
-import GitHubLogin from 'react-github-login';
+
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 // import GithubButton from 'react-github-login-button';
 
@@ -57,8 +57,8 @@ export default ({ handleClose, setLoggedInUser, setChangeUser, setUser }) => {
   });
   const history = useHistory();
   const classes = useStyles();
-
-  const logo = require('../../assets/img/logo.png');
+ 
+  const logo = require('../../assets/img/brandlogo/logo_white_background.jpg');
 
   const loginChangeHandler = (e) => {
     setLoginInfo({
