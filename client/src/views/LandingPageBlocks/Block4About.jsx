@@ -81,7 +81,7 @@ export default () => {
                     href='#meow'
                     onClick={(e) => e.preventDefault()}
                   >
-                    <i className='fa fa-instagram' />
+                    <i className='fa fa-facebook' />
                   </Button>
                 </CardFooter>
               </Card>
