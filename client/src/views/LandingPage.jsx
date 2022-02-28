@@ -9,15 +9,15 @@ import Footer from '../components/Footer/Footer';
 
 // Blocks
 import Block1Process from './LandingPageBlocks/Block1AdoptionProcess';
-import Block2Services from '../views/LandingPageBlocks/Block2Services';
-import Block3Adopt from '../views/LandingPageBlocks/Block3Adopt';
+import Block2Adopt from './LandingPageBlocks/Block2Adopt';
+import Block3Services from './LandingPageBlocks/Block3Services';
 import Block4About from '../views/LandingPageBlocks/Block4About';
 // import Block5Contact from '../views/LandingPageBlocks/Block5Contact';
 
 // Login
 import Cookies from 'js-cookie';
 
-export default ({ loggedInUser, setLoggedInUser }) => {
+export default ({ setUser, loggedInUser, setLoggedInUser }) => {
   const [changeUser, setChangeUser] = useState();
   const history = useHistory();
 
@@ -45,8 +45,8 @@ export default ({ loggedInUser, setLoggedInUser }) => {
       <LandingPageHeader />
       <div className='main'>
         <Block1Process />
-        <Block2Services />
-        <Block3Adopt />
+        <Block2Adopt />
+        <Block3Services />
         <Block4About />
         {/* <Block5Contact /> */}
         <Footer />

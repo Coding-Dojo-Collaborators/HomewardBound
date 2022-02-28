@@ -23,6 +23,7 @@ import LandingPage from './views/LandingPage';
 // import ProfilePage from "views/examples/ProfilePage.js";
 // import RegisterPage from "views/examples/RegisterPage.js";
 import Test from './views/Test';
+import RegistrationPage from 'views/RegistrationPage';
 
 export default () => {
   const [loggedInUser, setLoggedInUser] = useState(
@@ -34,6 +35,12 @@ export default () => {
       <Switch>
         <Route exact path='/'>
           <LandingPage
+            loggedInUser={loggedInUser}
+            setLoggedInUser={setLoggedInUser}
+          />
+        </Route>
+        <Route exact path='/register'>
+          <RegistrationPage
             loggedInUser={loggedInUser}
             setLoggedInUser={setLoggedInUser}
           />
