@@ -23,7 +23,7 @@ import matthew from '../../assets/img/matthew.jpg';
 
 export default () => {
   return (
-    <section className='py-3'>
+    <section className='py-5'>
       <div className='section section-dark text-center'>
         <Container>
           <h2 className='title'>Let's Talk About Us</h2>
