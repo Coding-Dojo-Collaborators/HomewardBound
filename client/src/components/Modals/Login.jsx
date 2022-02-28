@@ -105,7 +105,6 @@ export default ({ handleClose, setLoggedInUser }) => {
         handleClose()
       })
   }
-  
   return (
     <Container component='main' maxWidth='xs'>
       <CssBaseline />
