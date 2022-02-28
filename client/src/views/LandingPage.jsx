@@ -38,8 +38,7 @@ export default ({ setUser, loggedInUser, setLoggedInUser }) => {
   return (
     <>
       <Navbar
-        logout={logout} changeUser={changeUser}
-        setChangeUser={setChangeUser}
+        logout={logout} 
         loggedInUser={loggedInUser}
         setLoggedInUser={setLoggedInUser}
       />
