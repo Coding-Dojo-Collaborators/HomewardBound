@@ -6,6 +6,7 @@ import { Button, Container } from 'reactstrap';
 
 // Others
 import splashcover from 'assets/img/splashcover.jpg';
+import { Link } from 'react-router-dom';
 
 export default () => {
   let pageHeader = React.createRef();
@@ -54,6 +55,7 @@ export default () => {
               color='neutral'
               type='button' outline
               size='lg'
+              tag={Link} to='/register'
             >
               Sign Up
             </Button>
