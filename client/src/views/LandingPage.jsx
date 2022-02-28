@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 // Core components
@@ -28,6 +28,11 @@ export default ({ setUser, loggedInUser, setLoggedInUser }) => {
       document.body.classList.remove('profile-page');
     };
   });
+  useEffect(()=>{
+    loggedInUser !== 'no user' &&
+    history.push('/dashboard')
+  })
+
 
   let logout = () => {
     setLoggedInUser('no user');

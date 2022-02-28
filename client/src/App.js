@@ -17,6 +17,7 @@ import "assets/demo/demo.css?v=1.3.0";
 
 // Pages
 import LandingPage from './views/LandingPage';
+import Dashboard from 'views/Dashboard';
 // import Index from "views/Index.js";
 // import NucleoIcons from "views/NucleoIcons.js";
 // import LandingPage from "views/examples/LandingPage.js";
@@ -47,6 +48,12 @@ export default () => {
         </Route>
         <Route exact path='/hello'>
           <Test />
+        </Route>
+        <Route exact path='/dashboard'>
+          <Dashboard
+          loggedInUser={loggedInUser}
+          setLoggedInUser={setLoggedInUser}
+          />
         </Route>
       </Switch>
     </BrowserRouter>
