@@ -39,7 +39,9 @@ export default () => {
               <Card className='card-profile card-plain'>
                 <div className='card-avatar'>
                   <a href='https://github.com/EricToribio'
-                    onClick={(e) => e.preventDefault()}>
+                  target='_blank' 
+                  rel='noreferrer'
+                    >
                     <img
                       alt='Eric Toribio'
                       src={toribio}
@@ -48,7 +50,9 @@ export default () => {
                 </div>
                 <CardBody>
                   <a href='https://github.com/EricToribio'
-                    onClick={(e) => e.preventDefault()}>
+                    target='_blank' 
+                    rel='noreferrer'
+                    >
                     <div className='author'>
                       <CardTitle tag='h4'>Eric Toribio</CardTitle>
                       <h6 className='card-category'>Backend Specialist</h6>
@@ -63,15 +67,18 @@ export default () => {
                     className='btn-just-icon btn-neutral'
                     color='link'
                     href='https://github.com/EricToribio'
-                    onClick={(e) => e.preventDefault()}
+                    target='_blank' 
+                    rel='noreferrer'
+                    
                   >
                     <i className='fa fa-github' />
                   </Button>
                   <Button
                     className='btn-just-icon btn-neutral ml-1'
                     color='link'
-                    href='https://www.linkedin.com/in/erictoribio/'
-                    onClick={(e) => e.preventDefault()}
+                    href='https://www.linkedin.com/in/erictoribio/' 
+                    target='_blank' 
+                    rel='noreferrer'
                   >
                     <i className='fa fa-linkedin' />
                   </Button>
@@ -90,7 +97,9 @@ export default () => {
               <Card className='card-profile card-plain'>
                 <div className='card-avatar'>
                   <a href='https://github.com/MariaMcBride'
-                    onClick={(e) => e.preventDefault()}>
+                  target='_blank' 
+                  rel='noreferrer'
+                    >
                     <img
                       alt='Maria McBride'
                       src={maria}
@@ -99,7 +108,9 @@ export default () => {
                 </div>
                 <CardBody>
                   <a href='https://github.com/MariaMcBride'
-                    onClick={(e) => e.preventDefault()}>
+                  target='_blank' 
+                  rel='noreferrer'
+                    >
                     <div className='author'>
                       <CardTitle tag='h4'>Maria McBride</CardTitle>
                       <h6 className='card-category'>Designer</h6>
@@ -114,7 +125,9 @@ export default () => {
                     className='btn-just-icon btn-neutral'
                     color='link'
                     href='https://github.com/MariaMcBride'
-                    onClick={(e) => e.preventDefault()}
+                    target='_blank' 
+                    rel='noreferrer'
+                    
                   >
                     <i className='fa fa-github' />
                   </Button>
@@ -122,7 +135,8 @@ export default () => {
                     className='btn-just-icon btn-neutral ml-1'
                     color='link'
                     href='https://www.linkedin.com/in/maria-mcbride/'
-                    onClick={(e) => e.preventDefault()}
+                    target='_blank' 
+                    rel='noreferrer'
                   >
                     <i className='fa fa-linkedin' />
                   </Button>
@@ -141,7 +155,9 @@ export default () => {
               <Card className='card-profile card-plain'>
                 <div className='card-avatar'>
                   <a href='https://github.com/Matthew-Sherman1'
-                    onClick={(e) => e.preventDefault()}>
+               target='_blank' 
+               rel='noreferrer'
+             >
                     <img
                       alt='Matthew Sherman'
                       src={matthew}
@@ -150,7 +166,9 @@ export default () => {
                 </div>
                 <CardBody>
                   <a href='https://github.com/Matthew-Sherman1'
-                    onClick={(e) => e.preventDefault()}>
+               target='_blank' 
+               rel='noreferrer'
+             >
                     <div className='author'>
                       <CardTitle tag='h4'>Matthew Sherman</CardTitle>
                       <h6 className='card-category'>Developer</h6>
@@ -165,7 +183,9 @@ export default () => {
                     className='btn-just-icon btn-neutral'
                     color='link'
                     href='https://github.com/Matthew-Sherman1'
-                    onClick={(e) => e.preventDefault()}
+                    target='_blank' 
+                    rel='noreferrer'
+                  
                   >
                     <i className='fa fa-github' />
                   </Button>
@@ -173,7 +193,8 @@ export default () => {
                     className='btn-just-icon btn-neutral ml-1'
                     color='link'
                     href='https://www.linkedin.com/in/matthew-sherman-63953222b/'
-                    onClick={(e) => e.preventDefault()}
+                    target='_blank' 
+                    rel='noreferrer'
                   >
                     <i className='fa fa-linkedin' />
                   </Button>
