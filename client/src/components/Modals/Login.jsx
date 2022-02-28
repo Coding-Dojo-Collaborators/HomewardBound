@@ -215,15 +215,14 @@ export default ({ handleClose, setLoggedInUser}) => {
               justifyContent: 'center'
             }}
           >
-            <Grid item sx={{ textAlign: 'center' }}>
+            <Grid item sx={{display: "flex", alignItems: 'center' }}>
               Don't have an Account?
               <RegistrationModal variant="body2" loggedIn={handleClose} setLoggedInUser={setLoggedInUser} setClose={setClose}/>
-            </Grid>
+            </Grid> 
           </Grid>
         </Box>
       </Box>
       <Copyright sx={{ pt: 3, mb: 4 }} />
     </Container>
-    // </ThemeProvider>
   );
 };

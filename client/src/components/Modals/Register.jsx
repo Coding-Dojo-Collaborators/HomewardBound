@@ -42,14 +42,7 @@ export default ({ handleClose, setLoggedInUser, setClose, loggedIn }) => {
 
   const logo = require('../../assets/img/brandlogo/logo_white_background.jpg');
 
-  const validateEmail = (e) => {
-    setEmail(e.target.value)
-    if (validator.isEmail(email)) {
-      setEmailError('');
-    } else {
-      setEmailError('Enter valid email!');
-    }
-  }
+  
   React.useEffect(() => {
     setClose(false)
   }, [setClose]);

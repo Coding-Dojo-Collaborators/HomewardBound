@@ -43,8 +43,10 @@ export default function TransitionsModal({ setLoggedInUser, loggedInUser }) {
         }
       >
         <i className='nc-icon nc-badge '>
-        </i>  Log In
+        </i>  
+        Log In
       </Button>
+    
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
