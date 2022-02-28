@@ -23,6 +23,9 @@ import LandingPage from './views/LandingPage';
 // import ProfilePage from "views/examples/ProfilePage.js";
 // import RegisterPage from "views/examples/RegisterPage.js";
 import Test from './views/Test';
+import Dashboard from './views/Dashboard';
+// import Dashboard from './views/Dashboard/Content';
+// import Content from 'views/DashboardSections/Content';
 
 export default () => {
   const [loggedInUser, setLoggedInUser] = useState(
@@ -40,6 +43,10 @@ export default () => {
         </Route>
         <Route exact path='/hello'>
           <Test />
+        </Route>
+        <Route exact path='/dashboard'>
+
+          <Dashboard/>
         </Route>
       </Switch>
     </BrowserRouter>
