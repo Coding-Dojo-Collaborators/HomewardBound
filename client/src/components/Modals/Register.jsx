@@ -1,9 +1,10 @@
 /* eslint-disable import/no-anonymous-default-export */
 import * as React from 'react';
 import { useState } from 'react';
-import axios from 'axios'
-import { Link, useHistory } from 'react-router-dom';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 import validator from 'validator';
+
 // MUI
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -15,8 +16,12 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
+
+// Login
 import Cookies from 'js-cookie'
 import jwt_decode from "jwt-decode";
+
+// Copyright
 const Copyright = (props) => {
   return (
     <Typography variant='body2' color='text.secondary' align='center' {...props}>
@@ -37,12 +42,12 @@ export default ({ handleClose, setLoggedInUser, setClose, loggedIn }) => {
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
   const [errors, setErrors] = useState(false);
-  const history = useHistory();
+  // const history = useHistory();
   const [emailError, setEmailError] = useState("");
 
   const logo = require('../../assets/img/brandlogo/logo_white_background.jpg');
 
-  
+
   React.useEffect(() => {
     setClose(false)
   }, [setClose]);

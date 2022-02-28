@@ -6121,6 +6121,10 @@ License - nucleoapp.com/license/
   background-color: #f47660 !important;
   border: 1px solid #f47660 !important;
 }
+.login-btn {
+  background-color: #f47660 !important;
+  border: 1px solid #f47660 !important;
+}
 .card-register .forgot {
   text-align: center;
 }
