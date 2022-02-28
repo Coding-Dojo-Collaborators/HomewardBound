@@ -19,8 +19,8 @@ export default () => {
       <div className='section text-center'>
         <Container>
           <Row className='mx-auto'>
-            <Col className='mx-auto' md='8'>
-              <h2 className='title'>Planning to Adopt a Pet?</h2>
+            <Col className='mx-auto process' md='8'>
+              <h2 className='title mt-0'>Planning to Adopt a Pet?</h2>
               <h5 className='description'>
                 Here's what you need to know
               </h5>
@@ -71,7 +71,7 @@ export default () => {
             </Col>
           </Row>
           <Button
-            className='mt-3 getstartedbtn'
+            className='mt-3 getstartedbtn mb-1'
             type='button'
             size='lg'
             tag={Link} to='/register'

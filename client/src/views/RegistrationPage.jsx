@@ -47,19 +47,19 @@ export default () => {
                 <div className="social-line text-center">
                   <Button
                     className="btn-neutral btn-just-icon mr-1"
+                    color="google"
+                    href="#"
+                    onClick={(e) => e.preventDefault()}
+                  >
+                    <i className="fa fa-google" />
+                  </Button>
+                  <Button
+                    className="btn-neutral btn-just-icon mr-1"
                     color="facebook"
                     href="#"
                     onClick={(e) => e.preventDefault()}
                   >
                     <i className="fa fa-facebook-square" />
-                  </Button>
-                  <Button
-                    className="btn-neutral btn-just-icon mr-1"
-                    color="google"
-                    href="#"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    <i className="fa fa-google-plus" />
                   </Button>
                   <Button
                     className="btn-neutral btn-just-icon"
