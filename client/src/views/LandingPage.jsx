@@ -32,8 +32,6 @@ export default ({ setUser, loggedInUser, setLoggedInUser }) => {
     loggedInUser !== 'no user' &&
       history.push('/dashboard')
   })
-
-
   let logout = () => {
     setLoggedInUser('no user');
     Cookies.remove('user_id');
