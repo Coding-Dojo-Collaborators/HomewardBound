@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 
 // Core components
@@ -12,13 +12,13 @@ import Block1Process from './LandingPageBlocks/Block1AdoptionProcess';
 import Block2Adopt from './LandingPageBlocks/Block2Adopt';
 import Block3Services from './LandingPageBlocks/Block3Services';
 import Block4About from '../views/LandingPageBlocks/Block4About';
-// import Block5Contact from '../views/LandingPageBlocks/Block5Contact';
+import Block5Contact from '../views/LandingPageBlocks/Block5Contact';
 
 // Login
 import Cookies from 'js-cookie';
 
 export default ({ setUser, loggedInUser, setLoggedInUser }) => {
-  const [changeUser, setChangeUser] = useState();
+  // const [changeUser, setChangeUser] = useState();
   const history = useHistory();
 
   document.documentElement.classList.remove('nav-open');
@@ -38,7 +38,7 @@ export default ({ setUser, loggedInUser, setLoggedInUser }) => {
   return (
     <>
       <Navbar
-        logout={logout} 
+        logout={logout}
         loggedInUser={loggedInUser}
         setLoggedInUser={setLoggedInUser}
       />
@@ -48,7 +48,7 @@ export default ({ setUser, loggedInUser, setLoggedInUser }) => {
         <Block2Adopt />
         <Block3Services />
         <Block4About />
-        {/* <Block5Contact /> */}
+        <Block5Contact />
         <Footer />
       </div>
     </>
