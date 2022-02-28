@@ -19,7 +19,7 @@ import "assets/demo/demo.css?v=1.3.0";
 import LandingPage from './views/LandingPage';
 import Dashboard from 'views/Dashboard';
 import Test from './views/Test';
-import Dashboard from './views/Dashboard';
+
 // import Dashboard from './views/Dashboard/Content';
 // import Content from 'views/DashboardSections/Content';
 import RegistrationPage from 'views/RegistrationPage';
@@ -49,7 +49,7 @@ export default () => {
         </Route>
         <Route exact path='/dashboard'>
 
-          <Dashboard/>
+          
           <Dashboard
             loggedInUser={loggedInUser}
             setLoggedInUser={setLoggedInUser}
