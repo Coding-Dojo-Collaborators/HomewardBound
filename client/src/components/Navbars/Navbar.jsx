@@ -1,7 +1,8 @@
 /* eslint-disable import/no-anonymous-default-export */
-import React from 'react';
+import React,{Component} from 'react';
 import { Link } from 'react-router-dom';
-
+// import { NavHashLink as NavLink } from 'react-router-hash-link' 
+// import Scroll from 'react-scroll';
 // NodeJS library that concatenates strings
 import classnames from 'classnames';
 
@@ -73,9 +74,9 @@ export default ({ setLoggedInUser, loggedInUser, logout }) => {
         <div className='navbar-translate'>
           <NavbarBrand
             data-placement='bottom'
-            to='/'
+            href='#top'
             title='Home'
-            tag={Link}
+            
           >
             <Avatar variant='square'
               src={logo} alt='logo'
@@ -107,22 +108,23 @@ export default ({ setLoggedInUser, loggedInUser, logout }) => {
         >
           <Nav navbar>
             <NavItem>
-              <NavLink to='#about' tag={Link}>
+              
+              <NavLink  href='#about'>
                 <i className='nc-icon nc-alert-circle-i me-1' /> About Us
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to='#process' tag={Link}>
+              <NavLink href='#adopt' >
                 <i className='nc-icon nc-single-copy-04 me-1' /> Adopt
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to='#services' tag={Link}>
+              <NavLink href='#services' >
                 <i className='nc-icon nc-zoom-split me-1' /> Services
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to='#contact' tag={Link}>
+              <NavLink href='#contact' >
                 <i className='nc-icon nc-send me-1' /> Contact Us
               </NavLink>
             </NavItem>
