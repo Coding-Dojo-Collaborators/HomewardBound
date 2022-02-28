@@ -58,7 +58,6 @@ export default ({ handleClose, setLoggedInUser }) => {
     email: "",
     password: "",
   });
-
   const loginChangeHandler = (e) => {
     setLoginInfo({
       ...loginInfo,
