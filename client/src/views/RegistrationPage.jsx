@@ -1,30 +1,32 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable import/no-anonymous-default-export */
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link, useHistory } from 'react-router-dom';
 
 // Reactstrap components
 import { Button, Card, Form, Input, Container, Row, Col } from 'reactstrap';
 
+// MUI
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
+
 // Core components
 import Navbar from '../components/Navbars/Navbar';
+
 // Login
 import jwt_decode from 'jwt-decode';
 import Cookies from 'js-cookie';
 import { GoogleLogin } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
+
 // Others
 import registerbg from 'assets/img/animals/registerbg.png';
 import validator from 'validator';
-import { Link, useHistory } from 'react-router-dom';
-// MUI
-import Alert from '@mui/material/Alert';
-import Stack from '@mui/material/Stack';
-
 
 export default ({ loggedInUser, setLoggedInUser }) => {
   document.documentElement.classList.remove('nav-open');
-
-  //--------------User State------------------- //
+  // -------------- useStates ----------------- //
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -34,18 +36,18 @@ export default ({ loggedInUser, setLoggedInUser }) => {
   const history = useHistory();
   const [emailError, setEmailError] = useState("");
 
-  // -------------UseEffects-------------------//
+  // ------------- useEffects ---------------- //
   React.useEffect(() => {
     loggedInUser !== 'no user' &&
-      history.push('/dashboard')
-  }, [loggedInUser])
+      history.push('/dashboard');
+  }, [history, loggedInUser]);
   React.useEffect(() => {
     document.body.classList.add('register-page');
     return function cleanup() {
       document.body.classList.remove('register-page');
     };
   });
-  // -------------Styling-------------------//
+  // --------------- Styles ----------------- //
   const myStyle = {
     backgroundImage:
       `url(${registerbg})`,
@@ -55,38 +57,36 @@ export default ({ loggedInUser, setLoggedInUser }) => {
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
   };
-
-  // -------------Google Login-------------------//
+  // ------------ Google Login ------------- //
   const googleSuccess = async (res) => {
-    console.log(res.profileObj)
-    axios.post(process.env.REACT_APP_JAVA_API +'google/login', res.profileObj
-
+    console.log(res.profileObj);
+    axios.post(process.env.REACT_APP_JAVA_API + 'google/login', res.profileObj
     ).then(res => {
-      Cookies.set("user_id", res.data, { path: '/' })
-      setLoggedInUser(jwt_decode(Cookies.get("user_id")))
+      Cookies.set("user_id", res.data, { path: '/' });
+      setLoggedInUser(jwt_decode(Cookies.get("user_id")));
     }).catch(err => console.log(err));
   };
   const googleFailure = (res) => {
     console.log("Google sign in not working!");
     console.log(res);
   };
-  // -------------Facebook Login-------------------//
+  // ----------- Facebook Login ------------ //
   const facebookSuccess = async (res) => {
-    console.log(res)
-    await axios.post(process.env.REACT_APP_JAVA_API +"facebook/login", { ...res, "picture": res.picture.data.url })
+    console.log(res);
+    await axios.post(process.env.REACT_APP_JAVA_API + 'facebook/login', { ...res, 'picture': res.picture.data.url })
       .then(res => {
-        Cookies.set("user_id", res.data, { path: '/' })
-        setLoggedInUser(jwt_decode(Cookies.get("user_id")))
+        Cookies.set('user_id', res.data, { path: '/' });
+        setLoggedInUser(jwt_decode(Cookies.get('user_id')));
       })
   }
-  //------------Registration-------------------//
+  // ------------ Registration ------------- //
   const handleRegister = async (e) => {
     e.preventDefault();
     if (validator.isEmail(email)) {
-      setEmailError('');
+      setEmailError("");
     } else {
-      setEmailError('Enter valid email!');
-      return "error";
+      setEmailError("Enter valid email!");
+      return 'error';
     }
     await axios.post('register/', {
       "firstName": firstName,
@@ -103,7 +103,6 @@ export default ({ loggedInUser, setLoggedInUser }) => {
             setErrors({ "message": res.data }) :
             Cookies.set('user_id', res.data, { path: '/' })
         setLoggedInUser(jwt_decode(Cookies.get('user_id')));
-
       })
       .catch(err => console.log(err));
   };
@@ -116,54 +115,54 @@ export default ({ loggedInUser, setLoggedInUser }) => {
         className='page-header'
         data-parallax={true}
       >
-        <div className="filter" />
+        <div className='filter' />
         <Container>
           <Row>
-            <Col className="mx-auto" lg="4">
-              <Card className="card-register ml-auto mr-auto">
-                <h3 className="title mx-auto my-0">Welcome</h3>
-                <div className="social-line text-center">
-                  {/* // -------------Google Login-------------------// */}
+            <Col className='mx-auto' lg='4'>
+              <Card className='card-register ml-auto mr-auto'>
+                <h3 className='title mx-auto my-0'>Welcome</h3>
+                <div className='social-line text-center'>
+                  {/* // ------------- Google Login ------------------- // */}
                   <GoogleLogin
                     clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                     render={(renderProps) => (
                       <Button
-                        className="btn-neutral btn-just-icon mr-1"
-                        color="google"
+                        className='btn-neutral btn-just-icon mr-1'
+                        color='google'
                         type='button'
                         onClick={renderProps.onClick}
                         disabled={renderProps.disabled}
                       >
-                        <i className="fa fa-google" />
+                        <i className='fa fa-google' />
                       </Button>
                     )}
                     onSuccess={googleSuccess}
                     onFailure={googleFailure}
                     cookiePolicy='single_host_origin'
                   />
-                  {/* // -------------Facebook Login-------------------// */}
+                  {/* // ------------ Facebook Login ------------------ // */}
                   <FacebookLogin
                     appId={process.env.REACT_APP_FACEBOOK_APP_ID}
                     autoLoad={false}
                     callback={facebookSuccess}
-                    fields="name,email,picture,first_name,last_name"
+                    fields='name,email,picture,first_name,last_name'
                     render={renderProps => (
                       <Button
-                        className="btn-neutral btn-just-icon mr-1 mx-1"
-                        color="facebook"
+                        className='btn-neutral btn-just-icon mr-1 mx-1'
+                        color='facebook'
                         onClick={renderProps.onClick}
-                      >  <i className="fa fa-facebook-square" />
+                      >  <i className='fa fa-facebook-square' />
                       </Button>
                     )}
                   />
-                
+
                 </div>
-                {/* //------------Registration-------------------// */}
-                <Form className="register-form" onSubmit={handleRegister}>
+                {/* // ------------- Registration Form ---------------- // */}
+                <Form className='register-form' onSubmit={handleRegister}>
                   <label>First Name</label>
                   <Input
-                    placeholder="First Name"
-                    type="text"
+                    placeholder='First Name'
+                    type='text'
                     onChange={(e) => setFirstName(e.target.value)}
                   />
                   {
@@ -174,8 +173,8 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                   }
                   <label>Last Name</label>
                   <Input
-                    placeholder="Last Name"
-                    type="text"
+                    placeholder='Last Name'
+                    type='text'
                     onChange={(e) => setLastName(e.target.value)}
                   />
                   {
@@ -186,8 +185,8 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                   }
                   <label>Email</label>
                   <Input
-                    placeholder="Email"
-                    type="text"
+                    placeholder='Email'
+                    type='text'
                     onChange={(e) => setEmail(e.target.value)}
                   />
                   {
@@ -198,8 +197,8 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                   }
                   <label>Password</label>
                   <Input
-                    placeholder="Password"
-                    type="password"
+                    placeholder='Password'
+                    type='password'
                     onChange={(e) => setPassword(e.target.value)} />
                   {
                     (password.length !== 0 && password.length < 8) ?
@@ -209,8 +208,8 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                   }
                   <label>Confirm Password</label>
                   <Input
-                    placeholder="Confirm Password"
-                    type="password"
+                    placeholder='Confirm Password'
+                    type='password'
                     onChange={(e) => setConfirm(e.target.value)}
                   />
                   {
@@ -221,7 +220,7 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                   }
                   <Button
                     block
-                    className="btn registerbtn"
+                    className='btn registerbtn'
                     type='submit'
                     disabled={
                       confirm !== password ||
@@ -232,11 +231,11 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                     Register
                   </Button>
                 </Form>
-                <div className="forgot">
+                <div className='forgot'>
                   <Button
-                    className="btn-link mt-3"
-                    color="danger"
-                    href="#"
+                    className='btn-link mt-3'
+                    color='danger'
+                    href='#'
                     onClick={(e) => e.preventDefault()}
                   >
                     Forgot password?
@@ -246,11 +245,6 @@ export default ({ loggedInUser, setLoggedInUser }) => {
             </Col>
           </Row>
         </Container>
-        <div className="footer register-footer text-center">
-          <h6>
-            © {new Date().getFullYear()} Unlimited Nerd Works
-          </h6>
-        </div>
       </div>
     </>
   );

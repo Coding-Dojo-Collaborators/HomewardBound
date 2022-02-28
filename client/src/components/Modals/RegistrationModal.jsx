@@ -31,9 +31,7 @@ export default function TransitionsModal({ setClose, setLoggedInUser, loggedIn }
     <div>
       <Button
         onClick={handleOpen}
-        
-       
-        type='button' 
+        type='button'
         size='lg'
       >
         Sign Up
