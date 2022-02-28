@@ -10,7 +10,7 @@ import {
 } from 'reactstrap';
 
 // Styles
-import './adopt.css';
+import './block2.css';
 
 // Others
 import dog2 from '../../assets/img/dogs/dog2.jpg';
@@ -22,8 +22,8 @@ export default () => {
     <>
       <div className='section section-dark text-center'>
         <Container>
-          <h2 className='title mb-0'>Pets You Can Adopt</h2>
-          <Row className='mx-auto mb-3 d-flex align-items-center'>
+          <h2 className='adopt-title mt-0'>Pets You Can Adopt</h2>
+          <Row className='mx-auto mb-1 d-flex align-items-start gy-0'>
             <Col className='mx-auto' md='5'>
               <Card className='card-profile card-adopt'
                 tag={Link} to='/adoptdog'>
