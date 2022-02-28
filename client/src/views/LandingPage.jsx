@@ -39,21 +39,29 @@ export default ({ setUser, loggedInUser, setLoggedInUser }) => {
   }
 
   return (
-    <>
+    <div id='top' >
       <Navbar
         logout={logout}
         loggedInUser={loggedInUser}
         setLoggedInUser={setLoggedInUser}
       />
       <LandingPageHeader />
-      <div className='main'>
+      <div className='main '>
+      <div id='adopt' className='py-4'>
         <Block1Process />
+      </div>
         <Block2Adopt />
-        <Block3Services />
-        <Block4About />
-        <Block5Contact />
+        <div id="services" className='py-5'>
+          <Block3Services />
+        </div>
+        <div id="about" className='py-5'>
+          <Block4About />
+        </div>
+        <div id="contact" className='py-5'>
+          <Block5Contact />
+        </div>
         <Footer />
       </div>
-    </>
+    </div>
   )
 };
