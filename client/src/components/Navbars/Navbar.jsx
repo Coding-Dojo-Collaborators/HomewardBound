@@ -108,22 +108,22 @@ export default ({ setLoggedInUser, loggedInUser, logout }) => {
           <Nav navbar>
             <NavItem>
               <NavLink to='#about' tag={Link}>
-                <i className='nc-icon nc-alert-circle-i' /> About Us
+                <i className='nc-icon nc-alert-circle-i me-1' /> About Us
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink to='#process' tag={Link}>
-                <i className='nc-icon nc-single-copy-04' /> Adopt
+                <i className='nc-icon nc-single-copy-04 me-1' /> Adopt
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink to='#services' tag={Link}>
-                <i className='nc-icon nc-zoom-split' /> Services
+                <i className='nc-icon nc-zoom-split me-1' /> Services
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink to='#contact' tag={Link}>
-                <i className='nc-icon nc-send' /> Contact Us
+                <i className='nc-icon nc-send me-1' /> Contact Us
               </NavLink>
             </NavItem>
             <NavItem>
@@ -133,7 +133,7 @@ export default ({ setLoggedInUser, loggedInUser, logout }) => {
                 target='_blank'
                 title='Follow & Star on GitHub'
               >
-                <i className='fa fa-github' />
+                <i className='fa fa-github me-1' />
                 <p className='d-lg-none'>GitHub</p>
               </NavLink>
             </NavItem>

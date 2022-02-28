@@ -42,14 +42,7 @@ export default ({ handleClose, setLoggedInUser, setClose, loggedIn }) => {
 
   const logo = require('../../assets/img/brandlogo/logo_white_background.jpg');
 
-  const validateEmail = (e) => {
-    setEmail(e.target.value)
-    if (validator.isEmail(email)) {
-      setEmailError('');
-    } else {
-      setEmailError('Enter valid email!');
-    }
-  }
+  
   React.useEffect(() => {
     setClose(false)
   }, [setClose]);
@@ -62,7 +55,7 @@ export default ({ handleClose, setLoggedInUser, setClose, loggedIn }) => {
       setEmailError('Enter valid email!');
       return "error";
     }
-    await axios.post(`http://localhost:8080/api/register/`, {
+    await axios.post(process.env.REACT_APP_JAVA_API + 'register/', {
       "firstName": firstName,
       "lastName": lastName,
       "email": email,

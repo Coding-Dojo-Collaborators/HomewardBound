@@ -1,28 +1,32 @@
-/* eslint-disable import/no-anonymous-default-export */
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
+import Cookies from 'js-cookie';
+import { Button } from 'reactstrap';
+export default ({loggedInUser, setLoggedInUser}) => {
+    const history = useHistory()
+    useEffect(()=> {
+        loggedInUser === 'no user' &&
+        history.push('/')
+        
+    },[loggedInUser])
 
-// Core components
-import Navbar from '../components/Navbars/Navbar';
-import LandingPageHeader from '../components/Headers/LandingPageHeader';
-
-
-// Login
-
-import Content from './DashboardSections/Content';
-
-export default ({ setUser, loggedInUser, setLoggedInUser }) => {
-  const [changeUser, setChangeUser] = useState();
-  const history = useHistory();
-
-
+    let logout = () => {
+        setLoggedInUser('no user');
+        Cookies.remove('user_id');
+        history.push('/');
+      }
   return (
-    <>
+    <div>
+        <Button
+        onClick={logout}
+        >
+            Log Out
+        </Button>
 
-      <div className='main'>
-        <Content />
+        <h1>
 
-      </div>
-    </>
+        {loggedInUser.firstName}
+        </h1>
+        </div>
   )
-};
+}

@@ -3,12 +3,10 @@ import * as React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
-import { GoogleLogin } from 'react-google-login';
 
 // MUI
 import { createTheme } from '@mui/material/styles';
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -19,14 +17,14 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
-
 // Styles
+import { Button } from 'reactstrap';
 import useStyles from './Styles';
 
 // Login
 import jwt_decode from 'jwt-decode';
 import Cookies from 'js-cookie';
-
+import { GoogleLogin } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 // import GithubButton from 'react-github-login-button';
 
@@ -48,72 +46,65 @@ const Copyright = (props) => {
 // eslint-disable-next-line no-unused-vars
 const theme = createTheme();
 
-export default ({ handleClose, setLoggedInUser}) => {
+export default ({ handleClose, setLoggedInUser }) => {
+  //------------ other imports---------------- //
+  const logo = require('../../assets/img/brandlogo/logo_white_background.jpg');
+  const history = useHistory();
+  const classes = useStyles();
+  //------------ use state---------------- //
   const [errors, setErrors] = useState("");
   const [close, setClose] = useState(true);
   const [loginInfo, setLoginInfo] = useState({
     email: "",
     password: "",
   });
-  const history = useHistory();
-  const classes = useStyles();
- 
-  const logo = require('../../assets/img/brandlogo/logo_white_background.jpg');
-
   const loginChangeHandler = (e) => {
     setLoginInfo({
       ...loginInfo,
       [e.target.name]: e.target.value
     });
   };
-
+  //------------Regular Login---------------- //
   const handleSubmit = async (e) => {
     e.preventDefault();
     close &&
-    await axios.post('http://localhost:8080/api/login', loginInfo)
-      .then(res => {
-        console.log(res)
-        res.data === "No User Found" ? 
-        setErrors({"message" : res.data }) :
-        res.data ===  "Invalid Email or Password" ?
-        setErrors({"message" : res.data }) :
-          Cookies.set("user_id",res.data, {path: '/'})
+      await axios.post(process.env.REACT_APP_JAVA_API + 'login', loginInfo)
+        .then(res => {
+          console.log(res)
+          res.data === "No User Found" ?
+            setErrors({ "message": res.data }) :
+            res.data === "Invalid Email or Password" ?
+              setErrors({ "message": res.data }) :
+              Cookies.set("user_id", res.data, { path: '/' })
           setLoggedInUser(jwt_decode(Cookies.get("user_id")))
           handleClose()
-          
-          
-          
-      })
+        })
   };
-
+  // -------------Google Login-------------------//
   const googleSuccess = async (res) => {
     console.log(res.profileObj)
-    axios.post('http://localhost:8080/api/google/login', res.profileObj
-  
+    axios.post(process.env.REACT_APP_JAVA_API + 'google/login', res.profileObj
     ).then(res => {
-        Cookies.set("user_id",res.data, {path: '/'})
-        setLoggedInUser(jwt_decode(Cookies.get("user_id")))
-        handleClose()
-      }).catch(err => console.log(err));
+      Cookies.set("user_id", res.data, { path: '/' })
+      setLoggedInUser(jwt_decode(Cookies.get("user_id")))
+      handleClose()
+    }).catch(err => console.log(err));
   };
   const googleFailure = (res) => {
     console.log("Google sign in not working!");
     console.log(res);
   };
+  // -------------Facebook Login-------------------//
   const facebookSuccess = async (res) => {
     console.log(res)
-    await axios.post("http://localhost:8080/api/facebook/login", {...res , "picture" : res.picture.data.url})
-    .then(res => {
-      Cookies.set("user_id",res.data, {path: '/'})
+    await axios.post(process.env.REACT_APP_JAVA_API + "facebook/login", { ...res, "picture": res.picture.data.url })
+      .then(res => {
+        Cookies.set("user_id", res.data, { path: '/' })
         setLoggedInUser(jwt_decode(Cookies.get("user_id")))
         handleClose()
-    })
-  }
-  const facebookFailure = (res) => {
-    console.log(res);
+      })
   }
   return (
-    // <ThemeProvider theme={theme}>
     <Container component='main' maxWidth='xs'>
       <CssBaseline />
       <Box
@@ -176,54 +167,56 @@ export default ({ handleClose, setLoggedInUser}) => {
           >
             Sign In
           </Button>
-          <GoogleLogin
-            clientId='568067065323-7gvfhrf569i6cqk1m9hcp52qe78r6e3j.apps.googleusercontent.com'
-            render={(renderProps) => (
-              <Button className={classes.googleButton}
-                color='success'
-                fullWidth
-                onClick={renderProps.onClick}
-                disabled={renderProps.disabled}
-                // startIcon={<Icon />}
-                variant='contained'
-                sx={{ mb: 2 }}
-              >Google Sign In </Button>
-            )}
-            onSuccess={googleSuccess}
-            onFailure={googleFailure}
-            cookiePolicy='single_host_origin'
-          />
-          <FacebookLogin
-  appId="1012699556009640"
-  autoLoad={false}
-  callback={facebookSuccess}
-  fields="name,email,picture,first_name,last_name"
-  render={renderProps => (
-    <Button 
-    color='primary'
-    fullWidth
-    variant="contained"
-            sx={{ mb: 2 }}
-    className={classes.facebookButton}
-    onClick={renderProps.onClick}> Facebook Login</Button>
-  )}
-/>
-
+          <div className='d-flex justify-content-center gap-3'>
+            {/* // -------------Google Login-------------------// */}
+            <GoogleLogin
+              clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+              render={(renderProps) => (
+                <Button
+                  className="btn-neutral btn-just-icon mr-1"
+                  type='button'
+                  color="google"
+                  onClick={renderProps.onClick}
+                  disabled={renderProps.disabled}
+                >
+                  <i className="fa fa-google" />
+                </Button>
+              )}
+              onSuccess={googleSuccess}
+              onFailure={googleFailure}
+              cookiePolicy='single_host_origin'
+            />
+            {/* // -------------Facebook Login-------------------// */}
+            <FacebookLogin
+              appId={process.env.REACT_APP_FACEBOOK_APP_ID}
+              autoLoad={false}
+              callback={facebookSuccess}
+              fields="name,email,picture,first_name,last_name"
+              render={renderProps => (
+                <Button
+                  className="btn-neutral btn-just-icon mr-1 mx-1"
+                  color="facebook"
+                  onClick={renderProps.onClick}
+                >  <i className="fa fa-facebook-square" />
+                </Button>
+              )}
+            />
+          </div>
           <Grid container
             sx={{
               display: 'flex',
               justifyContent: 'center'
             }}
           >
-            <Grid item sx={{ textAlign: 'center' }}>
+            {/* //------------Registration-------------------// */}
+            <Grid item sx={{ display: "flex", alignItems: 'center' }}>
               Don't have an Account?
-              <RegistrationModal variant="body2" loggedIn={handleClose} setLoggedInUser={setLoggedInUser} setClose={setClose}/>
+              <RegistrationModal variant="body2" loggedIn={handleClose} setLoggedInUser={setLoggedInUser} setClose={setClose} />
             </Grid>
           </Grid>
         </Box>
       </Box>
       <Copyright sx={{ pt: 3, mb: 4 }} />
     </Container>
-    // </ThemeProvider>
   );
 };

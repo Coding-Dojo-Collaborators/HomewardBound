@@ -1,3 +1,14 @@
+.container .card-description {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* .description {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+} */
+
 /* .row {
     display: flex;
   }
@@ -16,5 +27,3 @@
     justify-content: center;
     margin-top: 5%;
   } */
-
-

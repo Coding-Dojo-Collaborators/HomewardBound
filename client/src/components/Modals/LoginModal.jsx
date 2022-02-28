@@ -42,9 +42,11 @@ export default function TransitionsModal({ setLoggedInUser, loggedInUser }) {
           // `/dashboard/${user._id}`
         }
       >
-        <i className='nc-icon nc-badge '>
-        </i>  Log In
+        <i className='nc-icon nc-badge me-2'>
+        </i>
+        Log In
       </Button>
+
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"

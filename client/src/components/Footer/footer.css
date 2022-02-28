@@ -1,19 +1,11 @@
 .footer {
-  background-color: lightgrey;
-  margin: 1rem auto;
-  position: relative;
-  width: 100vw;
-  height: 50vh;
-  /* display: flex; */
-  justify-content: center;
-  margin-top: 5%;
-  padding: 5%;
+  background-color: #e9e9e9 !important;
 }
-
+/* 
 .icons {
   padding: 25px;
 }
 
 a {
   color: black;
-}
+} */

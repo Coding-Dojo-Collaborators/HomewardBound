@@ -31,13 +31,14 @@ export default function TransitionsModal({ setClose, setLoggedInUser, loggedIn }
     <div>
       <Button
         onClick={handleOpen}
-        className='mt-3'
-        color='neutral'
-        type='button' outline
+        
+       
+        type='button' 
         size='lg'
       >
         Sign Up
       </Button>
+
       <Modal
         aria-labelledby='transition-modal-title'
         aria-describedby='transition-modal-description'
