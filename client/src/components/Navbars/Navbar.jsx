@@ -104,7 +104,7 @@ export default ({ setLoggedInUser, loggedInUser, page }) => {
             <NavItem>
               
               <NavLink  href='#about'>
-                <i className='nc-icon nc-alert-circle-i me-1' /> About Us
+                <i className='nc-icon nc-alert-circle-i me-1 ' /> About Us
               </NavLink>
             </NavItem>
             <NavItem>

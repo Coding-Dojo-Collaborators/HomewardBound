@@ -26,7 +26,7 @@ export default ({loggedInUser, setLoggedInUser}) => {
         <Content />
 
         <h1>
-
+    <img src={loggedInUser.picture} alt="fffff" />
         {loggedInUser.firstName}
         </h1>
         </div>

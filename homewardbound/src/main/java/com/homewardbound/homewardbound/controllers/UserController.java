@@ -8,7 +8,10 @@ import com.homewardbound.homewardbound.models.LoginUser;
 import com.homewardbound.homewardbound.models.User;
 import com.homewardbound.homewardbound.services.UserService;
 
+import org.springframework.http.HttpStatus;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,9 +26,11 @@ public class UserController {
 
 // -------------Google Login-------------------//
     @PostMapping("/api/google/login")
-    public String googleLogin(@RequestBody GoogleLogin googleUser){
+    public ResponseEntity<String> googleLogin(@RequestBody GoogleLogin googleUser){
         String loginResponse =  userService.googleLogin(googleUser);
-            return loginResponse;
+        
+            return new ResponseEntity<String>(loginResponse,HttpStatus.valueOf(400));
+            
     }
 
 //------------Regular Login---------------- //
