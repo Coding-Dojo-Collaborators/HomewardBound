@@ -32,6 +32,9 @@ public class ContactUs {
     @Size(min=3, message="Name must be at least 3 characters")
     public String name;
 
+    @NotEmpty(message="Message is required")
+    public String message;
+
     @Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdAt;
