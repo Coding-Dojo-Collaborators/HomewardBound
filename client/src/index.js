@@ -2,7 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // Styles
-import './index.css';
+import 'bootstrap/scss/bootstrap.scss';
+import 'assets/scss/paper-kit.scss';
+import 'assets/css/bootstrap.min.css';
+import 'assets/css/paper-kit.css';
+import 'assets/demo/demo.css';
 import App from './App';
 
 // Others

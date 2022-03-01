@@ -37,7 +37,6 @@ export default ({ handleClose, setLoggedInUser }) => {
     email: "",
     password: "",
   });
-  
   // ------------ Misc Imports ----------------- //
   const logo = require('../../assets/img/brandlogo/white_logo_transparent_background.png');
   // -------------- functions ------------------ //
@@ -196,7 +195,7 @@ export default ({ handleClose, setLoggedInUser }) => {
             className='btn-link'
             color='danger'
             onClick={(e) => history.push('/register')}
-            
+
           >
             Sign Up
           </Button>
