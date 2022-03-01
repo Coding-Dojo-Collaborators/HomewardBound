@@ -53,7 +53,6 @@ export default ({ setLoggedInUser, loggedInUser, page }) => {
       window.removeEventListener('scroll', updateNavbarColor);
     };
   });
-
   const logo = require('../../assets/img/brandlogo/logo_transparent_background.png');
 
   return (

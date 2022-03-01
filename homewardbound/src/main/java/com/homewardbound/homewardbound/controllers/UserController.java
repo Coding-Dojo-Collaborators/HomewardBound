@@ -29,32 +29,32 @@ public class UserController {
     public ResponseEntity<String> googleLogin(@RequestBody GoogleLogin googleUser){
         String loginResponse =  userService.googleLogin(googleUser);
         
-            return new ResponseEntity<String>(loginResponse,HttpStatus.valueOf(206));
+            return new ResponseEntity<String>(loginResponse,HttpStatus.valueOf(200));
             
     }
 
 //------------Regular Login---------------- //
     @PostMapping("/api/login")
-    public String login(@RequestBody LoginUser newLogin){
+    public ResponseEntity<String> login(@RequestBody LoginUser newLogin){
         String loginResponse =  userService.login(newLogin);
-            return loginResponse;
+            return  new ResponseEntity<String>(loginResponse,HttpStatus.valueOf(200));
     }
 
 // -------------Facebook Login-------------------//
     @PostMapping("/api/facebook/login")
-    public String facebookLogin(@RequestBody FacebookLogin facebookUser){
+    public ResponseEntity<String> facebookLogin(@RequestBody FacebookLogin facebookUser){
         String loginResponse = userService.facebookLogin(facebookUser);
-        return loginResponse;
+        return new ResponseEntity<String>(loginResponse,HttpStatus.valueOf(200));
     }
 
 //------------Registration-------------------//
     @PostMapping("/api/register")
-    public <T> T register(@Valid @RequestBody User newUser,BindingResult result){
+    public ResponseEntity<?> register(@Valid @RequestBody User newUser,BindingResult result){
+        String potentialUser = userService.register(newUser, result);
         if(result.hasErrors()){
-            return (T) result.getFieldErrors();
+            return new ResponseEntity<>(result.getFieldErrors(),HttpStatus.valueOf(206));
         }
-        String potentialUser = userService.register(newUser);
-        return (T) potentialUser;
+        return new ResponseEntity<String>(potentialUser,HttpStatus.valueOf(200));
     }
 
 }
