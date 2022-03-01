@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +23,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     @Autowired
     UserService userService;
-
 // -------------Google Login-------------------//
     @PostMapping("/api/google/login")
     public ResponseEntity<String> googleLogin(@RequestBody GoogleLogin googleUser){
@@ -31,7 +31,6 @@ public class UserController {
             return new ResponseEntity<String>(loginResponse,HttpStatus.valueOf(200));
             
     }
-
 //------------Regular Login---------------- //
     @PostMapping("/api/login")
     public ResponseEntity<?> login(@Valid @RequestBody LoginUser newLogin,BindingResult result){
@@ -42,14 +41,12 @@ public class UserController {
         }
             return  new ResponseEntity<String>(loginResponse,HttpStatus.valueOf(200));
     }
-
 // -------------Facebook Login-------------------//
     @PostMapping("/api/facebook/login")
     public ResponseEntity<String> facebookLogin(@RequestBody FacebookLogin facebookUser){
         String loginResponse = userService.facebookLogin(facebookUser);
         return new ResponseEntity<String>(loginResponse,HttpStatus.valueOf(200));
     }
-
 //------------Registration-------------------//
     @PostMapping("/api/register")
     public ResponseEntity<?> register(@Valid @RequestBody User newUser,BindingResult result){
@@ -59,5 +56,11 @@ public class UserController {
         }
         return new ResponseEntity<String>(potentialUser,HttpStatus.valueOf(200));
     }
-
+//------------Admin Check-------------------//
+    @GetMapping("/api/admin")
+    public ResponseEntity<?> admin(@RequestBody User potentialAdmin){
+        User Admin =  userService.oneUser(potentialAdmin.getId());
+        ResponseEntity<String> isAdmin = Admin.isAdmin() ? new ResponseEntity<String>("Admin",HttpStatus.valueOf(200)) : new ResponseEntity<String>("Not Admin", HttpStatus.valueOf(400));
+         return isAdmin;
+    }
 }

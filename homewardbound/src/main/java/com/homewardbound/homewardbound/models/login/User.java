@@ -16,6 +16,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties.Admin;
 import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 @Table(name="users")
@@ -44,9 +45,13 @@ public class User {
     @Size(min=8, max=128, message="Confirm Password must be at least 8 characters")
     private String confirm;
 
-    private boolean oAuthUser;
+    private boolean googleUser;
+
+    private boolean facebookUser;
 
     private String picture;
+
+    private boolean admin;
 
     @Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
@@ -128,20 +133,36 @@ public class User {
         this.updatedAt = updatedAt;
     }
 
-    public boolean isoAuthUser() {
-        return oAuthUser;
-    }
-
-    public void setoAuthUser(boolean oAuthUser) {
-        this.oAuthUser = oAuthUser;
-    }
-
     public String getPicture() {
         return picture;
     }
 
     public void setPicture(String picture) {
         this.picture = picture;
+    }
+
+    public boolean isGoogleUser() {
+        return googleUser;
+    }
+
+    public void setGoogleUser(boolean googleUser) {
+        this.googleUser = googleUser;
+    }
+
+    public boolean isFacebookUser() {
+        return facebookUser;
+    }
+
+    public void setFacebookUser(boolean facebookUser) {
+        this.facebookUser = facebookUser;
+    }
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
     }
     
 }

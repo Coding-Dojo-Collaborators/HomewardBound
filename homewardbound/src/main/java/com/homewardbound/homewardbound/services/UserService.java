@@ -56,7 +56,7 @@ public class UserService {
                     .claim("id", user.getId())
                     .claim("firstName", user.getFirstName())
                     .claim("lastName", user.getLastName())
-                    .claim("oAuthUser", user.isoAuthUser())
+                    .claim("oAuthUser", false)
                     .setIssuedAt(Date.from(now))
                     .setExpiration(Date.from(now.minus(7, ChronoUnit.DAYS)))
                     .signWith(Keys.hmacShaKeyFor(secret))
@@ -78,18 +78,21 @@ public class UserService {
             user.setPassword(hashedPw);
             user.setConfirm(newLogin.getId());
             user.setEmail(newLogin.getEmail());
-            user.setPicture(newLogin.getPicture());
-            user.setoAuthUser(true);
+            user.setAdmin(false);
+            user.setPicture("https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png");
+            user.setFacebookUser(true);
+            user.setGoogleUser(false);
             userRepo.save(user);
         } else {
             user = isUser.get();
+            return "Email already has an account not associated with Facebook ";
         }
         String jwt = Jwts.builder()
                 .claim("id", user.getId())
                 .claim("picture", user.getPicture())
                 .claim("firstName", user.getFirstName())
                 .claim("lastName", user.getLastName())
-                .claim("oAuthUser", user.isoAuthUser())
+                .claim("oAuthUser", user.isFacebookUser())
                 .setIssuedAt(Date.from(now))
                 .setExpiration(Date.from(now.minus(7, ChronoUnit.DAYS)))
                 .signWith(Keys.hmacShaKeyFor(secret))
@@ -108,18 +111,23 @@ public class UserService {
             user.setLastName(newLogin.getFamilyName());
             user.setEmail(newLogin.getEmail());
             user.setPassword(newLogin.getGoogleId());
-            user.setPicture(newLogin.getImageUrl());
-            user.setoAuthUser(true);
+            user.setAdmin(false);
+            user.setPicture("https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png");
+            user.setGoogleUser(true);
+            user.setFacebookUser(false);
             userRepo.save(user);
         } else {
             user = isUser.get();
+            if(!user.isGoogleUser()){ 
+                return "Email already has an account not associated with Google ";
+            }
         }
         String jwt = Jwts.builder()
                 .claim("id", user.getId())
                 .claim("picture", user.getPicture())
                 .claim("firstName", user.getFirstName())
                 .claim("lastName", user.getLastName())
-                .claim("oAuthUser", user.isoAuthUser())
+                .claim("oAuthUser", user.isGoogleUser())
                 .setIssuedAt(Date.from(now))
                 .setExpiration(Date.from(now.minus(7, ChronoUnit.DAYS)))
                 .signWith(Keys.hmacShaKeyFor(secret))
@@ -138,15 +146,17 @@ public class UserService {
                 user.setLastName(newUser.getLastName());
                 user.setEmail(newUser.getEmail());
                 user.setPassword(hashedPw);
-                user.setPicture("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtRs_rWILOMx5-v3aXwJu7LWUhnPceiKvvDg&usqp=CAU");
-                user.setoAuthUser(false);
+                user.setPicture("https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png");
+                user.setGoogleUser(false);
+                user.setFacebookUser(false);
+                user.setAdmin(false);
                 userRepo.save(user);
                 String jwt = Jwts.builder()
                         .claim("id", user.getId())
                         .claim("picture", user.getPicture())
                         .claim("firstName", user.getFirstName())
                         .claim("lastName", user.getLastName())
-                        .claim("oAuthUser", user.isoAuthUser())
+                        .claim("oAuthUser", false)
                         .setIssuedAt(Date.from(now))
                         .setExpiration(Date.from(now.minus(7, ChronoUnit.DAYS)))
                         .signWith(Keys.hmacShaKeyFor(secret))
