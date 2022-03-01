@@ -4,11 +4,6 @@ import ReactDOM from 'react-dom';
 // Styles
 import './index.css';
 import App from './App';
-import 'bootstrap/scss/bootstrap.scss';
-import 'assets/scss/paper-kit.scss';
-import 'assets/css/bootstrap.min.css';
-import 'assets/css/paper-kit.css';
-import 'assets/demo/main-demo.css';
 
 // Others
 import reportWebVitals from './reportWebVitals';
