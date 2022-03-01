@@ -118,9 +118,7 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                 onClick={logout}
                 className='btn login-btn mt-3'
                 type='button'
-                component={Link} to={'/'
-                  // `/dashboard/${user._id}`
-                }
+                
               >
                 <i className='nc-icon nc-button-power me-2'>
                 </i>
