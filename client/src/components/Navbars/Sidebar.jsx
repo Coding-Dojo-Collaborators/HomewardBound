@@ -9,12 +9,11 @@ import { Nav } from 'reactstrap';
 import styles from '../../assets/css/modules/dashboard.module.css';
 import style from '../../assets/css/modules/paper-dashboard.module.css';
 
-
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from 'perfect-scrollbar';
 var ps;
 
-export default ({ properties, loggedInUser }) => {
+export default ({ loggedInUser }) => {
   const sidebar = useRef();
   // verifies if routeName is the one active (in browser input)
   // const activeRoute = (routeName) => {
