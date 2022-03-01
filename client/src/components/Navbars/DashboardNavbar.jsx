@@ -1,6 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
-import React, { useState, useEffect, useRef } from "react";
-import { Link, useHistory } from "react-router-dom";
+import React, { useState, useEffect, useRef } from 'react';
+import { useHistory } from 'react-router-dom';
 import {
   Collapse,
   Navbar,
@@ -9,15 +9,18 @@ import {
   NavItem,
   Container,
   Button,
-} from "reactstrap";
+} from 'reactstrap';
+
+// Styles
+import styles from '../../assets/css/modules/paper-dashboard.module.css';
 
 // Login
 import Cookies from 'js-cookie';
 
 export default ({ loggedInUser, setLoggedInUser }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [color, setColor] = useState("transparent");
+  // const [dropdownOpen, setDropdownOpen] = useState(false);
   const sidebarToggle = useRef();
   const history = useHistory();
 
@@ -35,8 +38,8 @@ export default ({ loggedInUser, setLoggedInUser }) => {
   // };
 
   const openSidebar = () => {
-    document.documentElement.classList.toggle("nav-open");
-    sidebarToggle.current.classList.toggle("toggled");
+    document.documentElement.classList.toggle(`${styles['nav-open']}`);
+    sidebarToggle.current.classList.toggle(`${styles.toggled}`);
   };
 
   // function that adds color dark/transparent to the navbar on resize (this is for the collapse)
@@ -55,10 +58,10 @@ export default ({ loggedInUser, setLoggedInUser }) => {
   useEffect(() => {
     if (
       window.innerWidth < 993 &&
-      document.documentElement.className.indexOf("nav-open") !== -1
+      document.documentElement.className.indexOf(`${styles['nav-open']}`) !== -1
     ) {
-      document.documentElement.classList.toggle("nav-open");
-      sidebarToggle.current.classList.toggle("toggled");
+      document.documentElement.classList.toggle(`${styles['nav-open']}`);
+      sidebarToggle.current.classList.toggle(`${styles.toggled}`);
     }
   }, []);
 
@@ -77,16 +80,16 @@ export default ({ loggedInUser, setLoggedInUser }) => {
   return (
     <Navbar
       // How do I pass in the updateColor function?
-      expand="lg"
-      className={"navbar-absolute fixed-top p-5 mt-4 " +
-        (color === "transparent" ? "navbar-transparent " : "")
+      expand='lg'
+      className={`${styles['navbar-absolute']} ${styles['fixed-top']} p-5 ` +
+        (color === "transparent" ? `${styles['navbar-transparent']} ` : "")
       }
     >
       <Container fluid>
-        <div className="navbar-wrapper">
-          <div className="navbar-toggle">
+        <div className={`${styles['navbar-wrapper']}`}>
+          <div className={`${styles['navbar-toggle']}`}>
             <button
-              type="button"
+              type='button'
               ref={sidebarToggle}
               className="navbar-toggler"
               onClick={() => openSidebar()}
@@ -118,9 +121,7 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                 onClick={logout}
                 className='btn login-btn mt-3'
                 type='button'
-                component={Link} to={'/'
-                  // `/dashboard/${user._id}`
-                }
+
               >
                 <i className='nc-icon nc-button-power me-2'>
                 </i>

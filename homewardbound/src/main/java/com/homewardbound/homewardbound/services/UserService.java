@@ -160,5 +160,4 @@ public class UserService {
         result.rejectValue("email","UserExists", "Please Login in, Email already exist");
         return null;
     }
-   
 }

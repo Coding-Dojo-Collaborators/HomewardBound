@@ -61,6 +61,7 @@ export default ({ loggedInUser, setLoggedInUser, colors }) => {
         <DashboardNavbar
           colors={colors}
           loggedInUser={loggedInUser}
+          setLoggedInUser={setLoggedInUser}
         />
         {/* <Footer fluid /> */}
       </div>
