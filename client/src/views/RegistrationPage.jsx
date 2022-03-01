@@ -88,7 +88,7 @@ export default ({ loggedInUser, setLoggedInUser }) => {
       setEmailError("Enter valid email!");
       return 'error';
     }
-    await axios.post('register/', {
+    await axios.post(process.env.REACT_APP_JAVA_API + 'register/', {
       "firstName": firstName,
       "lastName": lastName,
       "email": email,
