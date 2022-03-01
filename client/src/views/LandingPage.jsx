@@ -7,6 +7,13 @@ import Navbar from '../components/Navbars/Navbar';
 import LandingPageHeader from '../components/Headers/LandingPageHeader';
 import Footer from '../components/Footer/Footer';
 
+// Styles
+import 'bootstrap/scss/bootstrap.scss';
+import 'assets/scss/paper-kit.scss';
+import 'assets/css/bootstrap.min.css';
+import 'assets/css/paper-kit.css';
+import 'assets/demo/main-demo.css';
+
 // Blocks
 import Block1Process from './LandingPageBlocks/Block1AdoptionProcess';
 import Block2Adopt from './LandingPageBlocks/Block2Adopt';
@@ -22,16 +29,19 @@ export default ({ setUser, loggedInUser, setLoggedInUser }) => {
   const history = useHistory();
 
   document.documentElement.classList.remove('nav-open');
-  React.useEffect(() => {
+
+  useEffect(() => {
     document.body.classList.add('profile-page');
     return function cleanup() {
       document.body.classList.remove('profile-page');
     };
   });
+
   useEffect(() => {
     loggedInUser !== 'no user' &&
-      history.push('/dashboard')
-  })
+      history.push('/dashboard');
+  });
+
   let logout = () => {
     setLoggedInUser('no user');
     Cookies.remove('user_id');

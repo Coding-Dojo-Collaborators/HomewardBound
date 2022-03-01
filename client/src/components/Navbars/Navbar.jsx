@@ -1,8 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
-import React,{Component} from 'react';
-import { Link } from 'react-router-dom';
-// import { NavHashLink as NavLink } from 'react-router-hash-link' 
-// import Scroll from 'react-scroll';
+import React from 'react';
+
 // NodeJS library that concatenates strings
 import classnames from 'classnames';
 
@@ -54,14 +52,6 @@ export default ({ setLoggedInUser, loggedInUser, logout }) => {
     };
   });
 
-  // NavLink.addEventListener("click", function () {
-  //   window.scrollTo({ top: 0, behavior: 'smooth' });
-  // });
-
-  // const scrollHandler = (e) => {
-  //   window.scrollTo({ top: 0, behavior: 'smooth' });
-  // }
-
   const logo = require('../../assets/img/brandlogo/logo_transparent_background.png');
 
   return (
@@ -76,7 +66,7 @@ export default ({ setLoggedInUser, loggedInUser, logout }) => {
             data-placement='bottom'
             href='#top'
             title='Home'
-            
+
           >
             <Avatar variant='square'
               src={logo} alt='logo'
@@ -108,8 +98,8 @@ export default ({ setLoggedInUser, loggedInUser, logout }) => {
         >
           <Nav navbar>
             <NavItem>
-              
-              <NavLink  href='#about'>
+
+              <NavLink href='#about'>
                 <i className='nc-icon nc-alert-circle-i me-1' /> About Us
               </NavLink>
             </NavItem>

@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import React from 'react';
+import React, { useEffect, createRef } from 'react';
 
 // Reactstrap Components
 import { Button, Container } from 'reactstrap';
@@ -9,9 +9,9 @@ import splashcover from 'assets/img/splashcover.jpg';
 import { Link } from 'react-router-dom';
 
 export default () => {
-  let pageHeader = React.createRef();
+  let pageHeader = createRef();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (window.innerWidth < 991) {
       const updateScroll = () => {
         let windowScrollTop = window.pageYOffset / 3;
