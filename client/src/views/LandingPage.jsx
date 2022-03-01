@@ -12,7 +12,7 @@ import 'bootstrap/scss/bootstrap.scss';
 import 'assets/scss/paper-kit.scss';
 import 'assets/css/bootstrap.min.css';
 import 'assets/css/paper-kit.css';
-import 'assets/demo/main-demo.css';
+import 'assets/demo/demo.css';
 
 // Blocks
 import Block1Process from './LandingPageBlocks/Block1AdoptionProcess';
