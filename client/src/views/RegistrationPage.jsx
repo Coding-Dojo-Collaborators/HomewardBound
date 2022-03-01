@@ -109,7 +109,11 @@ export default ({ loggedInUser, setLoggedInUser }) => {
 
   return (
     <>
-      <Navbar />
+      <Navbar
+      page='register'
+      loggedInUser={loggedInUser}
+      setLoggedInUser={setLoggedInUser}
+      />
       <div
         style={myStyle}
         className='page-header'

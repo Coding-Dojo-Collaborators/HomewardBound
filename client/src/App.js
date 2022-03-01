@@ -12,17 +12,14 @@ import Cookies from 'js-cookie';
 
 // Styles
 import './App.css';
-import "assets/scss/paper-kit.scss?v=1.3.0";
-import "assets/demo/demo.css?v=1.3.0";
+import 'assets/scss/paper-kit.scss';
+import 'assets/demo/main-demo.css';
 
 // Pages
 import LandingPage from './views/LandingPage';
+import RegistrationPage from 'views/RegistrationPage';
 import Dashboard from 'views/Dashboard';
 import Test from './views/Test';
-
-// import Dashboard from './views/Dashboard/Content';
-// import Content from 'views/DashboardSections/Content';
-import RegistrationPage from 'views/RegistrationPage';
 
 export default () => {
   const [loggedInUser, setLoggedInUser] = useState(
@@ -48,8 +45,6 @@ export default () => {
           <Test />
         </Route>
         <Route exact path='/dashboard'>
-
-          
           <Dashboard
             loggedInUser={loggedInUser}
             setLoggedInUser={setLoggedInUser}

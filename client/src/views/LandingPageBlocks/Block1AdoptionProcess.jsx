@@ -15,8 +15,8 @@ import './block1.css';
 
 export default () => {
   return (
-    <>
-      <div className='section text-center'>
+    <section className='py-5'>
+      <div  className='section text-center'>
         <Container>
           <Row className='mx-auto'>
             <Col className='mx-auto process' md='8'>
@@ -81,6 +81,6 @@ export default () => {
           </Button>
         </Container>
       </div>
-    </>
+       </section>
   );
 }

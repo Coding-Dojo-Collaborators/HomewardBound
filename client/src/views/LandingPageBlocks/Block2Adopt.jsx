@@ -20,7 +20,7 @@ import { Link } from 'react-router-dom';
 export default () => {
   return (
     <>
-      <div className='section section-dark text-center'>
+      <div  className='section section-dark text-center'>
         <Container>
           <h2 className='adopt-title mt-0'>Pets You Can Adopt</h2>
           <Row className='mx-auto mb-1 d-flex align-items-start gy-0'>
