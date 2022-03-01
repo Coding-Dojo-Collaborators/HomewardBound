@@ -29,7 +29,7 @@ public class UserController {
     public ResponseEntity<String> googleLogin(@RequestBody GoogleLogin googleUser){
         String loginResponse =  userService.googleLogin(googleUser);
         
-            return new ResponseEntity<String>(loginResponse,HttpStatus.valueOf(400));
+            return new ResponseEntity<String>(loginResponse,HttpStatus.valueOf(206));
             
     }
 

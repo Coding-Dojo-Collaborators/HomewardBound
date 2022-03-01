@@ -29,7 +29,7 @@ export default () => {
 
     const submitHandler = (e) => {
       e.preventDefault()
-      axios.post(`https://localhost:3000/api/form`, { name, email, message })
+      axios.post(process.env.REACT_APP_JAVA_API + `form`, { name, email, message })
         .then(res => {
           history.push("/")
         })

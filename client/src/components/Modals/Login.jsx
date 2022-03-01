@@ -67,6 +67,7 @@ export default ({ handleClose, setLoggedInUser }) => {
   const googleSuccess = async (res) => {
     axios.post(process.env.REACT_APP_JAVA_API + 'google/login', res.profileObj
     ).then(res => {
+      console.log(res)
       Cookies.set("user_id", res.data, { path: '/' })
       setLoggedInUser(jwt_decode(Cookies.get("user_id")))
       handleClose()
