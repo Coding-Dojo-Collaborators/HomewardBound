@@ -75,11 +75,21 @@ export default ({ loggedInUser, setLoggedInUser, properties }) => {
       </div>
       <Button
         onClick={logout}
+<<<<<<< HEAD
       >
         Log Out
       </Button>
       <DashboardMain />
       <h1>
+=======
+        >
+            Log Out
+        </Button>
+        <Content />
+
+        <h1>
+    <img src={loggedInUser.picture} alt="fffff" />
+>>>>>>> f105dc8abe1383b9dfca013684c0935ab3df0958
         {loggedInUser.firstName}
       </h1>
     </div>

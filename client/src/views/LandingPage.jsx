@@ -51,13 +51,14 @@ export default ({ setUser, loggedInUser, setLoggedInUser }) => {
   return (
     <div id='top' >
       <Navbar
+        page='landing'
         logout={logout}
         loggedInUser={loggedInUser}
         setLoggedInUser={setLoggedInUser}
       />
       <LandingPageHeader />
       <div className='main '>
-        <div id='adopt' className='py-5'>
+        <div id='adopt' className='py-4'>
           <Block1Process />
         </div>
         <Block2Adopt />

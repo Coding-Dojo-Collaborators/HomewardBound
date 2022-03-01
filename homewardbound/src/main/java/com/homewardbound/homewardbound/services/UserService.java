@@ -104,6 +104,7 @@ public class UserService {
             user.setLastName(newLogin.getFamilyName());
             user.setEmail(newLogin.getEmail());
             user.setPassword(newLogin.getGoogleId());
+            user.setPicture(newLogin.getImageUrl());
             user.setoAuthUser(true);
             userRepo.save(user);
         } else {

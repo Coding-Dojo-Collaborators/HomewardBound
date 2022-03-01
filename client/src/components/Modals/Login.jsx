@@ -24,9 +24,12 @@ import jwt_decode from 'jwt-decode';
 import Cookies from 'js-cookie';
 import { GoogleLogin } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
+import { useHistory } from 'react-router-dom';
 // import GithubButton from 'react-github-login-button';
 
 export default ({ handleClose, setLoggedInUser }) => {
+  // -------------- useHistory ------------------ //
+  const history = useHistory()
   // -------------- useStates ------------------ //
   const [errors, setErrors] = useState("");
   const [close, setClose] = useState(true);
@@ -34,9 +37,7 @@ export default ({ handleClose, setLoggedInUser }) => {
     email: "",
     password: "",
   });
-  // ---------- react-router-dom --------------- //
-  // const history = useHistory();
-  // const classes = useStyles();
+  
   // ------------ Misc Imports ----------------- //
   const logo = require('../../assets/img/brandlogo/white_logo_transparent_background.png');
   // -------------- functions ------------------ //
@@ -49,7 +50,6 @@ export default ({ handleClose, setLoggedInUser }) => {
   // ------------ Regular Login ---------------- //
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Butts");
     close &&
       await axios.post(process.env.REACT_APP_JAVA_API + 'login', loginInfo)
         .then(res => {
@@ -65,9 +65,9 @@ export default ({ handleClose, setLoggedInUser }) => {
   };
   // ------------- Google Login --------------- //
   const googleSuccess = async (res) => {
-    console.log(res.profileObj)
     axios.post(process.env.REACT_APP_JAVA_API + 'google/login', res.profileObj
     ).then(res => {
+      console.log(res)
       Cookies.set("user_id", res.data, { path: '/' })
       setLoggedInUser(jwt_decode(Cookies.get("user_id")))
       handleClose()
@@ -195,8 +195,8 @@ export default ({ handleClose, setLoggedInUser }) => {
           <Button
             className='btn-link'
             color='danger'
-            href='#'
-            onClick={(e) => e.preventDefault()}
+            onClick={(e) => history.push('/register')}
+            
           >
             Sign Up
           </Button>

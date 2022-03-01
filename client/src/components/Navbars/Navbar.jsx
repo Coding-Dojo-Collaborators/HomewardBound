@@ -1,7 +1,11 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React from 'react';
+<<<<<<< HEAD
 
 // NodeJS library that concatenates strings
+=======
+import { useHistory} from 'react-router-dom';
+>>>>>>> f105dc8abe1383b9dfca013684c0935ab3df0958
 import classnames from 'classnames';
 
 // Reactstrap Components
@@ -21,7 +25,10 @@ import { Avatar } from '@mui/material';
 // Modals
 import LoginModal from '../Modals/LoginModal'
 
-export default ({ setLoggedInUser, loggedInUser, logout }) => {
+export default ({ setLoggedInUser, loggedInUser, page }) => {
+    // -------------- useHistory ------------------ //
+    const history = useHistory()
+     // -------------- useStates ------------------ //
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [navbarCollapse, setNavbarCollapse] = React.useState(false);
   // const [openModal, setOpenModal] = useState(false);
@@ -29,7 +36,7 @@ export default ({ setLoggedInUser, loggedInUser, logout }) => {
     setNavbarCollapse(!navbarCollapse);
     document.documentElement.classList.toggle('nav-open');
   };
-
+   // -------------- useEffect ------------------ //
   React.useEffect(() => {
     const updateNavbarColor = () => {
       if (
@@ -44,14 +51,17 @@ export default ({ setLoggedInUser, loggedInUser, logout }) => {
         setNavbarColor('navbar-transparent');
       }
     };
-
+// ------------ Misc ----------------- //
     window.addEventListener('scroll', updateNavbarColor);
 
     return function cleanup() {
       window.removeEventListener('scroll', updateNavbarColor);
     };
   });
+<<<<<<< HEAD
 
+=======
+>>>>>>> f105dc8abe1383b9dfca013684c0935ab3df0958
   const logo = require('../../assets/img/brandlogo/logo_transparent_background.png');
 
   return (
@@ -60,8 +70,11 @@ export default ({ setLoggedInUser, loggedInUser, logout }) => {
       color-on-scroll='300'
       expand='md'
     >
+          {
+            page == 'landing' ?
       <Container className='d-flex'>
         <div className='navbar-translate'>
+          
           <NavbarBrand
             data-placement='bottom'
             href='#top'
@@ -98,9 +111,15 @@ export default ({ setLoggedInUser, loggedInUser, logout }) => {
         >
           <Nav navbar>
             <NavItem>
+<<<<<<< HEAD
 
               <NavLink href='#about'>
                 <i className='nc-icon nc-alert-circle-i me-1' /> About Us
+=======
+              
+              <NavLink  href='#about'>
+                <i className='nc-icon nc-alert-circle-i me-1 ' /> About Us
+>>>>>>> f105dc8abe1383b9dfca013684c0935ab3df0958
               </NavLink>
             </NavItem>
             <NavItem>
@@ -136,8 +155,69 @@ export default ({ setLoggedInUser, loggedInUser, logout }) => {
               />
             </NavItem>
           </Nav>
+          </Collapse>
+          </Container>
+          :
+          <Container className='d-flex'>
+          <div className='navbar-translate'>
+          
+          <NavbarBrand
+            data-placement='bottom'
+            onClick={(e) => history.push('/')}
+            title='Home'
+            type='button'
+          >
+            <Avatar variant='square'
+              src={logo} alt='logo'
+              sx={{
+                height: 70,
+                width: 255,
+                mb: 3,
+                textAlign: 'center'
+              }}
+            >
+            </Avatar>
+          </NavbarBrand>
+          <button
+            aria-expanded={navbarCollapse}
+            className={classnames('navbar-toggler navbar-toggler', {
+              toggled: navbarCollapse,
+            })}
+            onClick={toggleNavbarCollapse}
+          >
+            <span className='navbar-toggler-bar bar1' />
+            <span className='navbar-toggler-bar bar2' />
+            <span className='navbar-toggler-bar bar3' />
+          </button>
+        </div>
+        <Collapse
+          className='justify-content-end'
+          navbar
+          isOpen={navbarCollapse}
+        >
+          <Nav navbar>
+           <NavItem>
+              <NavLink
+                data-placement='bottom'
+                href='https://github.com/EricToribio/HomewardBound'
+                target='_blank'
+                title='Follow & Star on GitHub'
+              >
+                <i className='fa fa-github me-1' />
+                <p className='d-lg-none'>GitHub</p>
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <LoginModal
+                loggedInUser={loggedInUser}
+                setLoggedInUser={setLoggedInUser}
+              />
+            </NavItem>
+          </Nav>
         </Collapse>
-      </Container>
+        </Container>
+}
+      
     </Navbar>
   );
 }
