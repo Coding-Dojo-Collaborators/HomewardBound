@@ -34,7 +34,7 @@ export default ({ loggedInUser, setLoggedInUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
-    // -------------- errors ----------------- //
+  // -------------- errors ----------------- //
   const [errors, setErrors] = useState({});
   const [emailErrors, setEmailErrors] = useState(null);
 
@@ -86,10 +86,10 @@ export default ({ loggedInUser, setLoggedInUser }) => {
     e.preventDefault();
     if (validator.isEmail(email)) {
       setEmailErrors(null);
-    } else if(email == ""){
+    } else if (email == "") {
       setEmailErrors("Enter valid email!");
       return 'error';
-    }else{
+    } else {
       setEmailErrors("Enter valid email!");
       return 'error';
     }
@@ -101,28 +101,27 @@ export default ({ loggedInUser, setLoggedInUser }) => {
       "confirm": confirm
     })
       .then(res => {
-      
-        if(res.status === 206) {
-          
+        if (res.status === 206) {
           let tempError = {}
-          for(let i = 0; i < res.data.length;i++){
+          for (let i = 0; i < res.data.length; i++) {
             tempError[res.data[i].field] = res.data[i].defaultMessage
           }
-          setErrors(tempError)
-          return
+          setErrors(tempError);
+          return;
         }
         console.log("response from registering", res);
-            Cookies.set('user_id', res.data, { path: '/' })
+        Cookies.set('user_id', res.data, { path: '/' });
         setLoggedInUser(jwt_decode(Cookies.get('user_id')));
       })
       .catch(err => console.log(err));
   };
+
   return (
     <>
       <Navbar
-      page='register'
-      loggedInUser={loggedInUser}
-      setLoggedInUser={setLoggedInUser}
+        page='register'
+        loggedInUser={loggedInUser}
+        setLoggedInUser={setLoggedInUser}
       />
       <div
         style={myStyle}
@@ -179,7 +178,7 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                     onChange={(e) => setFirstName(e.target.value)}
                   />
                   {
-                    errors.firstName? <Alert severity='error'>{errors.firstName}</Alert>
+                    errors.firstName ? <Alert severity='error'>{errors.firstName}</Alert>
                       : ""
                   }
                   {
@@ -210,12 +209,12 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                     type='text'
                     onChange={(e) => setEmail(e.target.value)}
                   />
-                   {
+                  {
                     errors.email ? <Alert severity='error'>{errors.email}</Alert>
                       : ""
                   }
                   {
-                     emailErrors ?
+                    emailErrors ?
                       <Stack sx={{ width: '100%', mt: 2 }} spacing={2}>
                         <Alert severity='error'>{emailErrors}</Alert>
                       </Stack> : ""
@@ -225,7 +224,7 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                     placeholder='Password'
                     type='password'
                     onChange={(e) => setPassword(e.target.value)} />
-                     {
+                  {
                     errors.password ? <Alert severity='error'>{errors.password}</Alert>
                       : ""
                   }
@@ -241,7 +240,7 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                     type='password'
                     onChange={(e) => setConfirm(e.target.value)}
                   />
-                   {
+                  {
                     errors.confirm ? <Alert severity='error'>{errors.confirm}</Alert>
                       : ""
                   }
@@ -255,13 +254,13 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                     block
                     className='btn registerbtn'
                     type='submit'
-                    // disabled={
-                    //   confirm !== password ||
-                    //   password.length < 8 ||
-                    //   lastName.length < 3 ||
-                    //   firstName.length < 3
-                    // }
-                    >
+                  // disabled={
+                  //   confirm !== password ||
+                  //   password.length < 8 ||
+                  //   lastName.length < 3 ||
+                  //   firstName.length < 3
+                  // }
+                  >
                     Register
                   </Button>
                 </Form>

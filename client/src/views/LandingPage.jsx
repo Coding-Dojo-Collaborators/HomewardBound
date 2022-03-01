@@ -8,9 +8,9 @@ import LandingPageHeader from '../components/Headers/LandingPageHeader';
 import Footer from '../components/Footer/Footer';
 
 // Styles
+// import 'assets/css/bootstrap.min.css';
 import 'bootstrap/scss/bootstrap.scss';
 import 'assets/scss/paper-kit.scss';
-import 'assets/css/bootstrap.min.css';
 import 'assets/css/paper-kit.css';
 import 'assets/demo/demo.css';
 
