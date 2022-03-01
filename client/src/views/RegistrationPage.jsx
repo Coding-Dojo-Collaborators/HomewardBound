@@ -84,7 +84,15 @@ export default ({ loggedInUser, setLoggedInUser }) => {
   // ------------ Registration ------------- //
   const handleRegister = async (e) => {
     e.preventDefault();
-    
+    if (validator.isEmail(email)) {
+      setEmailErrors(null);
+    } else if(email == ""){
+      setEmailErrors("Enter valid email!");
+      return 'error';
+    }else{
+      setEmailErrors("Enter valid email!");
+      return 'error';
+    }
     await axios.post(process.env.REACT_APP_JAVA_API + 'register/', {
       "firstName": firstName,
       "lastName": lastName,
@@ -93,17 +101,9 @@ export default ({ loggedInUser, setLoggedInUser }) => {
       "confirm": confirm
     })
       .then(res => {
-        if (validator.isEmail(email)) {
-          setEmailErrors(null);
-        } else if(email == ""){
-          setEmailErrors("Enter valid email!");
-          return 'error';
-        }else{
-          setEmailErrors("Enter valid email!");
-          return 'error';
-        }
+      
         if(res.status === 206) {
-          console.log("here",res)
+          
           let tempError = {}
           for(let i = 0; i < res.data.length;i++){
             tempError[res.data[i].field] = res.data[i].defaultMessage
@@ -215,7 +215,7 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                       : ""
                   }
                   {
-                     emailErrors  ?
+                     emailErrors ?
                       <Stack sx={{ width: '100%', mt: 2 }} spacing={2}>
                         <Alert severity='error'>{emailErrors}</Alert>
                       </Stack> : ""
