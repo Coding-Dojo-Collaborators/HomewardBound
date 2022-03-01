@@ -1,11 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React from 'react';
-<<<<<<< HEAD
-
-// NodeJS library that concatenates strings
-=======
 import { useHistory} from 'react-router-dom';
->>>>>>> f105dc8abe1383b9dfca013684c0935ab3df0958
 import classnames from 'classnames';
 
 // Reactstrap Components
@@ -58,10 +53,6 @@ export default ({ setLoggedInUser, loggedInUser, page }) => {
       window.removeEventListener('scroll', updateNavbarColor);
     };
   });
-<<<<<<< HEAD
-
-=======
->>>>>>> f105dc8abe1383b9dfca013684c0935ab3df0958
   const logo = require('../../assets/img/brandlogo/logo_transparent_background.png');
 
   return (
@@ -111,15 +102,9 @@ export default ({ setLoggedInUser, loggedInUser, page }) => {
         >
           <Nav navbar>
             <NavItem>
-<<<<<<< HEAD
-
-              <NavLink href='#about'>
-                <i className='nc-icon nc-alert-circle-i me-1' /> About Us
-=======
               
               <NavLink  href='#about'>
                 <i className='nc-icon nc-alert-circle-i me-1 ' /> About Us
->>>>>>> f105dc8abe1383b9dfca013684c0935ab3df0958
               </NavLink>
             </NavItem>
             <NavItem>

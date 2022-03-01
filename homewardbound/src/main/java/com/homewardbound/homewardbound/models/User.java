@@ -29,7 +29,7 @@ public class User {
     public String firstName;
     
     @NotNull
-    @Size(min=3, message="First Name must be at least 3 characters")
+    @Size(min=3, message="Last Name must be at least 3 characters")
     public String lastName;
 
     @NotEmpty(message="Email is required!")
@@ -37,11 +37,11 @@ public class User {
     private String email;
     
     @NotEmpty(message="Password is required!")
-    @Size(min=8, max=60, message="Password must be between 8 and 128 characters")
+    @Size(min=8, max=60, message="Password must be at least 8 characters")
     private String password;
     
     @Transient
-    @Size(min=8, max=128, message="Confirm Password must be between 8 and 128 characters")
+    @Size(min=8, max=128, message="Confirm Password must be at least 8 characters")
     private String confirm;
 
     private boolean oAuthUser;

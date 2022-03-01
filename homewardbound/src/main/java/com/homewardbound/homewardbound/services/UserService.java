@@ -4,6 +4,7 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Base64;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 import com.homewardbound.homewardbound.models.FacebookLogin;
@@ -15,6 +16,7 @@ import com.homewardbound.homewardbound.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
 
 import io.github.cdimascio.dotenv.Dotenv;
 import io.jsonwebtoken.Jwts;
@@ -123,7 +125,7 @@ public class UserService {
         return jwt;
     }
     // ------------Registration-------------------//
-    public String register(User newUser) {
+    public String register(User newUser, BindingResult result) {
         String emailEntered = newUser.getEmail();
         Optional<User> isUser = userRepo.findByEmail(emailEntered);
         if (!isUser.isPresent()) {
@@ -149,11 +151,12 @@ public class UserService {
                         .compact();
                 return jwt;
             } else {
-                return "Passwords don't match";
+                result.rejectValue("password","password", "Passwords dont match");
+                return null;
             }
         }
-        return "Please sign in User already exist";
+        result.rejectValue("email","UserExists", "Please Login in, Email already exist");
+        return null;
     }
-
-
+   
 }

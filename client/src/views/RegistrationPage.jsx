@@ -26,15 +26,17 @@ import validator from 'validator';
 
 export default ({ loggedInUser, setLoggedInUser }) => {
   document.documentElement.classList.remove('nav-open');
+  // -------------- useHistory ----------------- //
+  const history = useHistory();
   // -------------- useStates ----------------- //
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
-  const [errors, setErrors] = useState(false);
-  const history = useHistory();
-  const [emailError, setEmailError] = useState("");
+    // -------------- errors ----------------- //
+  const [errors, setErrors] = useState({});
+  const [emailErrors, setEmailErrors] = useState(null);
 
   // ------------- useEffects ---------------- //
   React.useEffect(() => {
@@ -82,12 +84,7 @@ export default ({ loggedInUser, setLoggedInUser }) => {
   // ------------ Registration ------------- //
   const handleRegister = async (e) => {
     e.preventDefault();
-    if (validator.isEmail(email)) {
-      setEmailError("");
-    } else {
-      setEmailError("Enter valid email!");
-      return 'error';
-    }
+    
     await axios.post(process.env.REACT_APP_JAVA_API + 'register/', {
       "firstName": firstName,
       "lastName": lastName,
@@ -96,17 +93,30 @@ export default ({ loggedInUser, setLoggedInUser }) => {
       "confirm": confirm
     })
       .then(res => {
+        if (validator.isEmail(email)) {
+          setEmailErrors(null);
+        } else if(email == ""){
+          setEmailErrors("Enter valid email!");
+          return 'error';
+        }else{
+          setEmailErrors("Enter valid email!");
+          return 'error';
+        }
+        if(res.status === 206) {
+          console.log("here",res)
+          let tempError = {}
+          for(let i = 0; i < res.data.length;i++){
+            tempError[res.data[i].field] = res.data[i].defaultMessage
+          }
+          setErrors(tempError)
+          return
+        }
         console.log("response from registering", res);
-        res.data === "Passwords don't match" ?
-          setErrors({ "message": res.data }) :
-          res.data === "Please sign in User already exist" ?
-            setErrors({ "message": res.data }) :
             Cookies.set('user_id', res.data, { path: '/' })
         setLoggedInUser(jwt_decode(Cookies.get('user_id')));
       })
       .catch(err => console.log(err));
   };
-
   return (
     <>
       <Navbar
@@ -159,7 +169,6 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                       </Button>
                     )}
                   />
-
                 </div>
                 {/* // ------------- Registration Form ---------------- // */}
                 <Form className='register-form' onSubmit={handleRegister}>
@@ -169,6 +178,10 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                     type='text'
                     onChange={(e) => setFirstName(e.target.value)}
                   />
+                  {
+                    errors.firstName? <Alert severity='error'>{errors.firstName}</Alert>
+                      : ""
+                  }
                   {
                     (firstName.length !== 0 && firstName.length < 3) ?
                       <Stack sx={{ width: '100%', mt: 2 }} spacing={2}>
@@ -182,6 +195,10 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                     onChange={(e) => setLastName(e.target.value)}
                   />
                   {
+                    errors.lastName ? <Alert severity='error'>{errors.lastName}</Alert>
+                      : ""
+                  }
+                  {
                     (lastName.length !== 0 && lastName.length < 3) ?
                       <Stack sx={{ width: '100%', mt: 2 }} spacing={2}>
                         <Alert severity='error'>Enter valid Last Name</Alert>
@@ -193,10 +210,14 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                     type='text'
                     onChange={(e) => setEmail(e.target.value)}
                   />
+                   {
+                    errors.email ? <Alert severity='error'>{errors.email}</Alert>
+                      : ""
+                  }
                   {
-                    (email.length !== 0 && emailError !== '') ?
+                     emailErrors  ?
                       <Stack sx={{ width: '100%', mt: 2 }} spacing={2}>
-                        <Alert severity='error'>{emailError}</Alert>
+                        <Alert severity='error'>{emailErrors}</Alert>
                       </Stack> : ""
                   }
                   <label>Password</label>
@@ -204,6 +225,10 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                     placeholder='Password'
                     type='password'
                     onChange={(e) => setPassword(e.target.value)} />
+                     {
+                    errors.password ? <Alert severity='error'>{errors.password}</Alert>
+                      : ""
+                  }
                   {
                     (password.length !== 0 && password.length < 8) ?
                       <Stack sx={{ width: '100%', mt: 2 }} spacing={2}>
@@ -216,6 +241,10 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                     type='password'
                     onChange={(e) => setConfirm(e.target.value)}
                   />
+                   {
+                    errors.confirm ? <Alert severity='error'>{errors.confirm}</Alert>
+                      : ""
+                  }
                   {
                     (confirm.length !== 0 && confirm !== password) ?
                       <Stack sx={{ width: '100%', mt: 2 }} spacing={2}>
@@ -226,12 +255,13 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                     block
                     className='btn registerbtn'
                     type='submit'
-                    disabled={
-                      confirm !== password ||
-                      password.length < 8 ||
-                      lastName.length < 3 ||
-                      firstName.length < 3
-                    }>
+                    // disabled={
+                    //   confirm !== password ||
+                    //   password.length < 8 ||
+                    //   lastName.length < 3 ||
+                    //   firstName.length < 3
+                    // }
+                    >
                     Register
                   </Button>
                 </Form>
