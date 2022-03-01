@@ -24,9 +24,12 @@ import jwt_decode from 'jwt-decode';
 import Cookies from 'js-cookie';
 import { GoogleLogin } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
+import { useHistory } from 'react-router-dom';
 // import GithubButton from 'react-github-login-button';
 
 export default ({ handleClose, setLoggedInUser }) => {
+  // -------------- useHistory ------------------ //
+  const history = useHistory()
   // -------------- useStates ------------------ //
   const [errors, setErrors] = useState("");
   const [close, setClose] = useState(true);
@@ -34,9 +37,7 @@ export default ({ handleClose, setLoggedInUser }) => {
     email: "",
     password: "",
   });
-  // ---------- react-router-dom --------------- //
-  // const history = useHistory();
-  // const classes = useStyles();
+  
   // ------------ Misc Imports ----------------- //
   const logo = require('../../assets/img/brandlogo/white_logo_transparent_background.png');
   // -------------- functions ------------------ //
@@ -195,8 +196,8 @@ export default ({ handleClose, setLoggedInUser }) => {
           <Button
             className='btn-link'
             color='danger'
-            href='#'
-            onClick={(e) => e.preventDefault()}
+            onClick={(e) => history.push('/register')}
+            
           >
             Sign Up
           </Button>

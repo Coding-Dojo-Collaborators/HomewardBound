@@ -41,6 +41,7 @@ export default ({ setUser, loggedInUser, setLoggedInUser }) => {
   return (
     <div id='top' >
       <Navbar
+        page='landing'
         logout={logout}
         loggedInUser={loggedInUser}
         setLoggedInUser={setLoggedInUser}
