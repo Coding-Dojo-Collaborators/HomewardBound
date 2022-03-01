@@ -1,19 +1,7 @@
-import "slick-carousel/slick/slick.css";
-
-import "slick-carousel/slick/slick-theme.css";
-import ArrowLeft from '@mui/icons-material/ArrowLeft';
-import ArrowRight from "@mui/icons-material/ArrowRight";
-import { Link } from "react-router-dom";
-import dog1 from './dog1.jpg';
-import dog2 from './dog2.jpg';
-// import dog2 from 'assets/img/splashcover.jpg';
-import './DashboardMain.css';
-
-import { FaChevronLeft, FaChevronRight } from 'react-icons'
-
 import React, { Component } from "react";
-import Slider from "react-slick";
+import { Link } from "react-router-dom";
 
+// Reactstrap components
 import {
   Button,
   Container,
@@ -21,6 +9,22 @@ import {
   Col,
 } from 'reactstrap';
 
+// Styles
+import styles from '../../assets/css/modules/paper-dashboard.module.css';
+import './DashboardMain.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import { FaChevronLeft, FaChevronRight } from 'react-icons';
+
+// MUI
+import ArrowLeft from '@mui/icons-material/ArrowLeft';
+import ArrowRight from "@mui/icons-material/ArrowRight";
+
+// Others
+import dog1 from './dog1.jpg';
+import dog2 from './dog2.jpg';
+// import dog2 from 'assets/img/splashcover.jpg';
 
 export default class SimpleSlider extends Component {
   render() {

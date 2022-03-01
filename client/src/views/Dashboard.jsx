@@ -65,10 +65,9 @@ export default ({ loggedInUser, setLoggedInUser, colors }) => {
           loggedInUser={loggedInUser}
           setLoggedInUser={setLoggedInUser}
         />
-        {/* <Footer fluid /> */}
       </div>
       <DashboardMain />
-      <Footer />
+      <Footer fluid />
     </div>
   );
 }

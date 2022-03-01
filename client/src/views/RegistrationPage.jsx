@@ -176,13 +176,13 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                     onChange={(e) => setFirstName(e.target.value)}
                   />
                   {
-                    errors.firstName ? <Alert severity='error'>{errors.firstName}</Alert>
+                    errors.firstName ? <Alert severity='error' className='small'>{errors.firstName}</Alert>
                       : ""
                   }
                   {
                     (firstName.length !== 0 && firstName.length < 3) ?
                       <Stack sx={{ width: '100%', mt: 2 }} spacing={2}>
-                        <Alert severity='error'>Enter valid First Name</Alert>
+                        <Alert severity='error' className='small'>Enter valid First Name</Alert>
                       </Stack> : ""
                   }
                   <label>Last Name</label>
@@ -192,13 +192,13 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                     onChange={(e) => setLastName(e.target.value)}
                   />
                   {
-                    errors.lastName ? <Alert severity='error'>{errors.lastName}</Alert>
+                    errors.lastName ? <Alert severity='error' className='small'>{errors.lastName}</Alert>
                       : ""
                   }
                   {
                     (lastName.length !== 0 && lastName.length < 3) ?
                       <Stack sx={{ width: '100%', mt: 2 }} spacing={2}>
-                        <Alert severity='error'>Enter valid Last Name</Alert>
+                        <Alert severity='error' className='small'>Enter valid Last Name</Alert>
                       </Stack> : ""
                   }
                   <label>Email</label>
@@ -208,13 +208,13 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                     onChange={(e) => setEmail(e.target.value)}
                   />
                   {
-                    errors.email ? <Alert severity='error'>{errors.email}</Alert>
+                    errors.email ? <Alert severity='error' className='small'>{errors.email}</Alert>
                       : ""
                   }
                   {
                     emailErrors ?
                       <Stack sx={{ width: '100%', mt: 2 }} spacing={2}>
-                        <Alert severity='error'>{emailErrors}</Alert>
+                        <Alert severity='error' className='small'>{emailErrors}</Alert>
                       </Stack> : ""
                   }
                   <label>Password</label>
@@ -223,13 +223,13 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                     type='password'
                     onChange={(e) => setPassword(e.target.value)} />
                   {
-                    errors.password ? <Alert severity='error'>{errors.password}</Alert>
+                    errors.password ? <Alert severity='error' className='small'>{errors.password}</Alert>
                       : ""
                   }
                   {
                     (password.length !== 0 && password.length < 8) ?
                       <Stack sx={{ width: '100%', mt: 2 }} spacing={2}>
-                        <Alert severity='error'>Password must be at least 8 characters</Alert>
+                        <Alert severity='error' className='small'>Password must be at least 8 characters</Alert>
                       </Stack> : ""
                   }
                   <label>Confirm Password</label>
@@ -239,13 +239,13 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                     onChange={(e) => setConfirm(e.target.value)}
                   />
                   {
-                    errors.confirm ? <Alert severity='error'>{errors.confirm}</Alert>
+                    errors.confirm ? <Alert severity='error' className='small'>{errors.confirm}</Alert>
                       : ""
                   }
                   {
                     (confirm.length !== 0 && confirm !== password) ?
                       <Stack sx={{ width: '100%', mt: 2 }} spacing={2}>
-                        <Alert severity='error'>Passwords must match</Alert>
+                        <Alert severity='error' className='small'>Passwords must match</Alert>
                       </Stack> : ""
                   }
                   <Button
