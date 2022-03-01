@@ -85,7 +85,10 @@ public class UserService {
             userRepo.save(user);
         } else {
             user = isUser.get();
-            return "Email already has an account not associated with Facebook ";
+            if(!user.isFacebookUser()){
+
+                return "Email already has an account not associated with Facebook ";
+            }
         }
         String jwt = Jwts.builder()
                 .claim("id", user.getId())
