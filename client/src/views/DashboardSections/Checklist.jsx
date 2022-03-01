@@ -1,11 +1,12 @@
 import React from 'react'
 import './checklist.css';
-
+import Navbar from '../../components/Navbars/Navbar';
 const Checklist = () => {
   return (
 
 
     <div>
+      <Navbar />
       <main>
         <h1 className='p-4'>Checklist for New Adopters
           <p>Congratulations on adopting a pet! You are embarking on a wonderful and rewarding relationship. Because adopting a new pet comes with a lot of change for both pet and pet parent, we’ve compiled a checklist to help make the transition as smooth as possible.</p>
