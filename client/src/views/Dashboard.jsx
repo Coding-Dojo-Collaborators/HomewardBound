@@ -51,7 +51,7 @@ export default ({ loggedInUser, setLoggedInUser, colors }) => {
   }, [history, loggedInUser]);
 
   return (
-    <div className='wrapper'>
+    <div className={`${styles.wrapper}`}>
       <Sidebar
         bgColor='black'
         activeColor='danger'

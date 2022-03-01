@@ -1,20 +1,24 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React, { useEffect, useRef } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useHistory, NavLink } from 'react-router-dom';
 
 // Reactstrap components
-import { Nav } from 'reactstrap';
+import { Button, Nav } from 'reactstrap';
 
 // Styles
 import styles from '../../assets/css/modules/dashboard.module.css';
 import style from '../../assets/css/modules/paper-dashboard.module.css';
 
+// Login
+import Cookies from 'js-cookie';
+
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from 'perfect-scrollbar';
 var ps;
 
-export default ({ loggedInUser }) => {
+export default ({ loggedInUser, setLoggedInUser }) => {
   const sidebar = useRef();
+  const history = useHistory();
   // verifies if routeName is the one active (in browser input)
   // const activeRoute = (routeName) => {
   //   return properties.location.pathname.indexOf(routeName) > -1 ? "active" : "";
@@ -34,13 +38,19 @@ export default ({ loggedInUser }) => {
     };
   });
 
+  let logout = () => {
+    setLoggedInUser('no user');
+    Cookies.remove('user_id');
+    history.push('/');
+  }
+
   console.log(loggedInUser);
 
   const logoArea = {
     display: 'flex',
     alignItems: 'center',
     marginBottom: '20px',
-    padding: '60px',
+    padding: '40px',
     textAlign: 'center',
   }
 
@@ -239,6 +249,18 @@ export default ({ loggedInUser }) => {
                 </NavLink>
               </li>
             </ul>
+            <div className='mx-auto mt-3'>
+              <Button
+                onClick={logout}
+                className='btn login-btn mt-4'
+                type='button'
+
+              >
+                <i className='nc-icon nc-button-power me-2'>
+                </i>
+                Log Out
+              </Button>
+            </div>
           </Nav>
         </div>
       </div>
