@@ -49,12 +49,11 @@ export default () => {
             <h1>Put Your Love Into Action</h1>
             <h3>Each of us has a role to play in creating a better world for animals.</h3>
             <br />
-            {/* Insert RegistrationModal Here */}
             <Button
               className='mt-3'
               color='neutral'
               type='button' outline
-              size='lg'
+              size='md'
               tag={Link} to='/register'
             >
               Sign Up
