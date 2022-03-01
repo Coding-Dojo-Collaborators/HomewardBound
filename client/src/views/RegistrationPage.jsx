@@ -110,7 +110,7 @@ export default ({ loggedInUser, setLoggedInUser }) => {
           return;
         }
         console.log("response from registering", res);
-        Cookies.set('user_id', res.data, { path: '/' });
+        Cookies.set('user_id', res.data, { path: '/' })
         setLoggedInUser(jwt_decode(Cookies.get('user_id')));
       })
       .catch(err => console.log(err));

@@ -1,4 +1,4 @@
-package com.homewardbound.homewardbound.models;
+package com.homewardbound.homewardbound.models.login;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;

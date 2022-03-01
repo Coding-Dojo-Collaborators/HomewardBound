@@ -2,15 +2,14 @@ package com.homewardbound.homewardbound.controllers;
 
 import javax.validation.Valid;
 
-import com.homewardbound.homewardbound.models.FacebookLogin;
-import com.homewardbound.homewardbound.models.GoogleLogin;
-import com.homewardbound.homewardbound.models.LoginUser;
-import com.homewardbound.homewardbound.models.User;
+import com.homewardbound.homewardbound.models.login.FacebookLogin;
+import com.homewardbound.homewardbound.models.login.GoogleLogin;
+import com.homewardbound.homewardbound.models.login.LoginUser;
+import com.homewardbound.homewardbound.models.login.User;
 import com.homewardbound.homewardbound.services.UserService;
 
-import org.springframework.http.HttpStatus;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;

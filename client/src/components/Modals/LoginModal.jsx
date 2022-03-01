@@ -32,7 +32,7 @@ export default function TransitionsModal({ setLoggedInUser, loggedInUser }) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  console.log(loggedInUser);
+
 
   return (
     <div>
