@@ -15,9 +15,9 @@ import PerfectScrollbar from 'perfect-scrollbar';
 
 // Styles
 import 'bootstrap/dist/css/bootstrap.css';
-import './DashboardSections/scss/paper-dashboard.scss';
-import './DashboardSections/css/dashboard.css';
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
+// import '../assets/css/dashboard/dashboard.css';
+// import '../assets/css/dashboard/paper-dashboard.css';
 
 // Views
 import DashboardMain from './DashboardSections/DashboardMain';
