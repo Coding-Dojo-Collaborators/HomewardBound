@@ -11,7 +11,7 @@ import jwt_decode from 'jwt-decode';
 import Cookies from 'js-cookie';
 
 // Styles
-// import 'assets/css/bootstrap.min.css';
+import 'assets/css/bootstrap.min.css';
 import 'bootstrap/scss/bootstrap.scss';
 import 'assets/scss/paper-kit.scss';
 import 'assets/css/paper-kit.css';

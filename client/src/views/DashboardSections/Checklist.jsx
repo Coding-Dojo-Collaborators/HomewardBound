@@ -1,5 +1,5 @@
 import React from 'react'
-import './checklist.css';
+// import './checklist.css';
 import Navbar from '../../components/Navbars/Navbar';
 const Checklist = () => {
   return (
