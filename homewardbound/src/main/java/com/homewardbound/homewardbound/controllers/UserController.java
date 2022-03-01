@@ -35,8 +35,12 @@ public class UserController {
 
 //------------Regular Login---------------- //
     @PostMapping("/api/login")
-    public ResponseEntity<String> login(@RequestBody LoginUser newLogin){
-        String loginResponse =  userService.login(newLogin);
+    public ResponseEntity<?> login(@Valid @RequestBody LoginUser newLogin,BindingResult result){
+        
+        String loginResponse =  userService.login(newLogin,result);
+        if(result.hasErrors()){
+            return new ResponseEntity<>(result.getFieldErrors(),HttpStatus.valueOf(206));
+        }
             return  new ResponseEntity<String>(loginResponse,HttpStatus.valueOf(200));
     }
 
