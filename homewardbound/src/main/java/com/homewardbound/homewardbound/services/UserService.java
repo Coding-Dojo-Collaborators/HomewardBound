@@ -7,10 +7,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-import com.homewardbound.homewardbound.models.FacebookLogin;
-import com.homewardbound.homewardbound.models.GoogleLogin;
-import com.homewardbound.homewardbound.models.LoginUser;
-import com.homewardbound.homewardbound.models.User;
+import com.homewardbound.homewardbound.models.login.FacebookLogin;
+import com.homewardbound.homewardbound.models.login.GoogleLogin;
+import com.homewardbound.homewardbound.models.login.LoginUser;
+import com.homewardbound.homewardbound.models.login.User;
 import com.homewardbound.homewardbound.repositories.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.homewardbound.homewardbound.models;
+package com.homewardbound.homewardbound.models.login;
 
 public class FacebookLogin {
 
