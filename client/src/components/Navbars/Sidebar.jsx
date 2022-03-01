@@ -1,20 +1,25 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React, { useEffect, useRef } from 'react';
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
 // Reactstrap components
-import { Nav } from "reactstrap";
+import { Nav } from 'reactstrap';
+
+// Styles
+import styles from '../../assets/css/modules/dashboard.module.css';
+import style from '../../assets/css/modules/paper-dashboard.module.css';
+
 
 // javascript plugin used to create scrollbars on windows
-import PerfectScrollbar from "perfect-scrollbar";
+import PerfectScrollbar from 'perfect-scrollbar';
 var ps;
 
 export default ({ properties, loggedInUser }) => {
   const sidebar = useRef();
   // verifies if routeName is the one active (in browser input)
-  const activeRoute = (routeName) => {
-    return properties.location.pathname.indexOf(routeName) > -1 ? "active" : "";
-  };
+  // const activeRoute = (routeName) => {
+  //   return properties.location.pathname.indexOf(routeName) > -1 ? "active" : "";
+  // };
 
   useEffect(() => {
     if (navigator.platform.indexOf("Win") > -1) {
@@ -32,97 +37,208 @@ export default ({ properties, loggedInUser }) => {
 
   console.log(loggedInUser);
 
+  const logoArea = {
+    display: 'flex',
+    alignItems: 'center',
+    marginBottom: '20px',
+    padding: '60px',
+    textAlign: 'center',
+  }
+
   const avatarSize = {
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     objectFit: 'cover',
-    height: 120,
+    height: 96,
+    width: 259,
   };
 
-  const sidebarLinks = {
+  const sidebarList = {
     display: 'flex',
     alignItems: 'center',
-    // fontSize: '20px',
+    margin: '10px 15px 0',
+    textDecoration: 'none',
+    position: 'relative',
+    textTransform: 'uppercase',
+    cursor: 'pointer',
+    fontSize: '12px',
+    padding: '10px 8px',
+    lineHeight: '30px',
+    opacity: .7,
+    transition: 'all .3s ease 0s',
   }
+
+  const sidebarIcons = {
+    fontSize: '1.5rem',
+    marginRight: '12px',
+  }
+
+  // const sidebarLinks = {
+  //   color: 'f8f9fa !important',
+  //   ':hover': {
+  //     color: '#f47660 !important',
+  //   }
+  // }
 
   return (
     <div>
       <div
-        className='sidebar'
+        className={`${styles.sidebar} ${style.sidebar}`}
         data-color='black'
         data-active-color='danger'
       >
-        <div className='logo'>
-          <div className='logo-img' style={avatarSize}>
+        <div className={style.logo} style={logoArea}>
+          <div style={avatarSize}>
             <img
               src={loggedInUser.picture}
               alt={loggedInUser.name}
-              className='img-circle img-no-padding img-responsive'
+              className='img-circle img-no-padding img-responsive m-0'
             />
           </div>
         </div>
-        <div className='sidebar-wrapper' ref={sidebar}>
+        <div className={style.sidebarWrapper} ref={sidebar}>
           <Nav>
             <ul className='list-unstyled'>
-              <li style={sidebarLinks}>
+              <li style={sidebarList}>
                 <NavLink
                   to='/dashboard'
-                  className='nav-link'
+                  style={({ isActive }) => ({
+                    color: isActive ? '#f47660' : '#fff',
+                    ':hover': '#f47660 !important',
+                  })}
+                  className='d-flex align-items-center text-decoration-none fw-normal'
                   activeClassName='active'
                 >
-                  <i className='nc-icon nc-bank' />
-                  Dashboard
+                  <i className='nc-icon nc-bank'
+                    style={sidebarIcons} />
+                  <span>Dashboard</span>
                 </NavLink>
               </li>
-              <li style={sidebarLinks}>
+              <li style={sidebarList}>
                 <NavLink
                   to='/dashboard/adoption'
-                  className='nav-link'
+                  style={({ isActive }) => ({
+                    color: isActive ? '#f47660' : '#fff',
+                    ':hover': '#f47660 !important',
+                  })}
+                  className='d-flex align-items-center text-decoration-none fw-normal'
                   activeClassName='active'
                 >
-                  <i className='nc-icon nc-briefcase-24' />
+                  <i className='nc-icon nc-briefcase-24'
+                    style={sidebarIcons} />
                   Adoption
                 </NavLink>
               </li>
               <ul className=''>
-                <li style={sidebarLinks}>
+                <li style={sidebarList}>
                   <NavLink
                     to='/dashboard/checklist'
-                    className='nav-link'
+                    style={({ isActive }) => ({
+                      color: isActive ? '#f47660' : '#fff',
+                      ':hover': '#f47660 !important',
+                    })}
+                    className='d-flex align-items-center text-decoration-none fw-normal'
                     activeClassName='active'
                   >
-                    <i className='nc-icon nc-bullet-list-67' />
+                    <i className='nc-icon nc-bullet-list-67'
+                      style={sidebarIcons} />
                     Checklist
                   </NavLink>
                 </li>
-                <li style={sidebarLinks}>
+                <li style={sidebarList}>
                   <NavLink
                     to='/dashboard/dogmatchquiz'
-                    className='nav-link'
+                    style={({ isActive }) => ({
+                      color: isActive ? '#f47660' : '#fff',
+                      ':hover': '#f47660 !important',
+                    })}
+                    className='d-flex align-items-center text-decoration-none fw-normal'
                     activeClassName='active'
                   >
-                    <i className='nc-icon nc-touch-id' />
+                    <i className='nc-icon nc-touch-id'
+                      style={sidebarIcons} />
                     Match Quiz - Dog
                   </NavLink>
                 </li>
-                <li style={sidebarLinks}>
+                <li style={sidebarList}>
                   <NavLink
                     to='/dashboard/catmatchquiz'
-                    className='nav-link'
+                    style={({ isActive }) => ({
+                      color: isActive ? '#f47660' : '#fff',
+                      ':hover': '#f47660 !important',
+                    })}
+                    className='d-flex align-items-center text-decoration-none fw-normal'
                     activeClassName='active'
                   >
-                    <i className='nc-icon nc-touch-id' />
+                    <i className='nc-icon nc-touch-id'
+                      style={sidebarIcons} />
                     Match Quiz - Cat
                   </NavLink>
                 </li>
               </ul>
-              <li>Rehome a Pet</li>
+              <li style={sidebarList}>
+                <NavLink
+                  to='/dashboard/rehome'
+                  style={({ isActive }) => ({
+                    color: isActive ? '#f47660' : '#fff',
+                    ':hover': '#f47660 !important',
+                  })}
+                  className='d-flex align-items-center text-decoration-none fw-normal'
+                  activeClassName='active'
+                >
+                  <i className='nc-icon nc-shop'
+                    style={sidebarIcons} />
+                  Rehome a Pet
+                </NavLink>
+              </li>
               <ul className=''>
-                <li>Dog Profile</li>
-                <li>Cat Profile</li>
+                <li style={sidebarList}>
+                  <NavLink
+                    to='/dashboard/rehome/dogprofile'
+                    style={({ isActive }) => ({
+                      color: isActive ? '#f47660' : '#fff',
+                      ':hover': '#f47660 !important',
+                    })}
+                    className='d-flex align-items-center text-decoration-none fw-normal'
+                    activeClassName='active'
+                  >
+                    <i className='nc-icon nc-single-copy-04'
+                      style={sidebarIcons} />
+                    Dog Profile
+                  </NavLink>
+                </li>
+                <li style={sidebarList}>
+                  <NavLink
+                    to='/dashboard/rehome/catprofile'
+                    style={({ isActive }) => ({
+                      color: isActive ? '#f47660' : '#fff',
+                      ':hover': '#f47660 !important',
+                    })}
+                    className='d-flex align-items-center text-decoration-none fw-normal'
+                    activeClassName='active'
+                  >
+                    <i className='nc-icon nc-single-copy-04'
+                      style={sidebarIcons} />
+                    Cat Profile
+                  </NavLink>
+                </li>
               </ul>
-              <li>User Profile</li>
+              <li style={sidebarList}>
+                <NavLink
+                  to='/dashboard/profile'
+                  style={({ isActive }) => ({
+                    color: isActive ? '#f47660' : '#fff',
+                    ':hover': '#f47660 !important',
+                  })}
+                  className='d-flex align-items-center text-decoration-none fw-normal'
+                  activeClassName='active'
+                >
+                  <i className='nc-icon nc-circle-10'
+                    style={sidebarIcons} />
+                  User Profile
+                </NavLink>
+              </li>
             </ul>
           </Nav>
         </div>

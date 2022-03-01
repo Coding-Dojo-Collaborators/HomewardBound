@@ -22,7 +22,7 @@ import LoginModal from '../Modals/LoginModal'
 
 export default ({ setLoggedInUser, loggedInUser, page }) => {
   // -------------- useHistory ------------------ //
-  const history = useHistory()
+  const history = useHistory();
   // -------------- useStates ------------------ //
   const [navbarColor, setNavbarColor] = useState("navbar-transparent");
   const [navbarCollapse, setNavbarCollapse] = useState(false);
@@ -63,7 +63,7 @@ export default ({ setLoggedInUser, loggedInUser, page }) => {
     >
       {
         page === 'landing' ?
-          <Container className='d-flex'>
+          <Container className='d-flex align-items-center'>
             <div className='navbar-translate'>
               <NavbarBrand
                 data-placement='bottom'
@@ -99,22 +99,22 @@ export default ({ setLoggedInUser, loggedInUser, page }) => {
             >
               <Nav navbar>
                 <NavItem>
-                  <NavLink href='#about'>
+                  <NavLink href='#about' className='fw-bold'>
                     <i className='nc-icon nc-alert-circle-i me-1 ' /> About Us
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href='#adopt' >
+                  <NavLink href='#adopt' className='fw-bold'>
                     <i className='nc-icon nc-single-copy-04 me-1' /> Adopt
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href='#services' >
+                  <NavLink href='#services' className='fw-bold'>
                     <i className='nc-icon nc-zoom-split me-1' /> Services
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href='#contact' >
+                  <NavLink href='#contact' className='fw-bold'>
                     <i className='nc-icon nc-send me-1' /> Contact Us
                   </NavLink>
                 </NavItem>

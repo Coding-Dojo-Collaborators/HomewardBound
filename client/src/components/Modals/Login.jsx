@@ -44,7 +44,7 @@ export default ({ handleClose, setLoggedInUser }) => {
     e.preventDefault();
     if (validator.isEmail(email)) {
       setEmailErrors(null);
-    } else if (email == "") {
+    } else if (email === "") {
       setEmailErrors("Enter valid email!");
       return 'error';
     } else {
@@ -102,20 +102,20 @@ export default ({ handleClose, setLoggedInUser }) => {
           }}
         >
         </Avatar>
-        <h3 className='title text-center mt-2 mb-4 text-white'>Log In</h3>
+        <h4 className='title text-center mt-2 mb-4 text-white fw-normal'>Log In</h4>
         <div className='social-line text-center mb-3'>
           {/* // -------------Google Login-------------------// */}
           <GoogleLogin
             clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
             render={(renderProps) => (
               <Button
-                className='btn-neutral btn-just-icon mr-1'
+                className='btn-white btn-just-icon'
                 type='button'
                 color='google'
                 onClick={renderProps.onClick}
                 disabled={renderProps.disabled}
               >
-                <i className='fa fa-google' />
+                <i className='fa fa-google pe-1 pt-1' />
               </Button>
             )}
             onSuccess={googleSuccess}
@@ -130,16 +130,16 @@ export default ({ handleClose, setLoggedInUser }) => {
             fields='name,email,picture,first_name,last_name'
             render={renderProps => (
               <Button
-                className='btn-neutral btn-just-icon mr-1 mx-1'
+                className='btn-white btn-just-icon mx-1'
                 color='facebook'
                 onClick={renderProps.onClick}
-              >  <i className='fa fa-facebook-square' />
+              >  <i className='fa fa-facebook-square pe-1 pt-1' />
               </Button>
             )}
           />
         </div>
         {/* // ---------------- Login Form ------------------- // */}
-        <Form className='register-form' onSubmit={handleSubmit}>
+        <Form className='register-form small' onSubmit={handleSubmit}>
           {
             errors ?
               <Stack sx={{ width: '100%', mt: 3 }} spacing={2}>
@@ -197,14 +197,13 @@ export default ({ handleClose, setLoggedInUser }) => {
           >Log In</Button>
         </Form>
         {/* // ----------------- Registration ----------------- // */}
-        <div className='forgot mt-3 text-center'>
+        <div className='forgot mt-3 text-center small'>
           Don't have an Account?
           <br />
           <Button
-            className='btn-link'
+            className='btn-link btn-sm'
             color='danger'
             onClick={(e) => history.push('/register')}
-
           >
             Sign Up
           </Button>

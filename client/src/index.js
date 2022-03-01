@@ -7,6 +7,7 @@ import ReactDOM from 'react-dom';
 import 'assets/scss/paper-kit.scss';
 import 'assets/css/paper-kit.css';
 import 'assets/demo/demo.css';
+import 'perfect-scrollbar/css/perfect-scrollbar.css';
 
 // Others
 import reportWebVitals from './reportWebVitals';

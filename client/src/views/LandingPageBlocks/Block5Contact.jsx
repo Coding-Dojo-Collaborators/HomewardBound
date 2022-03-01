@@ -45,7 +45,7 @@ export default () => {
           <Row className='mx-auto'>
             <Col className='mx-auto' md='8'>
               <h2 className='text-center mt-0'>Contact Us</h2>
-              <Form className='contact-form' onSubmit={submitHandler}>
+              <Form className='contact-form small' onSubmit={submitHandler}>
                 <Row>
                   <Col md='6'>
                     <label>Name</label>
@@ -76,9 +76,9 @@ export default () => {
                 <Row className='mx-auto'>
                   <Col className='mx-auto mt-3 d-flex justify-content-center' md='3'>
                     <Button
-                      className='getstartedbtn mb-1 mx-auto'
+                      className='login-btn mb-1 mx-auto px-3 py-2'
                       type='button'
-                      size='lg'
+                      size='md'
                     >
                       Send Message
                     </Button>

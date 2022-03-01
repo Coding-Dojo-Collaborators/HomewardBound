@@ -16,7 +16,7 @@ import './block1.css';
 export default () => {
   return (
     <section className='py-5'>
-      <div  className='section text-center'>
+      <div className='section text-center'>
         <Container>
           <Row className='mx-auto'>
             <Col className='mx-auto process' md='8'>
@@ -71,9 +71,9 @@ export default () => {
             </Col>
           </Row>
           <Button
-            className='mt-3 getstartedbtn mb-1'
+            className='mt-3 login-btn mb-1 px-3 py-2'
             type='button'
-            size='lg'
+            size='md'
             tag={Link} to='/register'
           // onClick={(e) => e.preventDefault()}
           >
@@ -81,6 +81,6 @@ export default () => {
           </Button>
         </Container>
       </div>
-       </section>
+    </section>
   );
 }

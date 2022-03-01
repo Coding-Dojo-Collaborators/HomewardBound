@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap");
+
+* {
+  font-family: "Montserrat", "Open Sans", sans-serif;
+}
+
 .bootstrap-switch {
   display: inline-block;
   direction: ltr;
@@ -993,6 +999,10 @@ fieldset[disabled] .btn.active {
 .btn.btn-link {
   color: #66615b;
 }
+.btn.btn-link.services {
+  font-size: smaller !important;
+  font-weight: bold !important;
+}
 .btn.btn-link:hover,
 .btn.btn-link:focus,
 .btn.btn-link:active,
@@ -1031,7 +1041,7 @@ fieldset[disabled] .btn.active {
 }
 
 .btn-just-icon {
-  border-radius: 50px;
+  border-radius: 50% !important;
   height: 40px;
   width: 40px;
   min-width: 40px;
@@ -1416,7 +1426,13 @@ fieldset[disabled] .btn-danger.active {
 .btn-danger .caret {
   border-top-color: #ffffff;
 }
-
+.btn-white {
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #ffffff;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
 .btn-neutral {
   background-color: #ffffff;
   border-color: #ffffff;
@@ -2123,14 +2139,17 @@ fieldset[disabled] .btn-neutral.active {
 
 ::-moz-placeholder {
   color: #9a9a9a;
+  font-size: smaller !important;
 }
 
 :-ms-input-placeholder {
   color: #9a9a9a;
+  font-size: smaller !important;
 }
 
 ::-webkit-input-placeholder {
   color: #9a9a9a;
+  font-size: smaller !important;
 }
 
 .form-control:focus + .input-group-text {
@@ -2878,7 +2897,7 @@ textarea {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-family: "Montserrat", "Open Sans", sans-serif;
-  font-weight: 300;
+  font-weight: 300 !important;
 }
 
 h1,
@@ -3186,6 +3205,15 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
   width: 18px;
   text-align: center;
 }
+
+.fa-facebook-square,
+.fa-google {
+  font-size: larger !important;
+}
+
+/* .login-text {
+  font-size: 95% !important;
+} */
 
 .margin-top {
   margin-top: 50px;
@@ -5641,6 +5669,7 @@ License - nucleoapp.com/license/
   color: #9a9a9a;
   margin-bottom: 5px;
   margin-top: 15px;
+  font-size: smaller !important;
 }
 .card img {
   max-width: 100%;
@@ -6099,7 +6128,7 @@ License - nucleoapp.com/license/
 }
 
 .card-register {
-  background-color: #ef9a8d;
+  background-color: #ef9a8d !important;
   border-radius: 8px;
   color: #fff;
   max-width: 350px;
@@ -6124,6 +6153,10 @@ License - nucleoapp.com/license/
 .login-btn {
   background-color: #f47660 !important;
   border: 1px solid #f47660 !important;
+  font-weight: 500 !important;
+}
+.login-btn:hover {
+  background-color: #f5593d !important;
 }
 .card-register .forgot {
   text-align: center;

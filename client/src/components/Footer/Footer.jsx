@@ -14,7 +14,7 @@ export default () => {
       <Container>
         <Row>
           <nav className="footer-nav d-flex align-items-center justify-content-between">
-            <div className="credits">
+            <div className="credits copyright">
               © Homeward Bound 2022
             </div>
             <div className="credits ml-auto">

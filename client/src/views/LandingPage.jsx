@@ -62,7 +62,7 @@ export default ({ setUser, loggedInUser, setLoggedInUser }) => {
           <Block1Process />
         </div>
         <Block2Adopt />
-        <div id="services" className='py-5'>
+        <div id="services" className='pt-5'>
           <Block3Services />
         </div>
         <div id="about" className='pt-5'>

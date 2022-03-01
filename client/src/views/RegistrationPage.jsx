@@ -86,7 +86,7 @@ export default ({ loggedInUser, setLoggedInUser }) => {
     e.preventDefault();
     if (validator.isEmail(email)) {
       setEmailErrors(null);
-    } else if (email == "") {
+    } else if (email === "") {
       setEmailErrors("Enter valid email!");
       return 'error';
     } else {
@@ -101,13 +101,7 @@ export default ({ loggedInUser, setLoggedInUser }) => {
       "confirm": confirm
     })
       .then(res => {
-<<<<<<< HEAD
         if (res.status === 206) {
-=======
-
-        if (res.status === 206) {
-
->>>>>>> fe275be73c57ce4fab23797a7cfbdac7e53e99f4
           let tempError = {}
           for (let i = 0; i < res.data.length; i++) {
             tempError[res.data[i].field] = res.data[i].defaultMessage
@@ -116,11 +110,7 @@ export default ({ loggedInUser, setLoggedInUser }) => {
           return;
         }
         console.log("response from registering", res);
-<<<<<<< HEAD
         Cookies.set('user_id', res.data, { path: '/' });
-=======
-        Cookies.set('user_id', res.data, { path: '/' })
->>>>>>> fe275be73c57ce4fab23797a7cfbdac7e53e99f4
         setLoggedInUser(jwt_decode(Cookies.get('user_id')));
       })
       .catch(err => console.log(err));
@@ -143,21 +133,19 @@ export default ({ loggedInUser, setLoggedInUser }) => {
           <Row>
             <Col className='mx-auto' lg='4'>
               <Card className='card-register ml-auto mr-auto'>
-                <h3 className='title mx-auto my-0'>Welcome</h3>
+                <h4 className='title mx-auto my-0 fw-normal'>Welcome</h4>
                 <div className='social-line text-center'>
                   {/* // ------------- Google Login ------------------- // */}
                   <GoogleLogin
                     clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                     render={(renderProps) => (
                       <Button
-                        className='btn-neutral btn-just-icon mr-1'
+                        className='btn-white btn-just-icon mx-1'
                         color='google'
                         type='button'
                         onClick={renderProps.onClick}
                         disabled={renderProps.disabled}
-                      >
-                        <i className='fa fa-google' />
-                      </Button>
+                      ><i className='fa fa-google pe-1' /></Button>
                     )}
                     onSuccess={googleSuccess}
                     onFailure={googleFailure}
@@ -171,16 +159,16 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                     fields='name,email,picture,first_name,last_name'
                     render={renderProps => (
                       <Button
-                        className='btn-neutral btn-just-icon mr-1 mx-1'
+                        className='btn-white btn-just-icon mx-1'
                         color='facebook'
                         onClick={renderProps.onClick}
-                      >  <i className='fa fa-facebook-square' />
+                      ><i className='fa fa-facebook-square pe-1' />
                       </Button>
                     )}
                   />
                 </div>
                 {/* // ------------- Registration Form ---------------- // */}
-                <Form className='register-form' onSubmit={handleRegister}>
+                <Form className='register-form small' onSubmit={handleRegister}>
                   <label>First Name</label>
                   <Input
                     placeholder='First Name'
@@ -262,7 +250,7 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                   }
                   <Button
                     block
-                    className='btn registerbtn'
+                    className='btn registerbtn btn-sm'
                     type='submit'
                   // disabled={
                   //   confirm !== password ||
@@ -276,7 +264,7 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                 </Form>
                 <div className='forgot'>
                   <Button
-                    className='btn-link mt-3'
+                    className='btn-link mt-3 btn-sm'
                     color='danger'
                     href='#'
                     onClick={(e) => e.preventDefault()}

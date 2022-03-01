@@ -1,10 +1,13 @@
-#container {
+.css-1xkonbu-MuiPaper-root-MuiCard-root {
+  max-height: 402.28px !important;
+}
+
+/* #container {
       
     height: 5px;
     text-align: justify;
     -ms-text-justify: distribute-all-lines;
     text-justify: distribute-all-lines;
-    /* just for demo */
     min-width: 612px;
   }
   
@@ -54,4 +57,4 @@
         padding: 15px;
         margin: 10px;
         
-      }
+      } */

@@ -1,9 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React, { useEffect, useRef } from 'react';
-import { useHistory, Route, Switch, useLocation } from 'react-router-dom';
-
-// Reactstrap components
-import { Button } from 'reactstrap';
+import { useHistory, useLocation } from 'react-router-dom';
 
 // Core components
 import Sidebar from 'components/Navbars/Sidebar';
@@ -16,19 +13,16 @@ import PerfectScrollbar from 'perfect-scrollbar';
 // Styles
 import 'bootstrap/dist/css/bootstrap.css';
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
-// import '../assets/css/dashboard/dashboard.css';
-// import '../assets/css/dashboard/paper-dashboard.css';
+import styles from '../assets/css/modules/paper-dashboard.module.css';
+// import demo from '../assets/css/modules/dashboard.module.css';
 
 // Views
 import DashboardMain from './DashboardSections/DashboardMain';
 
-// Login
-import Cookies from 'js-cookie';
-
 // Others
 var ps;
 
-export default ({ loggedInUser, setLoggedInUser, properties }) => {
+export default ({ loggedInUser, setLoggedInUser, colors }) => {
   const history = useHistory();
   const mainPanel = useRef();
   const location = useLocation();
@@ -56,12 +50,6 @@ export default ({ loggedInUser, setLoggedInUser, properties }) => {
       history.push('/');
   }, [history, loggedInUser]);
 
-  let logout = () => {
-    setLoggedInUser('no user');
-    Cookies.remove('user_id');
-    history.push('/');
-  }
-
   return (
     <div className='wrapper'>
       <Sidebar
@@ -69,21 +57,15 @@ export default ({ loggedInUser, setLoggedInUser, properties }) => {
         activeColor='danger'
         loggedInUser={loggedInUser}
       />
-      <div className='main-panel' ref={mainPanel}>
-        <DashboardNavbar />
+      <div className={`${styles['main-panel']}`} ref={mainPanel}>
+        <DashboardNavbar
+          colors={colors}
+          loggedInUser={loggedInUser}
+        />
         {/* <Footer fluid /> */}
       </div>
-      <Button
-        onClick={logout}
-      >
-        Log Out
-      </Button>
       <DashboardMain />
-
-      <h1>
-        <img src={loggedInUser.picture} alt="fffff" />
-        {loggedInUser.firstName}
-      </h1>
+      <Footer />
     </div>
   );
 }

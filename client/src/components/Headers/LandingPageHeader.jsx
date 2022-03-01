@@ -46,12 +46,11 @@ export default () => {
         <div className='filter' />
         <Container>
           <div className='motto text-center'>
-            <h1>Put Your Love Into Action</h1>
-            <h3>Each of us has a role to play in creating a better world for animals.</h3>
+            <h1 className='mb-3'>Put Your Love Into Action</h1>
+            <h4>Each of us has a role to play in creating a better world for animals.</h4>
             <br />
             <Button
-              className='mt-3'
-              color='neutral'
+              className='mt-3 btn-outline-light'
               type='button' outline
               size='md'
               tag={Link} to='/register'

@@ -38,7 +38,7 @@ export default function TransitionsModal({ setLoggedInUser, loggedInUser }) {
     <div>
       <Button
         onClick={handleOpen}
-        className='btn loginbtn'
+        className='btn login-btn mt-3'
         type='button'
         component={Link} to={'/dashboard'
           // `/dashboard/${user._id}`
@@ -48,7 +48,6 @@ export default function TransitionsModal({ setLoggedInUser, loggedInUser }) {
         </i>
         Log In
       </Button>
-
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
