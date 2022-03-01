@@ -25,48 +25,54 @@ import Cookies from 'js-cookie';
 import { GoogleLogin } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import { useHistory } from 'react-router-dom';
-// import GithubButton from 'react-github-login-button';
+import validator from 'validator';
+
 
 export default ({ handleClose, setLoggedInUser }) => {
   // -------------- useHistory ------------------ //
   const history = useHistory()
   // -------------- useStates ------------------ //
-  const [errors, setErrors] = useState("");
-  const [close, setClose] = useState(true);
-  const [loginInfo, setLoginInfo] = useState({
-    email: "",
-    password: "",
-  });
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  // -------------- errors ----------------- //
+  const [errors, setErrors] = useState(null);
+  const [emailErrors, setEmailErrors] = useState(null);
   // ------------ Misc Imports ----------------- //
   const logo = require('../../assets/img/brandlogo/white_logo_transparent_background.png');
-  // -------------- functions ------------------ //
-  const loginChangeHandler = (e) => {
-    setLoginInfo({
-      ...loginInfo,
-      [e.target.name]: e.target.value
-    });
-  };
   // ------------ Regular Login ---------------- //
   const handleSubmit = async (e) => {
     e.preventDefault();
-    close &&
-      await axios.post(process.env.REACT_APP_JAVA_API + 'login', loginInfo)
-        .then(res => {
-          console.log(res);
-          res.data === "No User Found" ?
-            setErrors({ "message": res.data }) :
-            res.data === "Invalid Email or Password" ?
-              setErrors({ "message": res.data }) :
-              Cookies.set("user_id", res.data, { path: '/' });
-          setLoggedInUser(jwt_decode(Cookies.get("user_id")));
-          handleClose();
-        })
+    if (validator.isEmail(email)) {
+      setEmailErrors(null);
+    } else if (email == "") {
+      setEmailErrors("Enter valid email!");
+      return 'error';
+    } else {
+      setEmailErrors("Enter valid email!");
+      return 'error';
+    }
+    await axios.post(process.env.REACT_APP_JAVA_API + 'login', {
+      "email": email,
+      "password": password
+    })
+      .then(res => {
+        if (res.status === 206) {
+          for (let i = 0; i < res.data.length; i++) {
+            if (res.data[i].code === "error") {
+              setErrors(res.data[i].defaultMessage)
+              return
+            }
+          }
+        }
+        Cookies.set("user_id", res.data, { path: '/' });
+        setLoggedInUser(jwt_decode(Cookies.get("user_id")));
+        handleClose();
+      })
   };
   // ------------- Google Login --------------- //
   const googleSuccess = async (res) => {
     axios.post(process.env.REACT_APP_JAVA_API + 'google/login', res.profileObj
     ).then(res => {
-      console.log(res)
       Cookies.set("user_id", res.data, { path: '/' })
       setLoggedInUser(jwt_decode(Cookies.get("user_id")))
       handleClose()
@@ -74,11 +80,9 @@ export default ({ handleClose, setLoggedInUser }) => {
   };
   const googleFailure = (res) => {
     console.log("Google sign in not working!");
-    console.log(res);
   };
   // ----------- Facebook Login --------------- //
   const facebookSuccess = async (res) => {
-    console.log(res)
     await axios.post(process.env.REACT_APP_JAVA_API + "facebook/login", { ...res, "picture": res.picture.data.url })
       .then(res => {
         Cookies.set("user_id", res.data, { path: '/' })
@@ -137,7 +141,7 @@ export default ({ handleClose, setLoggedInUser }) => {
         {/* // ---------------- Login Form ------------------- // */}
         <Form className='register-form' onSubmit={handleSubmit}>
           {
-            errors.message ?
+            errors ?
               <Stack sx={{ width: '100%', mt: 3 }} spacing={2}>
                 {/* <FormGroup className='has-danger'>
                   <Input
@@ -155,7 +159,7 @@ export default ({ handleClose, setLoggedInUser }) => {
                     fontSize: '12px',
                   }}
                 >
-                  {errors.message}
+                  {errors}
                 </Alert>
               </Stack> : ''
           }
@@ -163,14 +167,20 @@ export default ({ handleClose, setLoggedInUser }) => {
           <Input
             placeholder='Email'
             type='text'
-            onChange={loginChangeHandler}
+            onChange={(e) => setEmail(e.target.value)}
             className='mb-3'
           />
+          {
+            emailErrors ?
+              <Stack sx={{ width: '100%', mt: 2 }} spacing={2}>
+                <Alert severity='error'>{emailErrors}</Alert>
+              </Stack> : ""
+          }
           <label>Password</label>
           <Input
             placeholder='Password'
             type='password'
-            onChange={loginChangeHandler}
+            onChange={(e) => setPassword(e.target.value)}
             className='mb-3'
           />
           {/* <Label check>
@@ -183,9 +193,8 @@ export default ({ handleClose, setLoggedInUser }) => {
             block
             className='btn login-btn'
             type='submit'
-          >
-            Log In
-          </Button>
+            disabled={password.length < 8}
+          >Log In</Button>
         </Form>
         {/* // ----------------- Registration ----------------- // */}
         <div className='forgot mt-3 text-center'>

@@ -37,17 +37,19 @@ public class UserService {
     }
 
     // ------------Regular Login---------------- //
-    public String login(LoginUser newLoginObject) {
+    public String login(LoginUser newLoginObject,BindingResult result) {
 
         String emailEntered = newLoginObject.getEmail();
         String passwordEntered = newLoginObject.getPassword();
 
         Optional<User> isUser = userRepo.findByEmail(emailEntered);
         if (!isUser.isPresent()) {
-            return "No User Found";
+            result.rejectValue("email", "error", "No User Found");
+            return null;
         }
         if (!BCrypt.checkpw(passwordEntered, isUser.get().getPassword())) {
-            return "Invalid Email or Password";
+            result.rejectValue("password", "error", "Invalid Email or Password");
+            return null;
         } else {
             User user = isUser.get();
             String jwt = Jwts.builder()

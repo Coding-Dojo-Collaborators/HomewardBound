@@ -101,7 +101,13 @@ export default ({ loggedInUser, setLoggedInUser }) => {
       "confirm": confirm
     })
       .then(res => {
+<<<<<<< HEAD
         if (res.status === 206) {
+=======
+
+        if (res.status === 206) {
+
+>>>>>>> fe275be73c57ce4fab23797a7cfbdac7e53e99f4
           let tempError = {}
           for (let i = 0; i < res.data.length; i++) {
             tempError[res.data[i].field] = res.data[i].defaultMessage
@@ -110,7 +116,11 @@ export default ({ loggedInUser, setLoggedInUser }) => {
           return;
         }
         console.log("response from registering", res);
+<<<<<<< HEAD
         Cookies.set('user_id', res.data, { path: '/' });
+=======
+        Cookies.set('user_id', res.data, { path: '/' })
+>>>>>>> fe275be73c57ce4fab23797a7cfbdac7e53e99f4
         setLoggedInUser(jwt_decode(Cookies.get('user_id')));
       })
       .catch(err => console.log(err));
