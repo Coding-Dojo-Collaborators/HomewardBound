@@ -1,12 +1,11 @@
-import DashboardMain from 'views/DashboardSections/DashboardMain';
-import AdoptionOverview from 'views/DashboardSections/AdoptionOverview';
-import Checklist from 'views/DashboardSections/Checklist';
+import AdoptionOverview from 'views/DashboardSections/Pages/AdoptionOverview';
+import Checklist from 'views/DashboardSections/Pages/Checklist';
 import MatchDogQuiz from 'views/DashboardSections/Quizzes/MatchDogQuiz';
 import MatchCatQuiz from 'views/DashboardSections/Quizzes/MatchCatQuiz';
-import Rehome from 'views/DashboardSections/Rehome';
+import Rehome from 'views/DashboardSections/Pages/Rehome';
 import DogProfile from 'views/DashboardSections/Quizzes/DogProfile';
 import CatProfile from 'views/DashboardSections/Quizzes/CatProfile';
-import UserProfile from 'views/DashboardSections/UserProfile';
+import UserProfile from 'views/DashboardSections/Pages/UserProfile';
 
 const SidebarItems = [
   {
@@ -14,7 +13,6 @@ const SidebarItems = [
     exact: true,
     name: 'Dashboard',
     icon: 'nc-icon nc-bank',
-    component: DashboardMain,
     layout: "/dashboard"
   },
   {

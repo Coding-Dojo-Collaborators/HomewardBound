@@ -11,8 +11,8 @@ const Test = ({ loggedInUser }) => {
   const petFinderSecret = process.env.REACT_APP_PET_API_Secret
   const [dogs, setDogs] = useState()
   const [cats, setCats] = useState()
-  useEffect(async () => {
-
+  useEffect(() => {
+   
     let gettingToken = `grant_type=client_credentials&client_id=${petFinderKey}&client_secret=${petFinderSecret}`
     axios.post(`https://api.petfinder.com/v2/oauth2/token`, gettingToken)
       .then(accessToken => {
@@ -29,12 +29,12 @@ const Test = ({ loggedInUser }) => {
             await
               setDogs(response.data.animals)
             // res.render('animalsIndex', {animals: animals})  
-            console.log(dogs)
-
-          })
-      })
-
-      .catch(error => {
+            
+        
+        })
+    })
+    
+    .catch(error => {
         console.log(error)
       })
 
@@ -52,18 +52,25 @@ const Test = ({ loggedInUser }) => {
           .then(async (response) => {
             await setCats(response.data.animals)
             // res.render('animalsIndex', {animals: animals})  
-            console.log(cats)
-
-          })
-      })
-      .catch(error => {
+            
+        
+        })
+    })
+    .catch(error => {
         console.log(error)
-      })
-  }, [dogs == undefined, cats == undefined]);
+    })
+  }, []);
   console.log(loggedInUser)
   console.log("hello")
   return (
-  <div></div>
+    <div>
+      <h1>hello</h1>
+      <p>
+        {
+          JSON.stringify(dogs)
+        }
+      </p>
+    </div>
   )
 }
 

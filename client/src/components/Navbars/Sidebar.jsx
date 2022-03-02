@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import {
   useHistory,
   // useLocation,
@@ -23,12 +23,11 @@ import PerfectScrollbar from 'perfect-scrollbar';
 import SidebarItems from 'SidebarItems';
 var ps;
 
-export default ({ loggedInUser, setLoggedInUser, props }) => {
+export default ({ loggedInUser, setLoggedInUser, activeRoute, setActiveRoute }) => {
   const sidebar = useRef();
   const history = useHistory();
   // const location = useLocation();
   // verifies if routeName is the one active (in browser input)
-  const [activeRoute, setActiveRoute] = useState("Dashboard");
 
   useEffect(() => {
     if (navigator.platform.indexOf("Win") > -1) {
@@ -42,7 +41,7 @@ export default ({ loggedInUser, setLoggedInUser, props }) => {
         ps.destroy();
       }
     };
-  });
+  },[]);
 
   let logout = () => {
     setLoggedInUser('no user');

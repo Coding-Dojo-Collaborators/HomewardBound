@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   BrowserRouter,
   Switch,
@@ -19,7 +19,6 @@ import PerfectScrollbar from 'perfect-scrollbar';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
 import styles from '../assets/css/modules/paper-dashboard.module.css';
-// import demo from '../assets/css/modules/dashboard.module.css';
 
 // Views
 import DashboardBody from './DashboardSections/DashboardBody';
@@ -30,7 +29,8 @@ import Footer from 'components/Footer/Footer';
 import DashboardNavbar from 'components/Navbars/DashboardNavbar';
 var ps;
 
-export default ({ loggedInUser, setLoggedInUser, sidebarItems, currentPage, children, props }) => {
+export default ({ loggedInUser, setLoggedInUser, sidebarItems, props }) => {
+  const [activeRoute, setActiveRoute] = useState("Dashboard");
   const history = useHistory();
   const mainPanel = useRef();
   const location = useLocation();
@@ -59,47 +59,48 @@ export default ({ loggedInUser, setLoggedInUser, sidebarItems, currentPage, chil
   }, [history, loggedInUser]);
 
   return (
-    <div className={`${styles.wrapper}`}>
-      <Sidebar
-        {...props}
-        sidebarItems={sidebarItems}
-        bgColor='black'
-        activeColor='danger'
-        loggedInUser={loggedInUser}
-        setLoggedInUser={setLoggedInUser}
-      />
-      <div className="App">
-        <div className={`${styles['main-panel']}`} ref={mainPanel}>
-          <DashboardNavbar
-            {...props}
-            loggedInUser={loggedInUser}
-            setLoggedInUser={setLoggedInUser} />
-          <DashboardBody
-            loggedInUser={loggedInUser}
-            setLoggedInUser={setLoggedInUser}
-            currentPage={currentPage}>
-            {children}
-          </DashboardBody>
-          <BrowserRouter>
-            <Switch>
-              {
-                SidebarItems.map((item, i) => {
-                  return (
-                    <Route
-                      key={i}
-                      exact path={item.layout + item.path}
-                      component={item.component}
-                    />
-                  );
-                })
-              }
-            </Switch>
-          </BrowserRouter>
-          <Footer />
+    <>
+      <div className={`${styles.wrapper}`} currentPage='dashboard'>
+        <Sidebar
+          {...props}
+          sidebarItems={sidebarItems}
+          bgColor='black'
+          activeColor='danger'
+          activeRoute={activeRoute}
+          setActiveRoute={setActiveRoute}
+          loggedInUser={loggedInUser}
+          setLoggedInUser={setLoggedInUser}
+        />
+        <div className="App">
+          <div className={`${styles['main-panel']}`} ref={mainPanel}>
+            <DashboardNavbar
+              {...props}
+              loggedInUser={loggedInUser}
+              setLoggedInUser={setLoggedInUser} />
+            <DashboardBody
+              loggedInUser={loggedInUser}
+              setLoggedInUser={setLoggedInUser}
+              currentPage={activeRoute} />
+            <BrowserRouter>
+              <Switch>
+                {
+                  SidebarItems.map((item, i) => {
+                    return (
+                      <Route
+                        key={i}
+                        exact path={item.layout + item.path}
+                        component={item.component}
+                      />
+                    );
+                  })
+                }
+              </Switch>
+            </BrowserRouter>
+          </div>
         </div>
       </div>
-      {/* <DashboardMain /> */}
-    </div>
+      <Footer currentPage='dashboard' />
+    </>
   );
 }
 
