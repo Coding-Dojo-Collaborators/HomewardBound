@@ -4431,6 +4431,7 @@ License - nucleoapp.com/license/
   position: relative;
   top: 0;
   height: 100vh;
+  background-color: #f4f3ef !important;
 }
 .wrapper.wrapper-full-page {
   min-height: 100vh;
