@@ -56,17 +56,18 @@ export default ({ loggedInUser, setLoggedInUser, colors }) => {
         bgColor='black'
         activeColor='danger'
         loggedInUser={loggedInUser}
-      />
+        setLoggedInUser={setLoggedInUser}
+        />
+     
       <div className={`${styles['main-panel']}`} ref={mainPanel}>
         <DashboardNavbar
           colors={colors}
           loggedInUser={loggedInUser}
           setLoggedInUser={setLoggedInUser}
         />
-        {/* <Footer fluid /> */}
       </div>
       <DashboardMain />
-      <Footer />
+      <Footer fluid />
     </div>
   );
 }
