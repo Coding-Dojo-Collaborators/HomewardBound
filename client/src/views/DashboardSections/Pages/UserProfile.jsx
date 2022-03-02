@@ -18,10 +18,10 @@ import {
 import Dashboard from 'views/Dashboard';
 
 // Styles
-import styles from '../../assets/css/modules/paper-dashboard.module.css';
+import styles from '../../../assets/css/modules/paper-dashboard.module.css';
 
 // Others
-import maria from '../../assets/img/maria.jpg';
+import maria from '../../../assets/img/maria.jpg';
 
 export default () => {
   return (

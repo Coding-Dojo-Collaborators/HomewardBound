@@ -23,7 +23,7 @@ import PerfectScrollbar from 'perfect-scrollbar';
 import SidebarItems from 'SidebarItems';
 var ps;
 
-export default ({ loggedInUser, setLoggedInUser, props }) => {
+export default ({ loggedInUser, setLoggedInUser }) => {
   const sidebar = useRef();
   const history = useHistory();
   // const location = useLocation();
@@ -42,7 +42,7 @@ export default ({ loggedInUser, setLoggedInUser, props }) => {
         ps.destroy();
       }
     };
-  });
+  }, []);
 
   let logout = () => {
     setLoggedInUser('no user');
