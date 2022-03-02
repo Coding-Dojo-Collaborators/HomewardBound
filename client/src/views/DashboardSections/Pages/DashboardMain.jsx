@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Slider from '../../components/Sliders';
+import Slider from '../../../components/Sliders';
 
 // Styles
 import './DashboardMain.css';

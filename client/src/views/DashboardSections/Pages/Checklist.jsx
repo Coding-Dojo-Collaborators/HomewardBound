@@ -1,6 +1,6 @@
 import React from 'react'
 import './checklist.css';
-import Navbar from '../../components/Navbars/Navbar';
+import Navbar from '../../../components/Navbars/Navbar';
 
 
 
@@ -10,23 +10,23 @@ const Checklist = () => {
       <Navbar />
       <div >
         <main className='checkmain '>
-          <h1 className='p-5 text-center  '> <u>Checklist for New Adopters</u><img className='checkimage'src="https://www.svgrepo.com/show/254981/checklist.svg" alt="" /></h1>
-            <h4 className='p-3'>Congratulations on adopting a pet! You are embarking on a wonderful and rewarding relationship. Because adopting a new pet comes with a lot of change for both pet and pet parent, we’ve compiled a checklist to help make the transition as smooth as possible.</h4>           
-            <p className='p-4'>
-              <p className='bold1'>
-                Questions for All Adopters:<br />
-              </p>
-              ● Do you have any other pets and how will they react to a new pet? <br />
-              ● Is your current residence suited to the pet you’re considering?<br />
-              ● How will your social life or work obligations affect your ability to care for a pet?<br />
-              ● Do you have a plan for your new pet during vacations and/or work travel?<br />
-              ● How do the people you live with feel about having a pet in the house?<br />
-              ● Are you (or your spouse, partner, or roommate) intolerant of hair, dirt, and other realities of sharing your home with a pet, such as allergies?<br />
-              ● Do you or any of your household/family members have health issues that may be affected by a pet?<br />
-              ● What breed, or species, of animal, is the best fit with your current lifestyle?<br />
-              ● Is there tension in the home? Pets quickly pick up on stress in the home, and it can exacerbate their health and behavior problems.<br />
-              ● Is there an adult in the family who has agreed to be ultimately responsible for the pet’s care?<br />
-            </p>       
+          <h1 className='p-5 text-center  '> <u>Checklist for New Adopters</u><img className='checkimage' src="https://www.svgrepo.com/show/254981/checklist.svg" alt="" /></h1>
+          <h4 className='p-3'>Congratulations on adopting a pet! You are embarking on a wonderful and rewarding relationship. Because adopting a new pet comes with a lot of change for both pet and pet parent, we’ve compiled a checklist to help make the transition as smooth as possible.</h4>
+          <p className='p-4'>
+            <p className='bold1'>
+              Questions for All Adopters:<br />
+            </p>
+            ● Do you have any other pets and how will they react to a new pet? <br />
+            ● Is your current residence suited to the pet you’re considering?<br />
+            ● How will your social life or work obligations affect your ability to care for a pet?<br />
+            ● Do you have a plan for your new pet during vacations and/or work travel?<br />
+            ● How do the people you live with feel about having a pet in the house?<br />
+            ● Are you (or your spouse, partner, or roommate) intolerant of hair, dirt, and other realities of sharing your home with a pet, such as allergies?<br />
+            ● Do you or any of your household/family members have health issues that may be affected by a pet?<br />
+            ● What breed, or species, of animal, is the best fit with your current lifestyle?<br />
+            ● Is there tension in the home? Pets quickly pick up on stress in the home, and it can exacerbate their health and behavior problems.<br />
+            ● Is there an adult in the family who has agreed to be ultimately responsible for the pet’s care?<br />
+          </p>
           <input id="radio1" type="radio" name="css-tabs" checked />
           <input id="radio2" type="radio" name="css-tabs" />
           <input id="radio3" type="radio" name="css-tabs" />
@@ -39,7 +39,7 @@ const Checklist = () => {
             <label id="tab3" for="radio3">Time</label>
             <label id="tab4" for="radio4">Costs</label>
             <label id="tab5" for="radio5"> Starter<br />Shopping List</label>
-            </u>
+          </u>
           </div>
           <div id="content">
             <section id="content1">

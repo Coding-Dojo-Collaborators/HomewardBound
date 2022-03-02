@@ -24,14 +24,14 @@ import './App.css';
 import LandingPage from './views/LandingPage';
 import RegistrationPage from 'views/RegistrationPage';
 import Dashboard from 'views/Dashboard';
-import AdoptionOverview from 'views/DashboardSections/AdoptionOverview';
-import Checklist from 'views/DashboardSections/Checklist';
+import AdoptionOverview from 'views/DashboardSections/Pages/AdoptionOverview';
+import Checklist from 'views/DashboardSections/Pages/Checklist';
 import MatchDogQuiz from 'views/DashboardSections/Quizzes/MatchDogQuiz';
 import MatchCatQuiz from 'views/DashboardSections/Quizzes/MatchCatQuiz';
-import Rehome from 'views/DashboardSections/Rehome';
+import Rehome from 'views/DashboardSections/Pages/Rehome';
 import DogProfile from 'views/DashboardSections/Quizzes/DogProfile';
 import CatProfile from 'views/DashboardSections/Quizzes/CatProfile';
-import UserProfile from 'views/DashboardSections/UserProfile';
+import UserProfile from 'views/DashboardSections/Pages/UserProfile';
 import Test from './views/Test';
 import ContactMessages from 'views/admins/ContactMessages';
 
@@ -58,36 +58,36 @@ export default () => {
           />
         </Route>
         {/* USER DASHBOARD ROUTES */}
-        <Route exact path='/dashboard'>
-          <Dashboard
-            loggedInUser={loggedInUser}
-            setLoggedInUser={setLoggedInUser}
-          />
-        </Route>
-        <Route exact path='/dashboard/adoption'>
-          <AdoptionOverview />
-        </Route>
-        <Route exact path='/dashboard/checklist'>
-          <Checklist />
-        </Route>
-        <Route exact path='/dashboard/dogmatchquiz'>
-          <MatchDogQuiz />
-        </Route>
-        <Route exact path='/dashboard/catmatchquiz'>
-          <MatchCatQuiz />
-        </Route>
-        <Route exact path='/dashboard/rehome'>
-          <Rehome />
-        </Route>
-        <Route exact path='/dashboard/rehome/dogprofile'>
-          <DogProfile />
-        </Route>
-        <Route exact path='/dashboard/rehome/catprofile'>
-          <CatProfile />
-        </Route>
-        <Route exact path='/dashboard/profile'>
-          <UserProfile />
-        </Route>
+        <Dashboard
+          loggedInUser={loggedInUser}
+          setLoggedInUser={setLoggedInUser}>
+          <Route exact path='/dashboard'>
+          </Route>
+          <Route exact path='/dashboard/adoption'>
+            <AdoptionOverview />
+          </Route>
+          <Route exact path='/dashboard/checklist'>
+            <Checklist />
+          </Route>
+          <Route exact path='/dashboard/dogmatchquiz'>
+            <MatchDogQuiz />
+          </Route>
+          <Route exact path='/dashboard/catmatchquiz'>
+            <MatchCatQuiz />
+          </Route>
+          <Route exact path='/dashboard/rehome'>
+            <Rehome />
+          </Route>
+          <Route exact path='/dashboard/rehome/dogprofile'>
+            <DogProfile />
+          </Route>
+          <Route exact path='/dashboard/rehome/catprofile'>
+            <CatProfile />
+          </Route>
+          <Route exact path='/dashboard/profile'>
+            <UserProfile />
+          </Route>
+        </Dashboard>
         <Route exact path='/admin/messages'>
           <ContactMessages loggedInUser={loggedInUser} />
         </Route>
