@@ -50,10 +50,12 @@ export default () => {
           />
         </Route>
         {/* USER DASHBOARD ROUTES */}
+        <Route exact path='/dashboard' >
+
         <Dashboard
           loggedInUser={loggedInUser}
-          setLoggedInUser={setLoggedInUser}>
-          <Route exact path='/dashboard' />
+          setLoggedInUser={setLoggedInUser}/>
+            </Route>
           {/* <DashboardMain/> */}
           {/* </Route>
           <Route exact path='/dashboard/adoption'>
@@ -80,7 +82,7 @@ export default () => {
           <Route exact path='/dashboard/profile'>
             <UserProfile />
           </Route> */}
-        </Dashboard>
+        
         <Route exact path='/admin/messages'>
           <ContactMessages loggedInUser={loggedInUser} />
         </Route>
