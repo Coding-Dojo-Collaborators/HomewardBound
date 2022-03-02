@@ -162,8 +162,8 @@ export default class SimpleSlider extends Component {
       height: '81.3vh',
     }
     return (
-      <div style={styling}>
-        <h2 className='text-center mt-5'>All Dogs Needing a Forerver Home</h2>
+      <div className='slider-app' style={styling}>
+        <h2 className='text-center pt-5'>All Dogs Needing a Forerver Home</h2>
         <Slider>
           {pets1.map(pet => (
             <Slider.Item pet={pet} key={pet.id}>item1</Slider.Item>
