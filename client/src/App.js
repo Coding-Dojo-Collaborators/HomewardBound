@@ -40,39 +40,6 @@ export default () => {
   );
 
   return (
-<<<<<<< HEAD
-    <div class="App">
-      <BrowserRouter >
-        <Switch>
-          {/* HOME ROUTE */}
-          <Route exact path='/'>
-            <LandingPage
-              loggedInUser={loggedInUser}
-              setLoggedInUser={setLoggedInUser}
-            />
-          </Route>
-          {/* REGISTER USER */}
-          <Route exact path='/register'>
-            <RegistrationPage
-              loggedInUser={loggedInUser}
-              setLoggedInUser={setLoggedInUser}
-            />
-          </Route>
-          {/* USER DASHBOARD ROUTES */}
-          <Route exact path='/dashboard'>
-            <Dashboard
-              loggedInUser={loggedInUser}
-              setLoggedInUser={setLoggedInUser}
-            />
-          </Route>
-          {/* TEST ROUTE */}
-          <Route exact path='/hello'>
-            <Test />
-          </Route>
-        </Switch>
-      </BrowserRouter>
-    </div>
-=======
     <BrowserRouter >
       <Switch>
         {/* HOME ROUTE */}
@@ -129,6 +96,5 @@ export default () => {
         </Route>
       </Switch>
     </BrowserRouter>
->>>>>>> e668251dadddf78f55d5cf4bd6abb5bbd4caf51e
   );
 }
