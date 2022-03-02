@@ -41,7 +41,7 @@ export default ({ loggedInUser, setLoggedInUser, activeRoute, setActiveRoute }) 
         ps.destroy();
       }
     };
-  }, []);
+  },[]);
 
   let logout = () => {
     setLoggedInUser('no user');
