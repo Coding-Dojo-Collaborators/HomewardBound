@@ -163,13 +163,13 @@ export default class SimpleSlider extends Component {
     }
     return (
       <div className='slider-app' style={styling}>
-        <h2 className='text-center pt-5'>All Dogs Needing a Forerver Home</h2>
+        <h3 className='text-center pt-5'>All Dogs Needing a Forerver Home</h3>
         <Slider>
           {pets1.map(pet => (
             <Slider.Item pet={pet} key={pet.id}>item1</Slider.Item>
           ))}
         </Slider>
-        <h2 className='text-center'>All Cats Needing a Forerver Home</h2>
+        <h3 className='text-center'>All Cats Needing a Forerver Home</h3>
         <Slider>
           {pets2.map(pet => (
             <Slider.Item pet={pet} key={pet.id}>item1</Slider.Item>

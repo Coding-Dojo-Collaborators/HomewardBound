@@ -10,11 +10,12 @@ import UserProfile from 'views/DashboardSections/UserProfile';
 
 const SidebarItems = [
   {
-    path: '/dashboard',
+    path: '/',
     exact: true,
     name: 'Dashboard',
     icon: 'nc-icon nc-bank',
     component: DashboardMain,
+    layout: "/dashboard"
   },
   {
     path: '/adoption',
@@ -22,6 +23,7 @@ const SidebarItems = [
     name: 'Adoption',
     icon: 'nc-icon nc-briefcase-24',
     component: AdoptionOverview,
+    layout: "/dashboard"
   },
   {
     path: '/checklist',
@@ -29,6 +31,7 @@ const SidebarItems = [
     name: 'Checklist',
     icon: 'nc-icon nc-bullet-list-67',
     component: Checklist,
+    layout: "/dashboard"
   },
   {
     path: '/dogmatchquiz',
@@ -36,6 +39,7 @@ const SidebarItems = [
     name: 'Match Quiz - Dog',
     icon: 'nc-icon nc-touch-id',
     component: MatchDogQuiz,
+    layout: "/dashboard"
   },
   {
     path: '/catmatchquiz',
@@ -43,6 +47,7 @@ const SidebarItems = [
     name: 'Match Quiz - Cat',
     icon: 'nc-icon nc-touch-id',
     component: MatchCatQuiz,
+    layout: "/dashboard"
   },
   {
     path: '/rehome',
@@ -50,6 +55,7 @@ const SidebarItems = [
     name: 'Rehome A Pet',
     icon: 'nc-icon nc-shop',
     component: Rehome,
+    layout: "/dashboard"
   },
   {
     path: '/rehome/dogprofile',
@@ -57,6 +63,7 @@ const SidebarItems = [
     name: 'Dog Profile',
     icon: 'nc-icon nc-single-copy-04',
     component: DogProfile,
+    layout: "/dashboard"
   },
   {
     path: '/rehome/catprofile',
@@ -64,6 +71,7 @@ const SidebarItems = [
     name: 'Cat Profile',
     icon: 'nc-icon nc-single-copy-04',
     component: CatProfile,
+    layout: "/dashboard"
   },
   {
     path: '/profile',
@@ -71,6 +79,7 @@ const SidebarItems = [
     name: 'User Profile',
     icon: 'nc-icon nc-circle-10',
     component: UserProfile,
+    layout: "/dashboard"
   },
 ];
 

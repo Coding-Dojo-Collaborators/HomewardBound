@@ -25,11 +25,12 @@ import styles from '../assets/css/modules/paper-dashboard.module.css';
 import DashboardBody from './DashboardSections/DashboardBody';
 
 // Others
-import SidebarItems from 'SidebarItems';
+import SidebarItems from 'SidebarItems.js';
 import Footer from 'components/Footer/Footer';
+import DashboardNavbar from 'components/Navbars/DashboardNavbar';
 var ps;
 
-export default ({ loggedInUser, setLoggedInUser, sidebarItems, props }) => {
+export default ({ loggedInUser, setLoggedInUser, sidebarItems, currentPage, children, props }) => {
   const history = useHistory();
   const mainPanel = useRef();
   const location = useLocation();
@@ -69,9 +70,14 @@ export default ({ loggedInUser, setLoggedInUser, sidebarItems, props }) => {
       />
       <div className="App">
         <div className={`${styles['main-panel']}`} ref={mainPanel}>
-          <DashboardBody
+          <DashboardNavbar
+            {...props}
             loggedInUser={loggedInUser}
             setLoggedInUser={setLoggedInUser} />
+          <DashboardBody
+            loggedInUser={loggedInUser}
+            setLoggedInUser={setLoggedInUser}
+            currentPage={currentPage} />
           <BrowserRouter>
             <Switch>
               {
@@ -79,7 +85,7 @@ export default ({ loggedInUser, setLoggedInUser, sidebarItems, props }) => {
                   return (
                     <Route
                       key={i}
-                      exact path={item.path}
+                      exact path={item.layout + item.path}
                       component={item.component}
                     />
                   );

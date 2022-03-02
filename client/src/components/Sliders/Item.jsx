@@ -18,7 +18,9 @@ export default ({ pet }) => (
             'item--open': isActive,
           })}
         >
-          <img src={pet.image} alt="" />
+          <img src={pet.image} alt=""
+            className='img-rounded img-responsive'
+          />
           <ShowDetailsButton onClick={() => onSelectSlide(pet)} />
           {isActive && <Mark />}
         </div>

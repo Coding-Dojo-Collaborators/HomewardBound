@@ -15,6 +15,7 @@ import {
   Row,
   Col,
 } from 'reactstrap';
+import Dashboard from 'views/Dashboard';
 
 // Styles
 import styles from '../../assets/css/modules/paper-dashboard.module.css';
@@ -24,7 +25,7 @@ import maria from '../../assets/img/maria.jpg';
 
 export default () => {
   return (
-    <>
+    <Dashboard currentPage='userprofile'>
       <div className="content">
         <Row>
           <Col md="4">
@@ -207,6 +208,6 @@ export default () => {
           </Col>
         </Row>
       </div>
-    </>
+    </Dashboard>
   );
 }

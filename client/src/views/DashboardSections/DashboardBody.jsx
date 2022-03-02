@@ -5,40 +5,19 @@ import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 // Core components
-import DashboardNavbar from 'components/Navbars/DashboardNavbar';
+// import DashboardNavbar from 'components/Navbars/DashboardNavbar';
 
 // MUI
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
+// Styles
+// import style from './DashboardBody.module.css';
+
 // Misc
-import PropTypes from 'prop-types';
+// import DashboardMain from './DashboardMain';
 
-const DashboardBody = ({ user, children, value, index, ...other }) => {
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`vertical-tabpanel-${index}`}
-      aria-labelledby={`vertical-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-}
-
-DashboardBody.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-};
-
-export default function BasicTabs({ loggedInUser, setLoggedInUser, }) {
+export default ({ loggedInUser, currentPage, user, children, value, index, ...other }) => {
   const history = useHistory();
 
   useEffect(() => {
@@ -47,10 +26,21 @@ export default function BasicTabs({ loggedInUser, setLoggedInUser, }) {
   }, [history, loggedInUser]);
 
   return (
-    <>
-      <DashboardNavbar
-        loggedInUser={loggedInUser}
-        setLoggedInUser={setLoggedInUser} />
-    </>
+    <div {...other}>
+      <Box sx={{ p: 0 }}>
+        <Typography>
+          {/* {
+            currentPage === 'adoption' ? { children } :
+              currentPage === 'checklist' ? { children } :
+                currentPage === 'matchdog' ? { children } :
+                  currentPage === 'matchcat' ? { children } :
+                    currentPage === 'rehome' ? { children } :
+                      currentPage === 'dogprofile' ? { children } :
+                        currentPage === 'catprofile' ? { children } :
+                          currentPage === 'userprofile' && { children }
+          } */}
+        </Typography>
+      </Box>
+    </div>
   );
-};
+}

@@ -64,28 +64,28 @@ export default () => {
             setLoggedInUser={setLoggedInUser}
           />
         </Route>
-        <Route exact path='/adoption'>
+        <Route exact path='/dashboard/adoption'>
           <AdoptionOverview />
         </Route>
-        <Route exact path='/checklist'>
+        <Route exact path='/dashboard/checklist'>
           <Checklist />
         </Route>
-        <Route exact path='/dogmatchquiz'>
+        <Route exact path='/dashboard/dogmatchquiz'>
           <MatchDogQuiz />
         </Route>
-        <Route exact path='/catmatchquiz'>
+        <Route exact path='/dashboard/catmatchquiz'>
           <MatchCatQuiz />
         </Route>
-        <Route exact path='/rehome'>
+        <Route exact path='/dashboard/rehome'>
           <Rehome />
         </Route>
-        <Route exact path='/rehome/dogprofile'>
+        <Route exact path='/dashboard/rehome/dogprofile'>
           <DogProfile />
         </Route>
-        <Route exact path='/rehome/catprofile'>
+        <Route exact path='/dashboard/rehome/catprofile'>
           <CatProfile />
         </Route>
-        <Route exact path='/profile'>
+        <Route exact path='/dashboard/profile'>
           <UserProfile />
         </Route>
         <Route exact path='/admin/messages'>
