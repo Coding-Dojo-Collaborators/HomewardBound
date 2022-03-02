@@ -8,16 +8,20 @@ import { useHistory } from 'react-router-dom';
 // import DashboardNavbar from 'components/Navbars/DashboardNavbar';
 
 // MUI
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
-// Styles
-// import style from './DashboardBody.module.css';
+// Views
+import DashboardMain from './Pages/DashboardMain';
+import AdoptionOverview from './Pages/AdoptionOverview';
+import Checklist from './Pages/Checklist';
+import MatchDogQuiz from './Quizzes/MatchDogQuiz';
+import MatchCatQuiz from './Quizzes/MatchCatQuiz';
+import Rehome from './Pages/Rehome';
+import DogProfile from './Quizzes/DogProfile';
+import CatProfile from './Quizzes/CatProfile';
+import UserProfile from './Pages/UserProfile';
 
-// Misc
-// import DashboardMain from './DashboardMain';
-
-export default ({ loggedInUser, currentPage, user, children, value, index, ...other }) => {
+export default ({ loggedInUser, currentPage, user, value, index, ...other }) => {
   const history = useHistory();
 
   useEffect(() => {
@@ -28,18 +32,17 @@ export default ({ loggedInUser, currentPage, user, children, value, index, ...ot
   return (
     <div {...other}>
       <Box sx={{ p: 0 }}>
-        <Typography>
-          {/* {
-            currentPage === 'adoption' ? { children } :
-              currentPage === 'checklist' ? { children } :
-                currentPage === 'matchdog' ? { children } :
-                  currentPage === 'matchcat' ? { children } :
-                    currentPage === 'rehome' ? { children } :
-                      currentPage === 'dogprofile' ? { children } :
-                        currentPage === 'catprofile' ? { children } :
-                          currentPage === 'userprofile' && { children }
-          } */}
-        </Typography>
+        {
+          currentPage === 'Dashboard' ? <DashboardMain /> :
+            currentPage === 'Adoption' ? <AdoptionOverview /> :
+              currentPage === 'Checklist' ? <Checklist /> :
+                currentPage === 'Match Quiz - Dog' ? <MatchDogQuiz /> :
+                  currentPage === 'Match Quiz - Cat' ? <MatchCatQuiz /> :
+                    currentPage === 'Rehome A Pet' ? <Rehome /> :
+                      currentPage === 'Dog Profile' ? <DogProfile /> :
+                        currentPage === 'Cat Profile' ? <CatProfile /> :
+                          currentPage === 'User Profile' && <UserProfile />
+        }
       </Box>
     </div>
   );

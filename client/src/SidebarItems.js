@@ -1,4 +1,3 @@
-import DashboardMain from 'views/DashboardSections/Pages/DashboardMain';
 import AdoptionOverview from 'views/DashboardSections/Pages/AdoptionOverview';
 import Checklist from 'views/DashboardSections/Pages/Checklist';
 import MatchDogQuiz from 'views/DashboardSections/Quizzes/MatchDogQuiz';
@@ -14,7 +13,6 @@ const SidebarItems = [
     exact: true,
     name: 'Dashboard',
     icon: 'nc-icon nc-bank',
-    component: DashboardMain,
     layout: "/dashboard"
   },
   {

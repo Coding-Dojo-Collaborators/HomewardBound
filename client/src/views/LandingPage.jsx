@@ -24,7 +24,7 @@ import Block5Contact from '../views/LandingPageBlocks/Block5Contact';
 // Login
 import Cookies from 'js-cookie';
 
-export default ({ setUser, loggedInUser, setLoggedInUser }) => {
+export default ({ loggedInUser, setLoggedInUser }) => {
   // const [changeUser, setChangeUser] = useState();
   const history = useHistory();
 
@@ -49,7 +49,7 @@ export default ({ setUser, loggedInUser, setLoggedInUser }) => {
   }
 
   return (
-    <div id='top' >
+    <div id='top' currentPage='landing'>
       <Navbar
         page='landing'
         logout={logout}
@@ -71,7 +71,7 @@ export default ({ setUser, loggedInUser, setLoggedInUser }) => {
         <div id='contact' className=''>
           <Block5Contact />
         </div>
-        <Footer />
+        <Footer currentPage='landing' />
       </div>
     </div>
   )

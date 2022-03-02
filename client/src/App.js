@@ -24,14 +24,6 @@ import './App.css';
 import LandingPage from './views/LandingPage';
 import RegistrationPage from 'views/RegistrationPage';
 import Dashboard from 'views/Dashboard';
-import AdoptionOverview from 'views/DashboardSections/Pages/AdoptionOverview';
-import Checklist from 'views/DashboardSections/Pages/Checklist';
-import MatchDogQuiz from 'views/DashboardSections/Quizzes/MatchDogQuiz';
-import MatchCatQuiz from 'views/DashboardSections/Quizzes/MatchCatQuiz';
-import Rehome from 'views/DashboardSections/Pages/Rehome';
-import DogProfile from 'views/DashboardSections/Quizzes/DogProfile';
-import CatProfile from 'views/DashboardSections/Quizzes/CatProfile';
-import UserProfile from 'views/DashboardSections/Pages/UserProfile';
 import Test from './views/Test';
 import ContactMessages from 'views/admins/ContactMessages';
 
@@ -61,8 +53,9 @@ export default () => {
         <Dashboard
           loggedInUser={loggedInUser}
           setLoggedInUser={setLoggedInUser}>
-          <Route exact path='/dashboard'>
-          </Route>
+          <Route exact path='/dashboard' />
+          {/* <DashboardMain/> */}
+          {/* </Route>
           <Route exact path='/dashboard/adoption'>
             <AdoptionOverview />
           </Route>
@@ -86,7 +79,7 @@ export default () => {
           </Route>
           <Route exact path='/dashboard/profile'>
             <UserProfile />
-          </Route>
+          </Route> */}
         </Dashboard>
         <Route exact path='/admin/messages'>
           <ContactMessages loggedInUser={loggedInUser} />

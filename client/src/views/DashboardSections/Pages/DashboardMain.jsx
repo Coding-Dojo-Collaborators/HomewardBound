@@ -158,17 +158,19 @@ const pets2 = [
 ];
 export default class SimpleSlider extends Component {
   render() {
-    const styling = {
-      height: '81.3vh',
-    }
+    // const styling = {
+    //   height: '81.3vh',
+    // }
     return (
-      <div className='slider-app' style={styling}>
-        <h3 className='text-center pt-5'>All Dogs Needing a Forerver Home</h3>
-        <Slider>
-          {pets1.map(pet => (
-            <Slider.Item pet={pet} key={pet.id}>item1</Slider.Item>
-          ))}
-        </Slider>
+      <div>
+        <div className='slider-app'>
+          <h3 className='text-center pt-5'>All Dogs Needing a Forerver Home</h3>
+          <Slider>
+            {pets1.map(pet => (
+              <Slider.Item pet={pet} key={pet.id}>item1</Slider.Item>
+            ))}
+          </Slider>
+        </div>
         <h3 className='text-center'>All Cats Needing a Forerver Home</h3>
         <Slider>
           {pets2.map(pet => (
