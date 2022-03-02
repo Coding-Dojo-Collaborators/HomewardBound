@@ -32,6 +32,7 @@ import DogProfile from 'views/DashboardSections/Quizzes/DogProfile';
 import CatProfile from 'views/DashboardSections/Quizzes/CatProfile';
 import UserProfile from 'views/DashboardSections/UserProfile';
 import Test from './views/Test';
+import ContactMessages from 'views/admins/ContactMessages';
 
 export default () => {
   const [loggedInUser, setLoggedInUser] = useState(
@@ -86,9 +87,12 @@ export default () => {
         <Route exact path='/dashboard/profile'>
           <UserProfile />
         </Route>
+        <Route exact path='/admin/messages'>
+          <ContactMessages loggedInUser={loggedInUser}/>
+        </Route>
         {/* TEST ROUTE */}
         <Route exact path='/hello'>
-          <Test />
+          <Test loggedInUser={loggedInUser}/>
         </Route>
       </Switch>
     </BrowserRouter>
