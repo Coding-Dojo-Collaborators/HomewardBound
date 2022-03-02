@@ -114,7 +114,7 @@ const MatchDogQuiz = ({ loggedInUser }) => {
             await
               setDogs(response.data.animals)
             // res.render('animalsIndex', {animals: animals})  
-            console.log(dogs)
+            
 
           })
       })
@@ -137,14 +137,14 @@ const MatchDogQuiz = ({ loggedInUser }) => {
           .then(async (response) => {
             await setCats(response.data.animals)
             // res.render('animalsIndex', {animals: animals})  
-            console.log(cats)
+            
 
           })
       })
       .catch(error => {
         console.log(error)
       })
-  }, [dogs == undefined, cats == undefined]);
+  }, []);
   console.log(loggedInUser)
 
 

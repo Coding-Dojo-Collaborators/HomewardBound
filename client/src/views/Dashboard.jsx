@@ -29,8 +29,8 @@ import Footer from 'components/Footer/Footer';
 import DashboardNavbar from 'components/Navbars/DashboardNavbar';
 var ps;
 
-export default ({ loggedInUser, setLoggedInUser, sidebarItems, props }) => {
-  const [activeRoute, setActiveRoute] = useState("Dashboard");
+export default ({ loggedInUser, setLoggedInUser, sidebarItems, activeRoute, setActiveRoute }) => {
+  
   const history = useHistory();
   const mainPanel = useRef();
   const location = useLocation();
@@ -57,12 +57,11 @@ export default ({ loggedInUser, setLoggedInUser, sidebarItems, props }) => {
     loggedInUser === 'no user' &&
       history.push('/');
   }, [history, loggedInUser]);
-
+  console.log(activeRoute)
   return (
     <>
-      <div className={`${styles.wrapper}`} currentPage='dashboard'>
+      <div className={`${styles.wrapper}`} >
         <Sidebar
-          {...props}
           sidebarItems={sidebarItems}
           bgColor='black'
           activeColor='danger'
@@ -74,13 +73,12 @@ export default ({ loggedInUser, setLoggedInUser, sidebarItems, props }) => {
         <div className="App">
           <div className={`${styles['main-panel']}`} ref={mainPanel}>
             <DashboardNavbar
-              {...props}
               loggedInUser={loggedInUser}
               setLoggedInUser={setLoggedInUser} />
             <DashboardBody
               loggedInUser={loggedInUser}
               setLoggedInUser={setLoggedInUser}
-              currentPage={activeRoute} />
+              currentPage={localStorage.getItem('active')} />
             <BrowserRouter>
               <Switch>
                 {

@@ -48,6 +48,10 @@ export default ({ loggedInUser, setLoggedInUser, activeRoute, setActiveRoute }) 
     Cookies.remove('user_id');
     history.push('/');
   }
+  const isActive = (name) => {
+    setActiveRoute(name)
+    localStorage.setItem("active", name)
+  }
 
   console.log(activeRoute);
 
@@ -131,7 +135,7 @@ export default ({ loggedInUser, setLoggedInUser, activeRoute, setActiveRoute }) 
                       className={`${style['nav-link']} ${linkStyle}`}
                       style={navlinkFlex}
                       activeClassName='active'
-                      onClick={(e) => setActiveRoute(item.name)}
+                      onClick={(e) => isActive(item.name)}
                     >
                       <i className={item.icon} style={sidebarIcons} />
                       {item.name}
