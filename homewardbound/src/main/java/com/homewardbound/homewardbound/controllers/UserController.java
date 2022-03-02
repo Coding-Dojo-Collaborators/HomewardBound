@@ -13,7 +13,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -57,10 +56,10 @@ public class UserController {
         return new ResponseEntity<String>(potentialUser,HttpStatus.valueOf(200));
     }
 //------------Admin Check-------------------//
-    @GetMapping("/api/admin")
+    @PostMapping("/api/admin")
     public ResponseEntity<?> admin(@RequestBody User potentialAdmin){
         User Admin =  userService.oneUser(potentialAdmin.getId());
-        ResponseEntity<String> isAdmin = Admin.isAdmin() ? new ResponseEntity<String>("Admin",HttpStatus.valueOf(200)) : new ResponseEntity<String>("Not Admin", HttpStatus.valueOf(400));
-         return isAdmin;
+        ResponseEntity<String> isAdmin = Admin.isAdmin() ? new ResponseEntity<String>("Admin",HttpStatus.valueOf(200)) : new ResponseEntity<String>("Not Admin", HttpStatus.valueOf(206));
+        return isAdmin;
     }
 }

@@ -1,11 +1,23 @@
-body {
+.checkbody {
   background: #c0c0c0;
   color: rgb(0, 0, 0);
-  margin: 100px;
+  width: 100vw;
+  height: 200vh;
+  padding: 50px;
+ 
+}
+
+.checkimage {
+    height: 50px;
+    width: 50px;
+}
+
+.bold1 {
+    font-weight: 900;
 }
 main {
   max-width: 100vw;
-  margin: 30px auto;
+  
   padding: 30px;
 }
 input[name="css-tabs"] {
@@ -56,8 +68,9 @@ a {
   position: absolute;
   z-index: 0;
   height: 80px;
-  width: 102px;
+  width: 130px;
   background: #f5593c;
+  
   transition: transform 400ms;
 }
 #tabs label {
@@ -68,10 +81,11 @@ a {
   font-size: 11px;
   text-transform: uppercase;
   text-align: center;
-  width: 100px;
+  width: 130px;
   height: 100%;
-  border-right: 1px dotted #575654;
+  border-right: 1px dotted black;
   cursor: pointer;
+ 
 }
 #tabs label:first-child {
   border-left: 1px dotted #575654;
@@ -99,24 +113,33 @@ a {
 #tab4::before {
   background-image: url(https://www.svgrepo.com/show/5036/money.svg);
 }
+#tab5::before {
+    background-image: url(https://www.svgrepo.com/show/48966/shopping.svg);
+  }
 #radio1:checked ~ #tabs #tab1::before,
 #radio2:checked ~ #tabs #tab2::before,
 #radio3:checked ~ #tabs #tab3::before,
-#radio4:checked ~ #tabs #tab4::before {
+#radio4:checked ~ #tabs #tab4::before,
+#radio5:checked ~ #tabs #tab5::before {
   filter: invert(100%);
 }
 #radio1:checked ~ #tabs::after {
   transform: translateX(0);
 }
 #radio2:checked ~ #tabs::after {
-  transform: translateX(101px);
+  transform: translateX(130px);
 }
 #radio3:checked ~ #tabs::after {
-  transform: translateX(202px);
+  transform: translateX(260px);
 }
 #radio4:checked ~ #tabs::after {
-  transform: translateX(303px);
+  transform: translateX(390px);
 }
+#radio5:checked ~ #tabs::after {
+    transform: translateX(520px);
+  }
+
+
 #content {
   position: relative;
   height: 500px;
@@ -151,7 +174,8 @@ a {
 #radio1:checked ~ #content #content1,
 #radio2:checked ~ #content #content2,
 #radio3:checked ~ #content #content3,
-#radio4:checked ~ #content #content4 {
+#radio4:checked ~ #content #content4,
+#radio5:checked ~ #content #content5 {
   transform: translateY(0);
   opacity: 1;
 }
