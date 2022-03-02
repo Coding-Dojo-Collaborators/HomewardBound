@@ -97,29 +97,6 @@ const MatchCatQuiz = ({ loggedInUser }) => {
   useEffect(async () => {
 
     let gettingToken = `grant_type=client_credentials&client_id=${petFinderKey}&client_secret=${petFinderSecret}`
-    axios.post(`https://api.petfinder.com/v2/oauth2/token`, gettingToken)
-      .then(accessToken => {
-        console.log('looking to see wtf is going on')
-        const header = "Bearer " + accessToken.data.access_token;
-        const options = {
-          method: 'GET',
-          headers: { 'Authorization': header },
-          url: "https://api.petfinder.com/v2/animals?type=dog&limit=100"
-        }
-        // console.log('this is the animals called', options)---gives me an access token
-        axios(options)
-          .then(async (response) => {
-            await
-              setDogs(response.data.animals)
-            // res.render('animalsIndex', {animals: animals})  
-            console.log(dogs)
-
-          })
-      })
-
-      .catch(error => {
-        console.log(error)
-      })
 
     axios.post(`https://api.petfinder.com/v2/oauth2/token`, gettingToken)
       .then(accessToken => {
@@ -135,17 +112,13 @@ const MatchCatQuiz = ({ loggedInUser }) => {
           .then(async (response) => {
             await setCats(response.data.animals)
             // res.render('animalsIndex', {animals: animals})  
-            console.log(cats)
-
           })
       })
       .catch(error => {
         console.log(error)
       })
-  }, [dogs == undefined, cats == undefined]);
+  }, []);
   console.log(loggedInUser)
-
-
   return (
     <div className='dogbody'>
 
@@ -155,12 +128,8 @@ const MatchCatQuiz = ({ loggedInUser }) => {
         <form method="GET" action="" />
         <label for="zipcode input">Enter Your Zip Code:</label>
         <input type="text" id="zipcodeInput" name="zipcode" />
-
-
-
         <Button
           // onClick={}
-
           className='btn login-btn m-2'
           type='button'
           id="zipcodeInput"
@@ -168,11 +137,8 @@ const MatchCatQuiz = ({ loggedInUser }) => {
           inputmode="numeric"
           pattern="^(?(^00000(|-0000))|(\d{5}(|-\d{4})))$"
         >
-
           <small>Submit</small>
         </Button>
-
-
       </div>
       <div className='slider-app' >
         <h3 className='text-center pt-5'>All Dogs Needing a Forerver Home</h3>
@@ -181,20 +147,10 @@ const MatchCatQuiz = ({ loggedInUser }) => {
             <Slider.Item pet={pet} key={pet.id}>item1</Slider.Item>
           ))}
         </Slider>
-
-
       </div>
-
-
     </div>
   )
 }
-
-
-
-
-
-
 
 export default MatchCatQuiz
 
