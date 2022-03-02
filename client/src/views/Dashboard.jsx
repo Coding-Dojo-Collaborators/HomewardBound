@@ -77,7 +77,9 @@ export default ({ loggedInUser, setLoggedInUser, sidebarItems, currentPage, chil
           <DashboardBody
             loggedInUser={loggedInUser}
             setLoggedInUser={setLoggedInUser}
-            currentPage={currentPage} />
+            currentPage={currentPage}>
+            {children}
+          </DashboardBody>
           <BrowserRouter>
             <Switch>
               {

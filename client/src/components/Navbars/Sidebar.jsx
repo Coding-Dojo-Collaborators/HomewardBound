@@ -116,7 +116,7 @@ export default ({ loggedInUser, setLoggedInUser, props }) => {
         </div>
         <div className={style.sidebarWrapper} ref={sidebar}>
           <Nav>
-            <ul className='ps-0'>
+            <ul className='ps-0' id='sidebarhover'>
               {SidebarItems.map((item, i) => {
                 let linkStyle = ``;
                 activeRoute === item.name ? (linkStyle += `${sidebarLink.activeLink}`) :

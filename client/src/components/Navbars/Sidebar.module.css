@@ -58,7 +58,7 @@ ul li:hover::before {
   text-shadow: 0 0 15px #f47660;
 } */
 
-ul li {
+#sidebarhover li {
   width: 255px;
   height: 35px;
   display: flex;
@@ -71,8 +71,8 @@ ul li {
   color: white;
   border-radius: 5px;
 }
-ul li::before,
-ul li::after {
+#sidebarhover li::before,
+#sidebarhover li::after {
   content: "";
   position: absolute;
   z-index: -1;
@@ -80,22 +80,22 @@ ul li::after {
   width: 100%;
   transition: all 0.4s;
 }
-ul li::before {
+#sidebarhover li::before {
   left: 0%;
   height: 130%;
 }
-ul li::after {
+#sidebarhover li::after {
   left: -10%;
   height: 120%;
   /* background: #ffffff56; */
   /* backdrop-filter: blur(10px); */
   /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.164); */
 }
-ul li:hover::before {
+#sidebarhover li:hover::before {
   transform: translateX(-10%);
   background: rgba(244, 118, 96, 0.15);
 }
-ul li:hover::after {
+#sidebarhover li:hover::after {
   transform: translateX(-10%);
   /* background: rgba(244, 118, 96, 0.5); */
 }

@@ -57,18 +57,18 @@ export default ({ setUser, loggedInUser, setLoggedInUser }) => {
         setLoggedInUser={setLoggedInUser}
       />
       <LandingPageHeader />
-      <div className='main '>
+      <div className='main'>
         <div id='adopt' className='py-4'>
           <Block1Process />
         </div>
         <Block2Adopt />
-        <div id="services" className='pt-5'>
+        <div id='services' className='pt-5'>
           <Block3Services />
         </div>
-        <div id="about" className='pt-5'>
+        <div id='about' className='pt-5'>
           <Block4About />
         </div>
-        <div id="contact" className=''>
+        <div id='contact' className=''>
           <Block5Contact />
         </div>
         <Footer />
