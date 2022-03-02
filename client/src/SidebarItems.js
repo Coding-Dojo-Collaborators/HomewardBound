@@ -1,4 +1,5 @@
 import DashboardMain from 'views/DashboardSections/DashboardMain';
+import AdoptionOverview from 'views/DashboardSections/AdoptionOverview';
 import Checklist from 'views/DashboardSections/Checklist';
 import MatchDogQuiz from 'views/DashboardSections/Quizzes/MatchDogQuiz';
 import MatchCatQuiz from 'views/DashboardSections/Quizzes/MatchCatQuiz';
@@ -7,14 +8,20 @@ import DogProfile from 'views/DashboardSections/Quizzes/DogProfile';
 import CatProfile from 'views/DashboardSections/Quizzes/CatProfile';
 import UserProfile from 'views/DashboardSections/UserProfile';
 
-const routes = [
+const SidebarItems = [
   {
     path: '/dashboard',
     exact: true,
     name: 'Dashboard',
     icon: 'nc-icon nc-bank',
     component: DashboardMain,
-    layout: '/dashboard',
+  },
+  {
+    path: '/adoption',
+    exact: true,
+    name: 'Adoption',
+    icon: 'nc-icon nc-briefcase-24',
+    component: AdoptionOverview,
   },
   {
     path: '/checklist',
@@ -22,7 +29,6 @@ const routes = [
     name: 'Checklist',
     icon: 'nc-icon nc-bullet-list-67',
     component: Checklist,
-    layout: '/dashboard',
   },
   {
     path: '/dogmatchquiz',
@@ -30,7 +36,6 @@ const routes = [
     name: 'Match Quiz - Dog',
     icon: 'nc-icon nc-touch-id',
     component: MatchDogQuiz,
-    layout: '/dashboard',
   },
   {
     path: '/catmatchquiz',
@@ -38,7 +43,6 @@ const routes = [
     name: 'Match Quiz - Cat',
     icon: 'nc-icon nc-touch-id',
     component: MatchCatQuiz,
-    layout: '/dashboard',
   },
   {
     path: '/rehome',
@@ -46,7 +50,6 @@ const routes = [
     name: 'Rehome A Pet',
     icon: 'nc-icon nc-shop',
     component: Rehome,
-    layout: '/dashboard',
   },
   {
     path: '/rehome/dogprofile',
@@ -54,7 +57,6 @@ const routes = [
     name: 'Dog Profile',
     icon: 'nc-icon nc-single-copy-04',
     component: DogProfile,
-    layout: '/dashboard',
   },
   {
     path: '/rehome/catprofile',
@@ -62,16 +64,14 @@ const routes = [
     name: 'Cat Profile',
     icon: 'nc-icon nc-single-copy-04',
     component: CatProfile,
-    layout: '/dashboard',
   },
   {
     path: '/profile',
     exact: true,
-    name: 'UserProfile',
+    name: 'User Profile',
     icon: 'nc-icon nc-circle-10',
     component: UserProfile,
-    layout: '/dashboard',
   },
 ];
 
-export default routes;
+export default SidebarItems;

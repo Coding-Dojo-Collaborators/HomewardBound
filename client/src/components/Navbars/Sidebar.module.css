@@ -1,0 +1,13 @@
+.activeLink {
+  color: #f47660 !important;
+}
+.activeLink:hover {
+  color: #fff !important;
+}
+
+.inactiveLink {
+  color: #fff !important;
+}
+.activeLink:hover {
+  color: #f47660 !important;
+}

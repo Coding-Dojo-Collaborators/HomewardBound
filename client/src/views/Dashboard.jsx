@@ -1,11 +1,16 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React, { useEffect, useRef } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  useHistory,
+  useLocation
+} from 'react-router-dom';
 
 // Core components
 import Sidebar from 'components/Navbars/Sidebar';
-import DashboardNavbar from 'components/Navbars/DashboardNavbar';
-import Footer from 'components/Footer/Footer';
+// import Footer from 'components/Footer/Footer';
 
 // Misc components
 import PerfectScrollbar from 'perfect-scrollbar';
@@ -17,12 +22,13 @@ import styles from '../assets/css/modules/paper-dashboard.module.css';
 // import demo from '../assets/css/modules/dashboard.module.css';
 
 // Views
-import DashboardMain from './DashboardSections/DashboardMain';
+import DashboardBody from './DashboardSections/DashboardBody';
 
 // Others
+import SidebarItems from 'SidebarItems';
 var ps;
 
-export default ({ loggedInUser, setLoggedInUser, colors }) => {
+export default ({ loggedInUser, setLoggedInUser, sidebarItems, props }) => {
   const history = useHistory();
   const mainPanel = useRef();
   const location = useLocation();
@@ -53,21 +59,36 @@ export default ({ loggedInUser, setLoggedInUser, colors }) => {
   return (
     <div className={`${styles.wrapper}`}>
       <Sidebar
+        {...props}
+        sidebarItems={sidebarItems}
         bgColor='black'
         activeColor='danger'
         loggedInUser={loggedInUser}
         setLoggedInUser={setLoggedInUser}
-        />
-     
-      <div className={`${styles['main-panel']}`} ref={mainPanel}>
-        <DashboardNavbar
-          colors={colors}
-          loggedInUser={loggedInUser}
-          setLoggedInUser={setLoggedInUser}
-        />
+      />
+      <div className="App">
+        <div className={`${styles['main-panel']}`} ref={mainPanel}>
+          <DashboardBody
+            loggedInUser={loggedInUser}
+            setLoggedInUser={setLoggedInUser} />
+          <BrowserRouter>
+            <Switch>
+              {
+                SidebarItems.map((item, i) => {
+                  return (
+                    <Route
+                      key={i}
+                      exact path={item.path}
+                      component={item.component}
+                    />
+                  );
+                })
+              }
+            </Switch>
+          </BrowserRouter>
+        </div>
       </div>
-      <DashboardMain />
-      <Footer fluid />
+      {/* <DashboardMain /> */}
     </div>
   );
 }

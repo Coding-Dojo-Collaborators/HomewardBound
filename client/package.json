@@ -36,9 +36,11 @@
     "react-scripts": "^5.0.0",
     "react-scroll": "^1.8.5",
     "react-slick": "^0.28.1",
+    "react-swipeable-views": "^0.14.0",
     "react-twitter-login": "^1.5.0",
     "reactstrap": "^9.0.1",
     "slick-carousel": "^1.8.1",
+    "styled-components": "^5.3.3",
     "validator": "^13.7.0",
     "web-vitals": "^2.1.4"
   },
