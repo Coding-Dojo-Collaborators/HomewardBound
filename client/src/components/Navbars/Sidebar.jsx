@@ -126,7 +126,7 @@ export default ({ loggedInUser, setLoggedInUser }) => {
                   <NavLink
                     to={item.path}
                     type='button'
-                    className={`d-flex align-items-center text-decoration-none fw-normal ${linkStyle}`}
+                    className={`d-flex align-items-center text-decoration-none ${linkStyle}`}
                     activeClassName='active'
                     onClick={(e) => setActiveRoute(item.name)}
                   >

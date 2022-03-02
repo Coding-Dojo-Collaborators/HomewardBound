@@ -1,24 +1,49 @@
+.app {
+  background-color: #c0c0c0 !important;
+  height: 81.3vh;
+}
+
+/* .slider {
+  display: flex;
+  padding: 0 55px;
+}
+
+.slider:hover .pic {
+  transform: translateX(-25%);
+}
+.pic:hover ~ .pic {
+  transform: translateX(25%);
+}
+.pic:hover {
+  transform: scale(1.5) !important;
+} */
 
 .imgtext {
   color: black;
   background: transparent;
-  width: 155px;
-  height: 135px;
+  margin-bottom: 0;
   padding: 50px 15px 0 15px;
   opacity: 0;
   position: absolute;
   bottom: 0px;
+  text-align: center;
   -webkit-transition: all 300ms ease-in-out;
   -o-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
 
 .pic {
-  height: 150px;
-  width: 150px;
-
-
- 
+  flex: 0 0 19.7%;
+  text-align: center;
+  margin: 0 2px;
+  transition: transform 300ms ease 100ms;
+  max-height: 180px;
+  max-width: 235px;
+  border-radius: 12px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
 }
 
 .pic:hover img {
@@ -38,8 +63,7 @@
   opacity: 1;
 }
 
-
- .margins {
+.margins {
   margin-left: 5%;
-  margin-right: 5%
-} 
+  margin-right: 5%;
+}

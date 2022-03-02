@@ -82,7 +82,7 @@ export default ({ loggedInUser }) => {
     <Navbar
       // How do I pass in the updateColor function?
       expand='lg' style={navbar}
-      className={`${styles['navbar-absolute']} ${styles['fixed-top']} p-5 ` +
+      className={`${styles['navbar-absolute']} ${styles['fixed-top']} p-3 ` +
         (color === "transparent" ? `${styles['navbar-transparent']} ` : "")
       }
     >
@@ -100,7 +100,7 @@ export default ({ loggedInUser }) => {
               <span className="navbar-toggler-bar bar3" />
             </button>
           </div>
-          <NavbarBrand><h1>Welcome, {loggedInUser.firstName}</h1></NavbarBrand>
+          <NavbarBrand><h1 className='mb-0'>Welcome, {loggedInUser.firstName}</h1></NavbarBrand>
         </div>
         {/* <NavbarToggler onClick={toggle}>
           <span className="navbar-toggler-bar navbar-kebab" />

@@ -1,5 +1,6 @@
 .activeLink {
   color: #f47660 !important;
+  font-weight: bold !important;
 }
 .activeLink:hover {
   color: #fff !important;
@@ -7,6 +8,7 @@
 
 .inactiveLink {
   color: #fff !important;
+  font-weight: 400 !important;
 }
 .activeLink:hover {
   color: #f47660 !important;

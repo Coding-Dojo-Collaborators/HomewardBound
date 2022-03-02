@@ -11,6 +11,7 @@ import jwt_decode from 'jwt-decode';
 import Cookies from 'js-cookie';
 
 // Styles
+import './index.scss';
 import 'assets/css/bootstrap.min.css';
 import 'bootstrap/scss/bootstrap.scss';
 import 'assets/scss/paper-kit.scss';
@@ -40,39 +41,6 @@ export default () => {
   );
 
   return (
-<<<<<<< HEAD
-    <div class="App">
-      <BrowserRouter >
-        <Switch>
-          {/* HOME ROUTE */}
-          <Route exact path='/'>
-            <LandingPage
-              loggedInUser={loggedInUser}
-              setLoggedInUser={setLoggedInUser}
-            />
-          </Route>
-          {/* REGISTER USER */}
-          <Route exact path='/register'>
-            <RegistrationPage
-              loggedInUser={loggedInUser}
-              setLoggedInUser={setLoggedInUser}
-            />
-          </Route>
-          {/* USER DASHBOARD ROUTES */}
-          <Route exact path='/dashboard'>
-            <Dashboard
-              loggedInUser={loggedInUser}
-              setLoggedInUser={setLoggedInUser}
-            />
-          </Route>
-          {/* TEST ROUTE */}
-          <Route exact path='/hello'>
-            <Test />
-          </Route>
-        </Switch>
-      </BrowserRouter>
-    </div>
-=======
     <BrowserRouter >
       <Switch>
         {/* HOME ROUTE */}
@@ -96,39 +64,38 @@ export default () => {
             setLoggedInUser={setLoggedInUser}
           />
         </Route>
-        <Route exact path='/dashboard/adoption'>
+        <Route exact path='/adoption'>
           <AdoptionOverview />
         </Route>
-        <Route exact path='/dashboard/checklist'>
+        <Route exact path='/checklist'>
           <Checklist />
         </Route>
-        <Route exact path='/dashboard/dogmatchquiz'>
+        <Route exact path='/dogmatchquiz'>
           <MatchDogQuiz />
         </Route>
-        <Route exact path='/dashboard/catmatchquiz'>
+        <Route exact path='/catmatchquiz'>
           <MatchCatQuiz />
         </Route>
-        <Route exact path='/dashboard/rehome'>
+        <Route exact path='/rehome'>
           <Rehome />
         </Route>
-        <Route exact path='/dashboard/rehome/dogprofile'>
+        <Route exact path='/rehome/dogprofile'>
           <DogProfile />
         </Route>
-        <Route exact path='/dashboard/rehome/catprofile'>
+        <Route exact path='/rehome/catprofile'>
           <CatProfile />
         </Route>
-        <Route exact path='/dashboard/profile'>
+        <Route exact path='/profile'>
           <UserProfile />
         </Route>
         <Route exact path='/admin/messages'>
-          <ContactMessages loggedInUser={loggedInUser}/>
+          <ContactMessages loggedInUser={loggedInUser} />
         </Route>
         {/* TEST ROUTE */}
         <Route exact path='/hello'>
-          <Test loggedInUser={loggedInUser}/>
+          <Test loggedInUser={loggedInUser} />
         </Route>
       </Switch>
     </BrowserRouter>
->>>>>>> e668251dadddf78f55d5cf4bd6abb5bbd4caf51e
   );
 }

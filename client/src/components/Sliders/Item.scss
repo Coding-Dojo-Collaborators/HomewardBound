@@ -1,0 +1,19 @@
+.item {
+  flex: 0 0 19.7%;
+  transition: transform 300ms ease 100ms;
+  margin: 0 2px;
+  position: relative;
+  margin-bottom: -180px !important;
+  background-color: transparent !important;
+
+  img {
+    border-radius: 12px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+    height: 50%;
+    width: 100%;
+    vertical-align: middle;
+  }
+}

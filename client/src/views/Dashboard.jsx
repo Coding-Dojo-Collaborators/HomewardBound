@@ -26,6 +26,7 @@ import DashboardBody from './DashboardSections/DashboardBody';
 
 // Others
 import SidebarItems from 'SidebarItems';
+import Footer from 'components/Footer/Footer';
 var ps;
 
 export default ({ loggedInUser, setLoggedInUser, sidebarItems, props }) => {
@@ -86,6 +87,7 @@ export default ({ loggedInUser, setLoggedInUser, sidebarItems, props }) => {
               }
             </Switch>
           </BrowserRouter>
+          <Footer />
         </div>
       </div>
       {/* <DashboardMain /> */}
