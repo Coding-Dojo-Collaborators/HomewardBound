@@ -50,37 +50,12 @@ export default () => {
           />
         </Route>
         {/* USER DASHBOARD ROUTES */}
+        <Route exact path='/dashboard' >
+
         <Dashboard
           loggedInUser={loggedInUser}
-          setLoggedInUser={setLoggedInUser}>
-          <Route exact path='/dashboard' />
-          {/* <DashboardMain/> */}
-          {/* </Route>
-          <Route exact path='/dashboard/adoption'>
-            <AdoptionOverview />
-          </Route>
-          <Route exact path='/dashboard/checklist'>
-            <Checklist />
-          </Route>
-          <Route exact path='/dashboard/dogmatchquiz'>
-            <MatchDogQuiz />
-          </Route>
-          <Route exact path='/dashboard/catmatchquiz'>
-            <MatchCatQuiz />
-          </Route>
-          <Route exact path='/dashboard/rehome'>
-            <Rehome />
-          </Route>
-          <Route exact path='/dashboard/rehome/dogprofile'>
-            <DogProfile />
-          </Route>
-          <Route exact path='/dashboard/rehome/catprofile'>
-            <CatProfile />
-          </Route>
-          <Route exact path='/dashboard/profile'>
-            <UserProfile />
-          </Route> */}
-        </Dashboard>
+          setLoggedInUser={setLoggedInUser}/>
+            </Route>
         <Route exact path='/admin/messages'>
           <ContactMessages loggedInUser={loggedInUser} />
         </Route>

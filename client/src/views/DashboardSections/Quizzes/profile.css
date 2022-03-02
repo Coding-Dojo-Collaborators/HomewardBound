@@ -1,0 +1,14 @@
+.dogbody {
+    background-color: #C0C0C0;
+    text-align: white;
+    padding: 35px;
+    height: 100vh;
+}
+
+.dogimage {
+ height: 65px;
+ width: 65px;
+ text-align: center;
+ margin-left: 49%;
+
+}
