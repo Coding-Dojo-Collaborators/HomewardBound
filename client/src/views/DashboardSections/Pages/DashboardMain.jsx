@@ -32,7 +32,7 @@ export default ({dogs,cats,loading}) => {
 
                       <Slider.Item pet={pet} img={pet.photos[0].medium} id={i} key={i}>item1</Slider.Item>
                       :
-                      <Slider.Item img="https://www.svgrepo.com/show/29278/dog.svg" id={i} key={i}>item1</Slider.Item>
+                      <Slider.Item pet={pet}  img="https://www.svgrepo.com/show/29278/dog.svg" id={i} key={i}>item1</Slider.Item>
                   }
                 </>
               ))}
@@ -47,7 +47,7 @@ export default ({dogs,cats,loading}) => {
 
                     <Slider.Item pet={pet} img={pet.photos[0].medium} id={i} key={i}>item1</Slider.Item>
                     :
-                    <Slider.Item img="https://www.svgrepo.com/show/94135/witch-cat.svg " id={i} key={i}>item1</Slider.Item>
+                    <Slider.Item pet={pet}  img="https://www.svgrepo.com/show/94135/witch-cat.svg " id={i} key={i}>item1</Slider.Item>
                 }
               </>
             ))}
