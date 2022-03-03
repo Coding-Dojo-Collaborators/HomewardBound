@@ -7,7 +7,7 @@ import {
   useHistory,
   useLocation
 } from 'react-router-dom';
-
+import axios from 'axios';
 // Core components
 import Sidebar from 'components/Navbars/Sidebar';
 // import Footer from 'components/Footer/Footer';
@@ -30,7 +30,8 @@ import Footer from 'components/Footer/Footer';
 import DashboardNavbar from 'components/Navbars/DashboardNavbar';
 var ps;
 
-export default ({ loggedInUser, setLoggedInUser, sidebarItems, activeRoute, setActiveRoute }) => {
+export default ({ dogs, cats, loading, loggedInUser, setLoggedInUser, sidebarItems, activeRoute, setActiveRoute }) => {
+
   const history = useHistory();
   const mainPanel = useRef();
   const location = useLocation();
@@ -57,6 +58,8 @@ export default ({ loggedInUser, setLoggedInUser, sidebarItems, activeRoute, setA
     loggedInUser === 'no user' &&
       history.push('/');
   }, [history, loggedInUser]);
+
+
   console.log(activeRoute)
   return (
     <>
@@ -76,6 +79,9 @@ export default ({ loggedInUser, setLoggedInUser, sidebarItems, activeRoute, setA
               loggedInUser={loggedInUser}
               setLoggedInUser={setLoggedInUser} />
             <DashboardBody
+              dogs={dogs}
+              cats={cats}
+              loading={loading}
               loggedInUser={loggedInUser}
               setLoggedInUser={setLoggedInUser}
               currentPage={localStorage.getItem('active')} />

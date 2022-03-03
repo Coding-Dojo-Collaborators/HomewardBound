@@ -1,8 +1,9 @@
 .dogbody {
-    background-color: #C0C0C0;
+    background-color: #F4F3EE;
     text-align: white;
     padding: 35px;
     height: 100vh;
+    width:  80vw;
 }
 
 .dogimage {

@@ -1,186 +1,65 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import Slider from '../../../components/Sliders';
-
+import axios from 'axios';
 // Styles
 import './DashboardMain.css';
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
 // import Slider from "react-slick";
 
-const pets1 = [
-  {
-    id: 1,
-    image: '/images/dog1.jpg',
-    imageBg: '/images/dog1.jpg',
-    title: '...'
-  },
-  {
-    id: 2,
-    image: '/images/dog2.jpg',
-    imageBg: '/images/dog2.jpg',
-    title: '...'
-  },
-  {
-    id: 3,
-    image: '/images/dog3.jpg',
-    imageBg: '/images/dog3.jpg',
-    title: '...',
-  },
-  {
-    id: 4,
-    image: '/images/dog4.jpg',
-    imageBg: '/images/dog4.jpg',
-    title: '...'
-  },
-  {
-    id: 5,
-    image: '/images/dog5.jpg',
-    imageBg: '/images/dog5.jpg',
-    title: '...'
-  },
-  {
-    id: 6,
-    image: '/images/dog6.jpg',
-    imageBg: '/images/dog6.jpg',
-    title: '...'
-  },
-  {
-    id: 7,
-    image: '/images/dog7.jpg',
-    imageBg: '/images/dog7.jpg',
-    title: '...'
-  },
-  {
-    id: 8,
-    image: '/images/dog8.jpg',
-    imageBg: '/images/dog8.jpg',
-    title: '...'
-  },
-  {
-    id: 9,
-    image: '/images/dog9.jpg',
-    imageBg: '/images/dog9.jpg',
-    title: '...',
-  },
-  {
-    id: 10,
-    image: '/images/dog10.jpg',
-    imageBg: '/images/dog10.jpg',
-    title: '...'
-  },
-  {
-    id: 11,
-    image: '/images/dog11.jpg',
-    imageBg: '/images/dog11.jpg',
-    title: '...'
-  },
-  {
-    id: 12,
-    image: '/images/dog12.jpg',
-    imageBg: '/images/dog12.jpg',
-    title: '...'
-  }
-];
 
-const pets2 = [
-  {
-    id: 1,
-    image: '/images/cat1.jpg',
-    imageBg: '/images/cat1.jpg',
-    title: '...'
-  },
-  {
-    id: 2,
-    image: '/images/cat2.jpg',
-    imageBg: '/images/cat2.jpg',
-    title: '...'
-  },
-  {
-    id: 3,
-    image: '/images/cat3.jpg',
-    imageBg: '/images/cat3.jpg',
-    title: '...',
-  },
-  {
-    id: 4,
-    image: '/images/cat4.jpg',
-    imageBg: '/images/cat4.jpg',
-    title: '...'
-  },
-  {
-    id: 5,
-    image: '/images/cat5.jpg',
-    imageBg: '/images/cat5.jpg',
-    title: '...'
-  },
-  {
-    id: 6,
-    image: '/images/cat6.jpg',
-    imageBg: '/images/cat6.jpg',
-    title: '...'
-  },
-  {
-    id: 7,
-    image: '/images/cat7.jpg',
-    imageBg: '/images/cat7.jpg',
-    title: '...'
-  },
-  {
-    id: 8,
-    image: '/images/cat8.jpg',
-    imageBg: '/images/cat8.jpg',
-    title: '...'
-  },
-  {
-    id: 9,
-    image: '/images/cat9.jpg',
-    imageBg: '/images/cat9.jpg',
-    title: '...',
-  },
-  {
-    id: 10,
-    image: '/images/cat10.jpg',
-    imageBg: '/images/cat10.jpg',
-    title: '...'
-  },
-  {
-    id: 11,
-    image: '/images/cat11.jpg',
-    imageBg: '/images/cat11.jpg',
-    title: '...'
-  },
-  {
-    id: 12,
-    image: '/images/cat12.jpg',
-    imageBg: '/images/cat12.jpg',
-    title: '...'
-  }
-];
-export default class SimpleSlider extends Component {
-  render() {
-    // const styling = {
-    //   height: '81.3vh',
-    // }
-    return (
-      <div>
-        <div className='slider-app'>
-          <h3 className='text-center pt-5'>All Dogs Needing a Forerver Home</h3>
+
+export default ({dogs,cats,loading}) => {
+
+ 
+
+
+  return (
+    <div>
+
+      {
+       ( !loading && dogs && cats) ?
+
+        <div>
+          <div className='slider-app'>
+            <h3 className='text-center pt-5'>All Dogs Needing a Forerver Home</h3>
+
+            <Slider>
+              {dogs.map((pet, i) => (
+                <>
+                  {
+                    pet.photos.length > 0 ?
+
+                      <Slider.Item img={pet.photos[0].medium} id={i} key={i}>item1</Slider.Item>
+                      :
+                      <Slider.Item img="https://www.svgrepo.com/show/29278/dog.svg" id={i} key={i}>item1</Slider.Item>
+                  }
+                </>
+              ))}
+            </Slider>
+          </div>
+          <h3 className='text-center'>All Cats Needing a Forerver Home</h3>
           <Slider>
-            {pets1.map(pet => (
-              <Slider.Item pet={pet} key={pet.id}>item1</Slider.Item>
+            {cats.map((pet, i) => (
+              <>
+                {
+                  pet.photos.length > 0 ?
+
+                    <Slider.Item img={pet.photos[0].medium} id={i} key={i}>item1</Slider.Item>
+                    :
+                    <Slider.Item img="https://www.svgrepo.com/show/94135/witch-cat.svg " id={i} key={i}>item1</Slider.Item>
+                }
+              </>
             ))}
           </Slider>
         </div>
-        <h3 className='text-center'>All Cats Needing a Forerver Home</h3>
-        <Slider>
-          {pets2.map(pet => (
-            <Slider.Item pet={pet} key={pet.id}>item1</Slider.Item>
-          ))}
-        </Slider>
-      </div>
-    );
-  }
+        :
+        <h1 className="text-center pt-5">...... Loading </h1>
+      }
+    </div>
+  );
 }
+
   // render() {
   //   const settings = {
   //     dots: true,

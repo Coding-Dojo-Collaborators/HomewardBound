@@ -12,6 +12,7 @@ import Box from '@mui/material/Box';
 
 // Views
 import DashboardMain from './Pages/DashboardMain';
+// import DashboardMain from './Pages/DashboardMain';
 import AdoptionOverview from './Pages/AdoptionOverview';
 import Checklist from './Pages/Checklist';
 import MatchDogQuiz from './Quizzes/MatchDogQuiz';
@@ -21,7 +22,7 @@ import DogProfile from './Quizzes/DogProfile';
 import CatProfile from './Quizzes/CatProfile';
 import UserProfile from './Pages/UserProfile';
 
-export default ({ loggedInUser, currentPage }) => {
+export default ({ loggedInUser, currentPage, dogs, cats, loading }) => {
   const history = useHistory();
 
   useEffect(() => {
@@ -34,11 +35,11 @@ export default ({ loggedInUser, currentPage }) => {
     <div >
       <Box sx={{ p: 0 }}>
         {
-          currentPage === 'Dashboard' ? <DashboardMain /> :
+          currentPage === 'Dashboard' ? <DashboardMain dogs={dogs} cats={cats} loading={loading} /> :
             currentPage === 'Adoption' ? <AdoptionOverview /> :
               currentPage === 'Checklist' ? <Checklist /> :
-                currentPage === 'Match Quiz - Dog' ? <MatchDogQuiz /> :
-                  currentPage === 'Match Quiz - Cat' ? <MatchCatQuiz /> :
+                currentPage === 'Match Quiz - Dog' ? <MatchDogQuiz dogs={dogs} /> :
+                  currentPage === 'Match Quiz - Cat' ? <MatchCatQuiz cats={cats} /> :
                     currentPage === 'Rehome A Pet' ? <Rehome /> :
                       currentPage === 'Dog Profile' ? <DogProfile /> :
                         currentPage === 'Cat Profile' ? <CatProfile /> :
