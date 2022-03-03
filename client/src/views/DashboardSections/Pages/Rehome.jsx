@@ -92,7 +92,7 @@ const Rehome = () => {
                 <div className='places-buttons'>
                   <Row>
                     <Col className='ml-auto mr-auto text-center mb-3 mt-2' md='12'>
-                      <CardTitle tag='h4'>Questions for All Adopters</CardTitle>
+                      <CardTitle tag='h4'>Adoption Form:</CardTitle>
                     </Col>
                   </Row>
                   <Row className='p-3 px-5'>
