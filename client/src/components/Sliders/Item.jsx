@@ -19,7 +19,7 @@ export default ({img, id }) => (
           })}
         >
           <img src={img} alt="pic"
-            className='img-rounded img-responsive'
+            className='img-rounded img-responsive '
           />
           <ShowDetailsButton onClick={() => onSelectSlide(id)} />
           {isActive && <Mark />}
