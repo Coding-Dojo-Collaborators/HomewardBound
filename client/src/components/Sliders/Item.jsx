@@ -6,10 +6,10 @@ import ShowDetailsButton from './ShowDetailsButton'
 import Mark from './Mark'
 import './Item.scss'
 
-export default ({ pet }) => (
+export default ({img, id }) => (
   <SliderContext.Consumer>
     {({ onSelectSlide, currentSlide, elementRef }) => {
-      const isActive = currentSlide && currentSlide.id === pet.id;
+      const isActive = currentSlide && currentSlide.id === id;
 
       return (
         <div
@@ -18,10 +18,10 @@ export default ({ pet }) => (
             'item--open': isActive,
           })}
         >
-          <img src={pet.image} alt=""
+          <img src={img} alt="pic"
             className='img-rounded img-responsive'
           />
-          <ShowDetailsButton onClick={() => onSelectSlide(pet)} />
+          <ShowDetailsButton onClick={() => onSelectSlide(id)} />
           {isActive && <Mark />}
         </div>
       );

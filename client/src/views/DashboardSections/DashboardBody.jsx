@@ -12,6 +12,7 @@ import Box from '@mui/material/Box';
 
 // Views
 import DashboardMain from './Pages/DashboardMain';
+// import DashboardMain from './Pages/DashboardMain';
 import AdoptionOverview from './Pages/AdoptionOverview';
 import Checklist from './Pages/Checklist';
 import MatchDogQuiz from './Quizzes/MatchDogQuiz';
