@@ -121,7 +121,6 @@ export default () => {
         >
           <Route exact path='/dashboard' />
         </Dashboard>
-
         <Route exact path='/admin/messages'>
           <ContactMessages loggedInUser={loggedInUser} />
         </Route>

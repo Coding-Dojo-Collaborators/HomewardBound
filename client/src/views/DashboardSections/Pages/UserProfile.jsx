@@ -20,6 +20,7 @@ import Image from 'react-bootstrap/Image';
 
 // MUI
 import { styled } from '@mui/material/styles';
+import { IconButton } from '@material-ui/core';
 
 // Styles
 import styles from '../../../assets/css/modules/paper-dashboard.module.css';
@@ -27,10 +28,8 @@ import 'perfect-scrollbar/css/perfect-scrollbar.css';
 
 // Others
 import defaultcover from '../../../assets/img/bgimages/bg-profile.jpeg';
-import maria from '../../../assets/img/maria.jpg';
+import cat from '../../../assets/img/cats/cat1.jpg'
 import { Link } from 'react-router-dom';
-import { IconButton } from '@material-ui/core';
-import { textAlign } from '@mui/system';
 
 export default ({ loggedInUser }) => {
   const [selectedImage, setSelectedImage] = useState();
@@ -244,7 +243,7 @@ export default ({ loggedInUser }) => {
                     <AvatarImage
                       alt='...'
                       className={`${styles.avatar} ${styles['border-gray']}`}
-                      src={maria}
+                      src={cat}
                     />
                     <input accept="image/*"
                       id="icon-button-file"
@@ -276,11 +275,14 @@ export default ({ loggedInUser }) => {
             </UserCardBody>
             <UserCardFooter>
               <hr />
-              {/* <div className={`${styles['button-container']}`}>
-                <Row>
+              <div className={`${styles['button-container']}`}>
+                {/* <Row className='d-flex justify-content-center'>
                   <Col className='ml-auto' lg='3' md='6' xs='6'>
                     <h5>
-                      {loggedInUser.age} <br />
+                      {
+                        loggedInUser.birthday === '' && "0"
+                      }
+                      {loggedInUser.birthday} <br />
                       <small>Age</small>
                     </h5>
                   </Col>
@@ -296,8 +298,8 @@ export default ({ loggedInUser }) => {
                       <small>Cats Owned</small>
                     </h5>
                   </Col>
-                </Row>
-              </div> */}
+                </Row> */}
+              </div>
             </UserCardFooter>
           </UserCard>
         </Col>

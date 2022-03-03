@@ -2,9 +2,9 @@
 import React, { useEffect, useRef } from 'react';
 import {
   useHistory,
-  // useLocation,
   NavLink,
-  Link,
+  // useLocation,
+  // Link,
 } from 'react-router-dom';
 
 // Reactstrap components
@@ -15,12 +15,16 @@ import styles from '../../assets/css/modules/dashboard.module.css';
 import style from '../../assets/css/modules/paper-dashboard.module.css';
 import sidebarLink from './Sidebar.module.css';
 
+// Others
+import logo from '../../assets/img/brandlogo/white_logo_transparent_background.png';
+
 // Login
 import Cookies from 'js-cookie';
 
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from 'perfect-scrollbar';
 import SidebarItems from 'SidebarItems';
+
 var ps;
 
 export default ({ loggedInUser, setLoggedInUser, activeRoute, setActiveRoute }) => {
@@ -41,7 +45,7 @@ export default ({ loggedInUser, setLoggedInUser, activeRoute, setActiveRoute }) 
         ps.destroy();
       }
     };
-  },[]);
+  }, []);
 
   let logout = () => {
     setLoggedInUser('no user');
@@ -59,7 +63,7 @@ export default ({ loggedInUser, setLoggedInUser, activeRoute, setActiveRoute }) 
     display: 'flex',
     alignItems: 'center',
     marginBottom: '20px',
-    padding: '40px',
+    padding: '20px 20px 20px 15px',
     textAlign: 'center',
   }
 
@@ -68,8 +72,7 @@ export default ({ loggedInUser, setLoggedInUser, activeRoute, setActiveRoute }) 
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     objectFit: 'cover',
-    height: 96,
-    width: 96,
+    width: 260,
   };
 
   const sidebarList = {
@@ -107,14 +110,12 @@ export default ({ loggedInUser, setLoggedInUser, activeRoute, setActiveRoute }) 
       >
         <div className={style.logo} style={logoArea}>
           <div className='mx-auto'>
-            <Link to='#'>
-              <img
-                src={loggedInUser.picture}
-                alt={loggedInUser.name}
-                style={avatarSize}
-                className='img-circle img-no-padding img-responsive m-0'
-              />
-            </Link>
+            <img
+              src={logo}
+              alt='Brand Logo'
+              style={avatarSize}
+              className='img-no-padding img-responsive m-0'
+            />
           </div>
         </div>
         <div className={style.sidebarWrapper} ref={sidebar}>
