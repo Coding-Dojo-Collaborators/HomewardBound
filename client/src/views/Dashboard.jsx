@@ -19,6 +19,7 @@ import PerfectScrollbar from 'perfect-scrollbar';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
 import styles from '../assets/css/modules/paper-dashboard.module.css';
+import style from '../assets/css/modules/dashboard.module.css';
 
 // Views
 import DashboardBody from './DashboardSections/DashboardBody';
@@ -29,8 +30,8 @@ import Footer from 'components/Footer/Footer';
 import DashboardNavbar from 'components/Navbars/DashboardNavbar';
 var ps;
 
-export default ({dogs,cats,loading, loggedInUser, setLoggedInUser, sidebarItems, activeRoute, setActiveRoute }) => {
-  
+export default ({ dogs, cats, loading, loggedInUser, setLoggedInUser, sidebarItems, activeRoute, setActiveRoute }) => {
+
   const history = useHistory();
   const mainPanel = useRef();
   const location = useLocation();
@@ -57,7 +58,7 @@ export default ({dogs,cats,loading, loggedInUser, setLoggedInUser, sidebarItems,
     loggedInUser === 'no user' &&
       history.push('/');
   }, [history, loggedInUser]);
-  
+
 
   console.log(activeRoute)
   return (
@@ -78,9 +79,9 @@ export default ({dogs,cats,loading, loggedInUser, setLoggedInUser, sidebarItems,
               loggedInUser={loggedInUser}
               setLoggedInUser={setLoggedInUser} />
             <DashboardBody
-            dogs={dogs}
-            cats={cats}
-            loading={loading}
+              dogs={dogs}
+              cats={cats}
+              loading={loading}
               loggedInUser={loggedInUser}
               setLoggedInUser={setLoggedInUser}
               currentPage={localStorage.getItem('active')} />

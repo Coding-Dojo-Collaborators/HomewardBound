@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {
   BrowserRouter,
   Switch,
@@ -11,8 +11,8 @@ import jwt_decode from 'jwt-decode';
 import Cookies from 'js-cookie';
 
 // Styles
+// import 'assets/css/bootstrap.min.css';
 import './index.scss';
-import 'assets/css/bootstrap.min.css';
 import 'bootstrap/scss/bootstrap.scss';
 import 'assets/scss/paper-kit.scss';
 import 'assets/css/paper-kit.css';
@@ -28,11 +28,11 @@ import Test from './views/Test';
 import ContactMessages from 'views/admins/ContactMessages';
 
 export default () => {
-  const [dogs,setDogs] = useState()
-  const [cats,setCats] =useState()
-  const [loading, setLoading] = useState( true)
+  const [dogs, setDogs] = useState()
+  const [cats, setCats] = useState()
+  const [loading, setLoading] = useState(true)
   const [activeRoute, setActiveRoute] = useState(
-    localStorage.getItem("active") ? localStorage.getItem("active") :localStorage.setItem('active', "Dashboard")
+    localStorage.getItem("active") ? localStorage.getItem("active") : localStorage.setItem('active', "Dashboard")
   );
   const [loggedInUser, setLoggedInUser] = useState(
     Cookies.get('user_id') ? jwt_decode(Cookies.get('user_id')) : 'no user'
@@ -55,7 +55,7 @@ export default () => {
         axios(options)
           .then((response) => {
             console.log(response)
-            if(mounted){
+            if (mounted) {
               setDogs(response.data.animals)
             }
             // res.render('animalsIndex', {animals: animals})  
@@ -77,7 +77,7 @@ export default () => {
         axios(options)
           .then((response) => {
             console.log(response)
-            if (mounted){
+            if (mounted) {
               setCats(response.data.animals)
               setLoading(false)
             }
@@ -118,11 +118,10 @@ export default () => {
           dogs={dogs}
           cats={cats}
           loading={loading}
-          >
-        <Route exact path='/dashboard'/>
-          </Dashboard>
+        >
+          <Route exact path='/dashboard' />
+        </Dashboard>
 
-          
         <Route exact path='/admin/messages'>
           <ContactMessages loggedInUser={loggedInUser} />
         </Route>

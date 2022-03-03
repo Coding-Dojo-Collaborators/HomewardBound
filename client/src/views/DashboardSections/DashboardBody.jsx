@@ -22,7 +22,7 @@ import DogProfile from './Quizzes/DogProfile';
 import CatProfile from './Quizzes/CatProfile';
 import UserProfile from './Pages/UserProfile';
 
-export default ({ loggedInUser, currentPage,dogs,cats ,loading}) => {
+export default ({ loggedInUser, currentPage, dogs, cats, loading }) => {
   const history = useHistory();
 
   useEffect(() => {
@@ -30,20 +30,20 @@ export default ({ loggedInUser, currentPage,dogs,cats ,loading}) => {
       history.push('/');
   }, [history, loggedInUser]);
   console.log("here")
-  
+
   return (
     <div >
       <Box sx={{ p: 0 }}>
         {
-          currentPage === 'Dashboard' ? <DashboardMain dogs={dogs} cats={cats} loading={loading}/> :
+          currentPage === 'Dashboard' ? <DashboardMain dogs={dogs} cats={cats} loading={loading} /> :
             currentPage === 'Adoption' ? <AdoptionOverview /> :
               currentPage === 'Checklist' ? <Checklist /> :
-                currentPage === 'Match Quiz - Dog' ? <MatchDogQuiz dogs={dogs}/> :
-                  currentPage === 'Match Quiz - Cat' ? <MatchCatQuiz cats={cats}/> :
+                currentPage === 'Match Quiz - Dog' ? <MatchDogQuiz dogs={dogs} /> :
+                  currentPage === 'Match Quiz - Cat' ? <MatchCatQuiz cats={cats} /> :
                     currentPage === 'Rehome A Pet' ? <Rehome /> :
                       currentPage === 'Dog Profile' ? <DogProfile /> :
                         currentPage === 'Cat Profile' ? <CatProfile /> :
-                          currentPage === 'User Profile' && <UserProfile />
+                          currentPage === 'User Profile' && <UserProfile loggedInUser={loggedInUser} />
         }
       </Box>
     </div>

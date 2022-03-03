@@ -1,5 +1,6 @@
 package com.homewardbound.homewardbound.models.login;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -16,33 +17,33 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-
 import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class User {
     @Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-    
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @NotNull
-    @Size(min=3, message="First Name must be at least 3 characters")
+    @Size(min = 3, message = "First Name must be at least 3 characters")
     public String firstName;
-    
+
     @NotNull
-    @Size(min=3, message="Last Name must be at least 3 characters")
+    @Size(min = 3, message = "Last Name must be at least 3 characters")
     public String lastName;
 
-    @NotEmpty(message="Email is required!")
-    @Email(message="Please enter a valid email!")
+    @NotEmpty(message = "Email is required!")
+    @Email(message = "Please enter a valid email!")
     private String email;
-    
-    @NotEmpty(message="Password is required!")
-    @Size(min=8, max=60, message="Password must be at least 8 characters")
+
+    @NotEmpty(message = "Password is required!")
+    @Size(min = 8, max = 60, message = "Password must be at least 8 characters")
     private String password;
-    
+
     @Transient
-    @Size(min=8, max=128, message="Confirm Password must be at least 8 characters")
+    @Size(min = 8, max = 128, message = "Confirm Password must be at least 8 characters")
     private String confirm;
 
     private boolean googleUser;
@@ -50,24 +51,28 @@ public class User {
     private boolean facebookUser;
 
     private String picture;
+    private String zipCode;
+    private LocalDate birthday;
+    private int numOfDogsOwned;
+    private int numOfCatsOwned;
 
     private boolean admin;
 
-    @Column(updatable=false)
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @Column(updatable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date createdAt;
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date updatedAt;
 
     @PrePersist
-	protected void onCreate() {
+    protected void onCreate() {
         this.createdAt = new Date();
-	}
-	
-	@PreUpdate
-	protected void onUpdate() {
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
         this.updatedAt = new Date();
-	}
+    }
 
     public Long getId() {
         return id;
@@ -141,6 +146,38 @@ public class User {
         this.picture = picture;
     }
 
+    public String getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
+    }
+
+    public int getNumOfDogsOwned() {
+        return numOfDogsOwned;
+    }
+
+    public void setNumOfDogsOwned(int numOfDogsOwned) {
+        this.numOfDogsOwned = numOfDogsOwned;
+    }
+
+    public int getNumOfCatsOwned() {
+        return numOfCatsOwned;
+    }
+
+    public void setNumOfCatsOwned(int numOfCatsOwned) {
+        this.numOfCatsOwned = numOfCatsOwned;
+    }
+
     public boolean isGoogleUser() {
         return googleUser;
     }
@@ -164,5 +201,5 @@ public class User {
     public void setAdmin(boolean admin) {
         this.admin = admin;
     }
-    
+
 }

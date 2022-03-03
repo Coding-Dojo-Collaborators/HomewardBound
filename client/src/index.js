@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 // Styles
 import './index.scss';
 import 'bootstrap/scss/bootstrap.scss';
-import 'assets/css/bootstrap.min.css';
+// import 'assets/css/bootstrap.min.css';
 import 'assets/scss/paper-kit.scss';
 import 'assets/css/paper-kit.css';
 import 'assets/demo/demo.css';
