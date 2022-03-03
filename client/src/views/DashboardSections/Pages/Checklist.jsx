@@ -1,10 +1,11 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './checklist.css';
 import Navbar from '../../../components/Navbars/Navbar';
 
 
 
 const Checklist = () => {
+  const [activeTab,setActiveTab] = useState('radio1')
   return (
     <div className='checkbody'>
    
@@ -27,11 +28,11 @@ const Checklist = () => {
             ● Is there tension in the home? Pets quickly pick up on stress in the home, and it can exacerbate their health and behavior problems.<br />
             ● Is there an adult in the family who has agreed to be ultimately responsible for the pet’s care?<br />
           </p>
-          <input id="radio1" type="radio" name="css-tabs" checked />
-          <input id="radio2" type="radio" name="css-tabs" />
-          <input id="radio3" type="radio" name="css-tabs" />
-          <input id="radio4" type="radio" name="css-tabs" />
-          <input id="radio5" type="radio" name="css-tabs" />
+          <input id="radio1" type="radio" name="css-tabs"checked={activeTab=='radio1'} onClick={(e)=> setActiveTab('radio1')} />
+          <input id="radio2" type="radio" name="css-tabs"checked={activeTab=='radio2'} onClick={(e)=> setActiveTab('radio2')}/>
+          <input id="radio3" type="radio" name="css-tabs"checked={activeTab=='radio3'} onClick={(e)=> setActiveTab('radio3')}/>
+          <input id="radio4" type="radio" name="css-tabs"checked={activeTab=='radio4'} onClick={(e)=> setActiveTab('radio4')} />
+          <input id="radio5" type="radio" name="css-tabs"checked={activeTab=='radio5'} onClick={(e)=> setActiveTab('radio5')} />
           <div id="tabs"> <u>
 
             <label id="tab1" for="radio1">Considerations</label>
