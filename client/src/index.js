@@ -9,6 +9,7 @@ import 'assets/scss/paper-kit.scss';
 import 'assets/css/paper-kit.css';
 import 'assets/demo/demo.css';
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
+import 'font-awesome/css/font-awesome.min.css';
 
 // Others
 import reportWebVitals from './reportWebVitals';

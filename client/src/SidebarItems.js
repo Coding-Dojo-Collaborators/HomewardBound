@@ -37,7 +37,7 @@ const SidebarItems = [
     path: '/dogadoption',
     exact: true,
     name: 'Dog Adoption',
-    icon: 'fas fa-dog',
+    icon: 'nc-icon nc-briefcase-24',
     component: DogAdoption,
     layout: ""
   },
@@ -45,7 +45,7 @@ const SidebarItems = [
     path: '/catadoption',
     exact: true,
     name: 'Cat Adoption',
-    icon: 'fas fa-cat',
+    icon: 'nc-icon nc-briefcase-24',
     component: CatAdoption,
     layout: ""
   },
