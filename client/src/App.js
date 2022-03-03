@@ -95,6 +95,13 @@ export default () => {
   return (
     <BrowserRouter >
       <Switch>
+        <Route exact path='/admin'>
+          <ContactMessages loggedInUser={loggedInUser} />
+        </Route>
+        {/* TEST ROUTE */}
+        <Route exact path='/hello'>
+          <Test loggedInUser={loggedInUser} />
+        </Route>
         {/* HOME ROUTE */}
         <Route exact path='/'>
           <LandingPage
@@ -121,13 +128,7 @@ export default () => {
         >
           <Route exact path='/dashboard' />
         </Dashboard>
-        <Route exact path='/admin/messages'>
-          <ContactMessages loggedInUser={loggedInUser} />
-        </Route>
-        {/* TEST ROUTE */}
-        <Route exact path='/hello'>
-          <Test loggedInUser={loggedInUser} />
-        </Route>
+        
       </Switch>
     </BrowserRouter>
   );
