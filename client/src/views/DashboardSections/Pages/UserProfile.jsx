@@ -90,35 +90,36 @@ export default ({ loggedInUser }) => {
     marginTop: '10px !important',
   })
   const coverContainer = {
-    overflow: 'hidden',
-    position: 'relative',
-    backgroundRepeat: 'no-repeat !important',
-    backgroundSize: 'contain !important',
-    backgroundPosition: 'top center !important',
-    backgroundOrigin: 'border-box !important',
-    objectFit: 'cover !important',
-    height: 130,
-    borderRadius: '12px 12px 0 0',
-    maxWidth: '100%',
-    verticalAlign: 'middle',
-    borderStyle: 'none',
-    outline: 'none',
-    boxSizing: 'border-box',
+    // overflow: 'hidden',
+    // position: 'relative',
+    // backgroundRepeat: 'no-repeat !important',
+    // backgroundSize: 'contain !important',
+    // backgroundPosition: 'top center !important',
+    // backgroundOrigin: 'border-box !important',
+    // objectFit: 'cover !important',
+    height: '130px',
+    // width : '700px',
+    // borderRadius: '12px 12px 0 0',
+    // maxWidth: '100%',
+    // verticalAlign: 'middle',
+    // borderStyle: 'none',
+    // outline: 'none',
+    // boxSizing: 'border-box',
     // bsGutterX: '0 !important'
   }
   const ImageCover = styled(Image)({
-    backgroundRepeat: 'no-repeat !important',
-    backgroundSize: 'contain !important',
-    backgroundPosition: 'center !important',
-    backgroundOrigin: 'border-box !important',
-    objectFit: 'cover !important',
-    height: 130,
-    maxWidth: '100%',
-    borderRadius: '12px 12px 0 0',
-    verticalAlign: 'middle',
-    borderStyle: 'none',
-    outline: 'none',
-    boxSizing: 'border-box',
+    // backgroundRepeat: 'no-repeat !important',
+    // backgroundSize: 'contain !important',
+    // backgroundPosition: 'center !important',
+    // backgroundOrigin: 'border-box !important',
+    // objectFit: 'cover !important',
+    // height: 130,
+    // maxWidth: '100%',
+    // borderRadius: '12px 12px 0 0',
+    // verticalAlign: 'middle',
+    // borderStyle: 'none',
+    // outline: 'none',
+    // boxSizing: 'border-box',
   })
   const AvatarImage = styled(Image)({
     borderRadius: '50% !important',
@@ -223,17 +224,18 @@ export default ({ loggedInUser }) => {
   })
 
   return (
-    <div className={`${styles.content} gx-0`}
-      style={contentDiv}>
+    <div 
+      >
       <Row className='d-flex justify-content-center gap-5 mt-5'>
-        <Col md='4'>
+        <Col className='col-4'>
           <UserCard className={`${styles['card-user']}`}>
-            <div className='g-0 gx-0'
+            <div className='d-flex justify-content-center  w-100'
               style={coverContainer}
             >
-              <ImageCover
+              <img
                 alt='...'
                 src={defaultcover}
+                className='d-flex'
               />
             </div>
             <UserCardBody>
