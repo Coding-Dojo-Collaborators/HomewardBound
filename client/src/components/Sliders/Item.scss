@@ -3,16 +3,18 @@
   transition: transform 300ms ease 100ms;
   margin: 0 2px;
   position: relative;
-  margin-bottom: -180px !important;
+  margin-bottom: -300px !important;
   background-color: transparent !important;
+  height: 650px;
 
   img {
     border-radius: 12px;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain !important;
     background-position: center;
+    object-position: 50% 50% !important;
     object-fit: cover;
-    height: 50%;
+    height: 40%;
     width: 100%;
     vertical-align: middle;
   }

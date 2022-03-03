@@ -1,7 +1,9 @@
-import AdoptionOverview from 'views/DashboardSections/Pages/AdoptionOverview';
+// import AdoptionOverview from 'views/DashboardSections/Pages/AdoptionOverview';
 import Checklist from 'views/DashboardSections/Pages/Checklist';
-import MatchDogQuiz from 'views/DashboardSections/Quizzes/MatchDogQuiz';
-import MatchCatQuiz from 'views/DashboardSections/Quizzes/MatchCatQuiz';
+import DogAdoption from 'views/DashboardSections/Pages/DogAdoption';
+import CatAdoption from 'views/DashboardSections/Pages/CatAdoption';
+// import MatchDogQuiz from 'views/DashboardSections/Quizzes/MatchDogQuiz';
+// import MatchCatQuiz from 'views/DashboardSections/Quizzes/MatchCatQuiz';
 import Rehome from 'views/DashboardSections/Pages/Rehome';
 import DogProfile from 'views/DashboardSections/Quizzes/DogProfile';
 import CatProfile from 'views/DashboardSections/Quizzes/CatProfile';
@@ -15,36 +17,36 @@ const SidebarItems = [
     icon: 'nc-icon nc-bank',
     layout: ""
   },
-  {
-    path: '/adoption',
-    exact: true,
-    name: 'Adoption',
-    icon: 'nc-icon nc-briefcase-24',
-    component: AdoptionOverview,
-    layout: ""
-  },
+  // {
+  //   path: '/adoption',
+  //   exact: true,
+  //   name: 'Adoption',
+  //   icon: 'nc-icon nc-briefcase-24',
+  //   component: AdoptionOverview,
+  //   layout: ""
+  // },
   {
     path: '/checklist',
     exact: true,
-    name: 'Checklist',
+    name: 'Adoption Checklist',
     icon: 'nc-icon nc-bullet-list-67',
     component: Checklist,
     layout: ""
   },
   {
-    path: '/dogmatchquiz',
+    path: '/dogadoption',
     exact: true,
-    name: 'Match Quiz - Dog',
-    icon: 'nc-icon nc-touch-id',
-    component: MatchDogQuiz,
+    name: 'Dog Adoption',
+    icon: 'fas fa-dog',
+    component: DogAdoption,
     layout: ""
   },
   {
-    path: '/catmatchquiz',
+    path: '/catadoption',
     exact: true,
-    name: 'Match Quiz - Cat',
-    icon: 'nc-icon nc-touch-id',
-    component: MatchCatQuiz,
+    name: 'Cat Adoption',
+    icon: 'fas fa-cat',
+    component: CatAdoption,
     layout: ""
   },
   {

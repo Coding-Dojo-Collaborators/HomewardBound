@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import {
   BrowserRouter,
   Switch,
@@ -7,7 +7,8 @@ import {
   useHistory,
   useLocation
 } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
+
 // Core components
 import Sidebar from 'components/Navbars/Sidebar';
 // import Footer from 'components/Footer/Footer';
@@ -19,7 +20,7 @@ import PerfectScrollbar from 'perfect-scrollbar';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
 import styles from '../assets/css/modules/paper-dashboard.module.css';
-import style from '../assets/css/modules/dashboard.module.css';
+// import style from '../assets/css/modules/dashboard.module.css';
 
 // Views
 import DashboardBody from './DashboardSections/DashboardBody';

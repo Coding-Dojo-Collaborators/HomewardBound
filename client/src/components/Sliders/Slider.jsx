@@ -10,7 +10,7 @@ import useSizeElement from './useSizeElement'
 import './Slider.scss'
 
 export default ({ children, activeSlide }) => {
-  const [currentSlide, setCurrentSlide] = useState(activeSlide);
+  // const [currentSlide, setCurrentSlide] = useState(activeSlide);
   const { width, elementRef } = useSizeElement();
   const {
     handlePrev,
@@ -21,33 +21,33 @@ export default ({ children, activeSlide }) => {
     hasPrev
   } = useSliding(width, React.Children.count(children));
 
-  const handleSelect = movie => {
-    setCurrentSlide(movie);
-  };
+  // const handleSelect = movie => {
+  //   setCurrentSlide(movie);
+  // };
 
-  const handleClose = () => {
-    setCurrentSlide(null);
-  };
+  // const handleClose = () => {
+  //   setCurrentSlide(null);
+  // };
 
   const contextValue = {
-    onSelectSlide: handleSelect,
-    onCloseSlide: handleClose,
+    // onSelectSlide: handleSelect,
+    // onCloseSlide: handleClose,
     elementRef,
-    currentSlide,
+    // currentSlide,
   };
 
   return (
     <SliderContext.Provider value={contextValue}>
       <SliderWrapper>
-        <div
+        {/* <div
           className={cx('slider', { 'slider--open': currentSlide != null })}
-        >
-          <div ref={containerRef} className="slider__container" {...slideProps}>{children}</div>
-        </div>
+        > */}
+        <div ref={containerRef} className="slider__container" {...slideProps}>{children}</div>
+        {/* </div> */}
         {hasPrev && <SlideButton onClick={handlePrev} type="prev" />}
         {hasNext && <SlideButton onClick={handleNext} type="next" />}
       </SliderWrapper>
-      {currentSlide && <Content movie={currentSlide} onClose={handleClose} />}
+      {/* {currentSlide && <Content movie={currentSlide} onClose={handleClose} />} */}
     </SliderContext.Provider>
   );
 };

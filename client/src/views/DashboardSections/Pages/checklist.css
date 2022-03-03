@@ -1,24 +1,44 @@
-.checkbody {
-  background: #F4F3EE;
-  color: rgb(0, 0, 0);
-  width: 80vw;
+.MuiTabs-indicator {
+  background-color: #f47660 !important;
+  color: #f47660 !important;
+}
+.css-aym9vq-MuiButtonBase-root-MuiTab-root.Mui-selected {
+  color: #f47660 !important;
+}
+.css-1ujnqem-MuiTabs-root {
+  margin: 0 auto;
+}
+.css-heg063-MuiTabs-flexContainer {
+  justify-content: space-between;
+}
+.css-1efz2kb-MuiFormControlLabel-root .MuiFormControlLabel-label {
+  font-size: 15px;
+  line-height: 1.5em;
+  font-weight: 300 !important;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Montserrat", "Open Sans", sans-serif;
+  font-weight: 300 !important;
+}
+
+/* .checkbody { */
+/* background: #f4f3ee;
+  color: rgb(0, 0, 0); */
+/* width: 100%;
   height: 200vh;
   padding: 50px;
-
- 
 }
 
 .checkimage {
-    height: 50px;
-    width: 50px;
+  height: 50px;
+  width: 50px;
 }
 
 .bold1 {
-    font-weight: 900;
+  font-weight: 900;
 }
 main {
   max-width: 100vw;
-  
+
   padding: 30px;
 }
 input[name="css-tabs"] {
@@ -30,24 +50,23 @@ a {
 #tabs {
   padding: 0 0 0 50px;
   margin-left: -50px;
-  height: 80px;
-  /* border-bottom: 5px solid #EB4E01; */
-}
+  height: 80px; */
+/* border-bottom: 5px solid #EB4E01; */
+/* } */
 
 /* * {
     box-sizing: border-box;
   } */
 
 /* Create two equal columns that floats next to each other */
-.column {
+/* .column {
   float: left;
   width: 300px;
   padding: 10px;
-
-}
+} */
 
 /* Clear floats after the columns */
-.row:after {
+/* .row:after {
   content: "";
   display: table;
   clear: both;
@@ -71,7 +90,7 @@ a {
   height: 80px;
   width: 130px;
   background: #f5593c;
-  
+
   transition: transform 400ms;
 }
 #tabs label {
@@ -86,7 +105,6 @@ a {
   height: 100%;
   border-right: 1px dotted black;
   cursor: pointer;
- 
 }
 #tabs label:first-child {
   border-left: 1px dotted #575654;
@@ -115,8 +133,8 @@ a {
   background-image: url(https://www.svgrepo.com/show/5036/money.svg);
 }
 #tab5::before {
-    background-image: url(https://www.svgrepo.com/show/48966/shopping.svg);
-  }
+  background-image: url(https://www.svgrepo.com/show/48966/shopping.svg);
+}
 #radio1:checked ~ #tabs #tab1::before,
 #radio2:checked ~ #tabs #tab2::before,
 #radio3:checked ~ #tabs #tab3::before,
@@ -137,9 +155,8 @@ a {
   transform: translateX(390px);
 }
 #radio5:checked ~ #tabs::after {
-    transform: translateX(520px);
-  }
-
+  transform: translateX(520px);
+}
 
 #content {
   position: relative;
@@ -154,7 +171,7 @@ a {
   margin-left: -50px;
   border-left: 10px solid transparent;
   border-bottom: 8px solid transparent;
-}
+} */
 /* #content::after {
 	content: "";
 	display: block;
@@ -165,7 +182,7 @@ a {
 	border-right: 10px solid transparent;
 	border-bottom: 8px solid transparent;
 } */
-#content section {
+/* #content section {
   position: absolute;
   transform: translateY(50px);
   opacity: 0;
@@ -179,4 +196,4 @@ a {
 #radio5:checked ~ #content #content5 {
   transform: translateY(0);
   opacity: 1;
-}
+} */
