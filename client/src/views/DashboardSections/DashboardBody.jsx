@@ -21,7 +21,7 @@ import DogProfile from './Quizzes/DogProfile';
 import CatProfile from './Quizzes/CatProfile';
 import UserProfile from './Pages/UserProfile';
 
-export default ({ loggedInUser, currentPage}) => {
+export default ({ loggedInUser, currentPage }) => {
   const history = useHistory();
 
   useEffect(() => {
@@ -29,7 +29,7 @@ export default ({ loggedInUser, currentPage}) => {
       history.push('/');
   }, [history, loggedInUser]);
   console.log("here")
-  
+
   return (
     <div >
       <Box sx={{ p: 0 }}>
@@ -42,7 +42,7 @@ export default ({ loggedInUser, currentPage}) => {
                     currentPage === 'Rehome A Pet' ? <Rehome /> :
                       currentPage === 'Dog Profile' ? <DogProfile /> :
                         currentPage === 'Cat Profile' ? <CatProfile /> :
-                          currentPage === 'User Profile' && <UserProfile />
+                          currentPage === 'User Profile' && <UserProfile loggedInUser={loggedInUser} />
         }
       </Box>
     </div>

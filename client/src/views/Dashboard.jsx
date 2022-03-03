@@ -19,6 +19,7 @@ import PerfectScrollbar from 'perfect-scrollbar';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
 import styles from '../assets/css/modules/paper-dashboard.module.css';
+import style from '../assets/css/modules/dashboard.module.css';
 
 // Views
 import DashboardBody from './DashboardSections/DashboardBody';
@@ -30,7 +31,6 @@ import DashboardNavbar from 'components/Navbars/DashboardNavbar';
 var ps;
 
 export default ({ loggedInUser, setLoggedInUser, sidebarItems, activeRoute, setActiveRoute }) => {
-  
   const history = useHistory();
   const mainPanel = useRef();
   const location = useLocation();

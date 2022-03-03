@@ -11,8 +11,8 @@ import jwt_decode from 'jwt-decode';
 import Cookies from 'js-cookie';
 
 // Styles
+// import 'assets/css/bootstrap.min.css';
 import './index.scss';
-import 'assets/css/bootstrap.min.css';
 import 'bootstrap/scss/bootstrap.scss';
 import 'assets/scss/paper-kit.scss';
 import 'assets/css/paper-kit.css';
@@ -29,7 +29,7 @@ import ContactMessages from 'views/admins/ContactMessages';
 
 export default () => {
   const [activeRoute, setActiveRoute] = useState(
-    localStorage.getItem("active") ? localStorage.getItem("active") :localStorage.setItem('active', "Dashboard")
+    localStorage.getItem("active") ? localStorage.getItem("active") : localStorage.setItem('active', "Dashboard")
   );
   const [loggedInUser, setLoggedInUser] = useState(
     Cookies.get('user_id') ? jwt_decode(Cookies.get('user_id')) : 'no user'
@@ -58,11 +58,11 @@ export default () => {
           setLoggedInUser={setLoggedInUser}
           activeRoute={activeRoute}
           setActiveRoute={setActiveRoute}
-          >
-        <Route exact path='/dashboard'/>
-          </Dashboard>
+        >
+          <Route exact path='/dashboard' />
+        </Dashboard>
 
-          
+
         <Route exact path='/admin/messages'>
           <ContactMessages loggedInUser={loggedInUser} />
         </Route>

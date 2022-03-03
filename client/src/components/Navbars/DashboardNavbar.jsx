@@ -14,6 +14,7 @@ import {
 
 // Styles
 import styles from '../../assets/css/modules/paper-dashboard.module.css';
+import style from '../../assets/css/modules/dashboard.module.css';
 
 // // Login
 // import Cookies from 'js-cookie';
