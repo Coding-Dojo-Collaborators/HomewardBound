@@ -15,9 +15,9 @@ import { ThreeDots } from '../../../components/Icons/ThreeDots';
 
 export default ({ dogs, cats, loading }) => {
 
-  const threeDotLoaderColor = {
-    color: '#f47660',
-  }
+  // const threeDotLoaderColor = {
+  //   color: '#f47660',
+  // }
 
   return (
     <div>
@@ -25,7 +25,7 @@ export default ({ dogs, cats, loading }) => {
         (!loading && dogs && cats) ?
           <div>
             <div className='slider-app'>
-              <h3 className='text-center pt-5'>All Dogs Needing a Forerver Home</h3>
+              <h3 className='text-center pt-5'>All Dogs Needing a Forever Home</h3>
               <Slider>
                 {dogs.map((pet, i) => (
                   <>
@@ -39,20 +39,21 @@ export default ({ dogs, cats, loading }) => {
                 ))}
               </Slider>
             </div>
-            <h3 className='text-center'>All Cats Needing a Forerver Home</h3>
-            <Slider>
-              {cats.map((pet, i) => (
-                <>
-                  {
-                    pet.photos.length > 0 ?
-
-                      <Slider.Item pet={pet} img={pet.photos[0].medium} id={i} key={i}>item1</Slider.Item>
-                      :
-                      <Slider.Item img={cat404} id={i} key={i}>item1</Slider.Item>
-                  }
-                </>
-              ))}
-            </Slider>
+            <div className='slider-app'>
+              <h3 className='text-center'>All Cats Needing a Forever Home</h3>
+              <Slider>
+                {cats.map((pet, i) => (
+                  <>
+                    {
+                      pet.photos.length > 0 ?
+                        <Slider.Item pet={pet} img={pet.photos[0].medium} id={i} key={i}>item1</Slider.Item>
+                        :
+                        <Slider.Item pet={pet} img={cat404} id={i} key={i}>item1</Slider.Item>
+                    }
+                  </>
+                ))}
+              </Slider>
+            </div>
           </div>
           :
           <h1 className="text-center pt-5">Loading

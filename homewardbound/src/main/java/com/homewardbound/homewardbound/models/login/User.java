@@ -51,9 +51,13 @@ public class User {
     private boolean facebookUser;
 
     private String picture;
+
     private String zipCode;
+
     private LocalDate birthday;
+
     private int numOfDogsOwned;
+    
     private int numOfCatsOwned;
 
     private boolean admin;
