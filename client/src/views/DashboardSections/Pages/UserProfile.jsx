@@ -113,8 +113,8 @@ export default ({ loggedInUser }) => {
     backgroundOrigin: 'border-box !important',
     objectFit: 'cover !important',
     height: 130,
-    borderRadius: '12px 12px 0 0',
     maxWidth: '100%',
+    borderRadius: '12px 12px 0 0',
     verticalAlign: 'middle',
     borderStyle: 'none',
     outline: 'none',
@@ -140,11 +140,11 @@ export default ({ loggedInUser }) => {
     lineHeight: '1.4em !important',
     marginBottom: '15px !important',
   }
-  const Links = styled(Link)({
-    color: '#f47660 !important',
-    textDecoration: 'none',
-    backgroundColor: 'initial',
-  })
+  // const Links = styled(Link)({
+  //   color: '#f47660 !important',
+  //   textDecoration: 'none',
+  //   backgroundColor: 'initial',
+  // })
   const userDesc = {
     fontSize: '.9em !important',
     fontWeight: '300 !important',
@@ -226,7 +226,7 @@ export default ({ loggedInUser }) => {
     <div className={`${styles.content} gx-0`}
       style={contentDiv}>
       <Row className='d-flex justify-content-center gap-5 mt-5'>
-        <Col md='3'>
+        <Col md='4'>
           <UserCard className={`${styles['card-user']}`}>
             <div className='g-0 gx-0'
               style={coverContainer}
@@ -239,25 +239,23 @@ export default ({ loggedInUser }) => {
             <UserCardBody>
               <div className={`${styles.author}`}>
                 <div style={{ position: 'relative' }}>
-                  <Links to='#meow' onClick={(e) => e.preventDefault()}>
-                    <AvatarImage
-                      alt='...'
-                      className={`${styles.avatar} ${styles['border-gray']}`}
-                      src={cat}
-                    />
-                    <input accept="image/*"
-                      id="icon-button-file"
-                      type="file"
-                      onChange={imageChange}
-                      style={{ display: 'none' }} />
-                    <label htmlFor="icon-button-file">
-                      <UploadIcon aria-label="upload picture"
-                        component="span" style={{ color: '#f47660' }}>
-                        <i className='nc-icon nc-camera-compact'>
-                        </i>
-                      </UploadIcon>
-                    </label>
-                  </Links>
+                  <AvatarImage
+                    alt='...'
+                    className={`${styles.avatar} ${styles['border-gray']}`}
+                    src={cat}
+                  />
+                  <input accept="image/*"
+                    id="icon-button-file"
+                    type="file"
+                    onChange={imageChange}
+                    style={{ display: 'none' }} />
+                  <label htmlFor="icon-button-file">
+                    <UploadIcon aria-label="upload picture"
+                      component="span" style={{ color: '#f47660' }}>
+                      <i className='nc-icon nc-camera-compact'>
+                      </i>
+                    </UploadIcon>
+                  </label>
                 </div>
                 <h5
                   className={`${styles.title} fw-bold mt-3`}

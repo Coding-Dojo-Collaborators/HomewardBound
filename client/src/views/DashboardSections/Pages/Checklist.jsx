@@ -151,6 +151,7 @@ const Checklist = () => {
                 </Row>
                 <Row>
                   <Col md='6'>
+                    <CardTitle tag='h4' className='text-center mb-3'>Dog Adoption</CardTitle>
                     <Card className='card-plain'>
                       <TabContext value={value}>
                         <CardHeader>
@@ -362,6 +363,7 @@ const Checklist = () => {
                     </Card>
                   </Col>
                   <Col md='6'>
+                    <CardTitle tag='h4' className='text-center mb-3'>Cat Adoption</CardTitle>
                     <Card className='card-plain'>
                       <TabContext value={value}>
                         <CardHeader>
