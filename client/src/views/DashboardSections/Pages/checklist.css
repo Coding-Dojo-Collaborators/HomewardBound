@@ -1,9 +1,10 @@
 .checkbody {
-  background: #c0c0c0;
+  background: #F4F3EE;
   color: rgb(0, 0, 0);
-  width: 100vw;
+  width: 80vw;
   height: 200vh;
   padding: 50px;
+
  
 }
 
@@ -40,9 +41,9 @@ a {
 /* Create two equal columns that floats next to each other */
 .column {
   float: left;
-  width: 600px;
+  width: 300px;
   padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
+
 }
 
 /* Clear floats after the columns */

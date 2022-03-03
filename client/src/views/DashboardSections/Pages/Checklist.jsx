@@ -7,7 +7,7 @@ import Navbar from '../../../components/Navbars/Navbar';
 const Checklist = () => {
   return (
     <div className='checkbody'>
-      <Navbar />
+   
       <div >
         <main className='checkmain '>
           <h1 className='p-5 text-center  '> <u>Checklist for New Adopters</u><img className='checkimage' src="https://www.svgrepo.com/show/254981/checklist.svg" alt="" /></h1>
