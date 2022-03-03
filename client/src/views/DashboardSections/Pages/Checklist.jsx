@@ -158,6 +158,9 @@ const Checklist = () => {
                           <CardTitle tag='h5'>
                             <TabList
                               onChange={handleChange}
+                              variant="scrollable"
+                              scrollButtons="auto"
+                              centered
                               aria-label='icon label tabs example'
                             >
                               <Tab icon={<PsychologyIcon />} label='CONSIDERATIONS' value='1' />

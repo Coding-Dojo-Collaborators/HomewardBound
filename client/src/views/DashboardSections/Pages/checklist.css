@@ -19,6 +19,28 @@
   font-family: "Montserrat", "Open Sans", sans-serif;
   font-weight: 300 !important;
 }
+/* #mui-p-99849-T-1.Mui-selected::before,
+#mui-p-99849-T-2.Mui-selected::before,
+#mui-p-99849-T-3.Mui-selected::before,
+#mui-p-99849-T-4.Mui-selected::before,
+#mui-p-99849-T-5.Mui-selected::before {
+  filter: invert(100%);
+}
+#mui-p-99849-T-1.Mui-selected::after {
+  transform: translateX(0);
+}
+#mui-p-99849-T-2.Mui-selected::after {
+  transform: translateX(130px);
+}
+#mui-p-99849-T-3.Mui-selected::after {
+  transform: translateX(260px);
+}
+#mui-p-99849-T-4.Mui-selected::after {
+  transform: translateX(390px);
+}
+#mui-p-99849-T-5.Mui-selected::after {
+  transform: translateX(520px);
+} */
 
 /* .checkbody { */
 /* background: #f4f3ee;

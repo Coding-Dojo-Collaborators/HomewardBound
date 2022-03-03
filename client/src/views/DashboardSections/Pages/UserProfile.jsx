@@ -1,6 +1,7 @@
 /* eslint-disable no-dupe-keys */
 /* eslint-disable import/no-anonymous-default-export */
 import React, { useState } from 'react';
+// import { Link } from 'react-router-dom';
 
 // Reactstrap components
 import {
@@ -29,7 +30,6 @@ import 'perfect-scrollbar/css/perfect-scrollbar.css';
 // Others
 import defaultcover from '../../../assets/img/bgimages/bg-profile.jpeg';
 import cat from '../../../assets/img/cats/cat1.jpg'
-import { Link } from 'react-router-dom';
 
 export default ({ loggedInUser }) => {
   const [selectedImage, setSelectedImage] = useState();
