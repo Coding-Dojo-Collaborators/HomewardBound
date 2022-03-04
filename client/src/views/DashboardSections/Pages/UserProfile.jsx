@@ -92,34 +92,18 @@ export default ({ loggedInUser }) => {
   const coverContainer = {
     // overflow: 'hidden',
     // position: 'relative',
-    // backgroundRepeat: 'no-repeat !important',
-    // backgroundSize: 'contain !important',
-    // backgroundPosition: 'top center !important',
-    // backgroundOrigin: 'border-box !important',
-    // objectFit: 'cover !important',
     height: '130px',
-    // width : '700px',
-    // borderRadius: '12px 12px 0 0',
-    // maxWidth: '100%',
-    // verticalAlign: 'middle',
-    // borderStyle: 'none',
-    // outline: 'none',
-    // boxSizing: 'border-box',
-    // bsGutterX: '0 !important'
   }
   const ImageCover = styled(Image)({
-    // backgroundRepeat: 'no-repeat !important',
-    // backgroundSize: 'contain !important',
-    // backgroundPosition: 'center !important',
-    // backgroundOrigin: 'border-box !important',
-    // objectFit: 'cover !important',
-    // height: 130,
-    // maxWidth: '100%',
-    // borderRadius: '12px 12px 0 0',
-    // verticalAlign: 'middle',
-    // borderStyle: 'none',
-    // outline: 'none',
-    // boxSizing: 'border-box',
+    backgroundRepeat: 'no-repeat !important',
+    backgroundSize: 'contain !important',
+    backgroundPosition: 'center !important',
+    backgroundOrigin: 'border-box !important',
+    objectFit: 'cover !important',
+    maxWidth: '100%',
+    borderRadius: '12px 12px 0 0',
+    verticalAlign: 'middle',
+    borderStyle: 'none',
   })
   const AvatarImage = styled(Image)({
     borderRadius: '50% !important',
@@ -224,15 +208,15 @@ export default ({ loggedInUser }) => {
   })
 
   return (
-    <div 
-      >
+    <div
+      style={contentDiv}>
       <Row className='d-flex justify-content-center gap-5 mt-5'>
-        <Col className='col-4'>
+        <Col md='4'>
           <UserCard className={`${styles['card-user']}`}>
-            <div className='d-flex justify-content-center  w-100'
+            <div className='d-flex justify-content-center w-100'
               style={coverContainer}
             >
-              <img
+              <ImageCover
                 alt='...'
                 src={defaultcover}
                 className='d-flex'
