@@ -547,6 +547,67 @@ const Checklist = () => {
                     </Card>
                   </Col>
                 </Row>
+                <Card>
+                  <CardBody>
+                    <div className='places-buttons'>
+                      <Row>
+                        <Col className='ml-auto mr-auto text-center mb-3 mt-2' md='12'>
+                          <CardTitle tag='h5'>For More Resources on Pet Adoption</CardTitle>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col className='ml-auto mr-auto' lg='12'>
+                          <Row className='p-3 px-5'>
+                            <ul class='list-group'>
+                              <ListItems>
+                                <PawIcon />
+                                <Link size='small' className='bg-transparent px-0'
+                                  href='https://www.petfinder.com/pet-adoption/pet-adoption-information/' target='_blank'>
+                                  Petfinder - Pet Adoption Information
+                                </Link>
+                              </ListItems>
+                              <ListItems>
+                                <PawIcon />
+                                <Link size='small' className='bg-transparent px-0'
+                                  href='https://www.petfinder.com/pet-adoption/pet-adoption-information/misconceptions-pet-adoption/' target='_blank'>
+                                  Misconceptions About Pet Adoption
+                                </Link>
+                              </ListItems>
+                              <ListItems>
+                                <PawIcon />
+                                <Link size='small' className='bg-transparent px-0'
+                                  href='https://www.humanesociety.org/resources/adopting-animal-shelter-or-rescue-group' target='_blank'>
+                                  The Humane Society
+                                </Link>
+                              </ListItems>
+                              <ListItems>
+                                <PawIcon />
+                                <Link size='small' className='bg-transparent px-0'
+                                  href='https://theshelterpetproject.org/why-adopt/' target='_blank'>
+                                  The Shelter Pet Project
+                                </Link>
+                              </ListItems>
+                              <ListItems>
+                                <PawIcon />
+                                <Link size='small' className='bg-transparent px-0'
+                                  href='https://www.aspca.org/adopt-pet/adoption-tips' target='_blank'>
+                                  The American Society for the Prevention of Cruelty to Animals® (ASPCA®)
+                                </Link>
+                              </ListItems>
+                              <ListItems>
+                                <PawIcon />
+                                <Link size='small' className='bg-transparent px-0'
+                                  href='https://animalfoundation.com/adopt-a-pet/adoption-info-faqs' target='_blank'>
+                                  The Animal Foundation
+                                </Link>
+                              </ListItems>
+                            </ul>
+                          </Row>
+                        </Col>
+                      </Row>
+                    </div>
+                  </CardBody>
+                </Card>
               </CardBody>
             </Card>
           </Col>
