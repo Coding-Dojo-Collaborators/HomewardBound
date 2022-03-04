@@ -12,6 +12,9 @@ import {
   CardTitle,
   Row,
   Col,
+  Input,
+  Form,
+  Label,
 } from 'reactstrap';
 
 // MUI
@@ -28,6 +31,7 @@ import { styled } from '@mui/material/styles';
 import Checkbox from '@mui/material/Checkbox';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import { IconButton } from '@material-ui/core';
 // import { createTheme } from '@mui/material/styles';
 
 // Styles
@@ -75,6 +79,171 @@ const Rehome = () => {
     lineHeight: '1.5em',
     fontWeight: '300 !important',
   })
+  const contentDiv = {
+    padding: '0 30px 30px',
+    minHeight: 'calc(100vh - 123px)',
+    marginTop: '60px',
+  }
+  const UserCard = styled(Card)({
+    borderRadius: '12px',
+    boxShadow: '0 6px 10px - 4px rgba(0, 0, 0, 0.15)',
+    backgroundColor: '#ffffff',
+    color: '#252422',
+    marginBottom: '20px',
+    position: 'relative',
+    border: '0 none',
+    flexDirection: 'column',
+    minWidth: 0,
+    wordWrap: 'break-word',
+    backgroundClip: 'initial',
+    outline: 'none',
+    boxSizing: 'border-box',
+    webkitTransition: 'transform 300ms cubic - bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease',
+    mozTransition: 'transform 300ms cubic - bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease',
+    oTransition: 'transform 300ms cubic - bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease',
+    msTransition: 'transform 300ms cubic - bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease',
+    transition: 'transform 300ms cubic - bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease',
+    breakpointSs: 0,
+    breakpointSm: '576px',
+    breakpointMd: '768px',
+    breakpointLg: '992px',
+    breakpointXl: '1200px',
+  })
+  const UserCardBody = styled(CardBody)({
+    padding: '25px 25px 20px 25px !important',
+    minHeight: '240px !important',
+    flex: '1 1 auto !important',
+  })
+  const UserCardHeader = styled(CardHeader)({
+    padding: '15px 25px 0 !important',
+    border: 0,
+    backgroundColor: 'initial',
+  })
+  const UserCardTitle = styled(CardTitle)({
+    marginTop: '10px !important',
+  })
+  const coverContainer = {
+    // overflow: 'hidden',
+    // position: 'relative',
+    height: '130px',
+  }
+  const ImageCover = styled(Image)({
+    backgroundRepeat: 'no-repeat !important',
+    backgroundSize: 'contain !important',
+    backgroundPosition: 'center !important',
+    backgroundOrigin: 'border-box !important',
+    objectFit: 'cover !important',
+    maxWidth: '100%',
+    borderRadius: '12px 12px 0 0',
+    verticalAlign: 'middle',
+    borderStyle: 'none',
+  })
+  const AvatarImage = styled(Image)({
+    borderRadius: '50% !important',
+    border: '1px solid #fff !important',
+    overflow: 'hidden !important',
+    marginTop: '-90px',
+    marginBottom: '0px',
+    maxWidth: '100% !important',
+    verticalAlign: 'middle !important',
+    boxSizing: 'border-box',
+    display: 'block',
+    position: 'relative',
+    left: '50%',
+    transform: 'translateX(-50%)',
+  })
+  const nameHeader = {
+    fontWeight: '700 !important',
+    fontSize: '1.50em !important',
+    lineHeight: '1.4em !important',
+    marginBottom: '15px !important',
+  }
+  // const Links = styled(Link)({
+  //   color: '#f47660 !important',
+  //   textDecoration: 'none',
+  //   backgroundColor: 'initial',
+  // })
+  const userDesc = {
+    fontSize: '.9em !important',
+    fontWeight: '300 !important',
+    marginTop: '-7px !important',
+    color: '#9a9a9a !important',
+    marginBottom: '1rem !important',
+    textAlign: 'center'
+  }
+  // const UserCardFooter = styled(CardFooter)({
+  //   paddingTop: '0 !important',
+  //   padding: '0.75rem 1.25rem',
+  // })
+  const cardLabel = {
+    fontSize: '.8571em',
+    marginBottom: '5px',
+    color: '#9a9a9a',
+  }
+  const InputStyling = styled(Input)({
+    padding: '10px',
+    height: 'unset',
+    border: '1px solid #ddd',
+    color: '#66615b',
+    lineHeight: 'normal',
+    fontSize: '14px',
+    transition: 'color .3s ease-in-out, border-color .3s ease-in-out, background-color .3s ease-in-out',
+    boxShadow: 'none',
+  })
+  const UpdateButton = styled(Button)({
+    borderWidth: '1px',
+    paddingRight: '23px',
+    paddingLeft: '23px',
+    fontWeight: 600,
+    fontSize: '.8571em',
+    lineHeight: '1.35em',
+    textTransform: 'uppercase',
+    border: 'none',
+    margin: '10px 1px',
+    padding: '11px 22px',
+    transition: 'all .15s linear',
+    textAlign: 'center',
+    verticalAlign: 'middle',
+  })
+  const updateRow = {
+    // marginLeft: 'auto !important',
+    // marginRight: 'auto !important'
+    display: 'flex',
+    justifyContent: 'center'
+  }
+  const imgInputStyles = {
+    container: {
+      display: 'flex',
+      // flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      paddingTop: 0,
+      width: '100%',
+    },
+    preview: {
+      marginTop: 25,
+      marginBottom: 25,
+      display: 'flex',
+      flexDirection: 'column',
+    },
+    image: { maxWidth: '100%', maxHeight: 320 },
+    delete: {
+      cursor: 'pointer',
+      padding: 15,
+      background: 'red',
+      color: 'white',
+      border: 'none',
+      borderRadius: '0 0 12px 12px'
+    },
+  };
+  const UploadIcon = styled(IconButton)({
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+  })
+  const stickers = {
+    height: '75px'
+  }
 
   return (
     <>
@@ -82,12 +251,164 @@ const Rehome = () => {
         <Card>
           <CardHeader>
             <CardTitle tag='h2' className='text-center p-4'>Find Your Pet a New Loving Home</CardTitle>
-            <p className='card-category px-4'>
+            <p className='card-category px-4 text-center'>
               Fill out the following form to ensure that your pet finds a new home!
             </p>
           </CardHeader>
-          <CardBody>
-            <Card>
+          <CardBody className='pb-1'>
+            <Card className={`${styles['card-user']}`}>
+              <UserCardHeader>
+                <UserCardTitle tag='h4' className='text-center pt-2'>Adoption Form:</UserCardTitle>
+              </UserCardHeader>
+              <UserCardBody>
+                <Form>
+                  <Row className='d-flex align-items-center justify-content-center'>
+                    <Col className='pr-1' md='2'>
+                      <FormGroup>
+                        <label style={cardLabel}>Today's Date</label>
+                        <InputStyling
+                          placeholder=''
+                          type='date' />
+                      </FormGroup>
+                    </Col>
+                    <Col className='pr-1' md='3'>
+                      <FormGroup>
+                        <label style={cardLabel}>Pet Name </label>
+                        <InputStyling
+                          defaultValue=''
+                          placeholder=''
+                          type='text'
+                        />
+                      </FormGroup>
+                    </Col>
+                    <Col className='pl-1' md='1'>
+                      <FormGroup>
+                        <label style={cardLabel}>Age of Pet</label>
+                        <InputStyling placeholder='' type='number' />
+                      </FormGroup>
+                    </Col>
+                    <Col className='pr-1' md='2'>
+                      <FormGroup>
+                        <label style={cardLabel}>Pet's Gender</label>
+                        <div className="d-inline-flex align-items-center justify-content-start gap-3 pt-2">
+                          <div className="form-check-radio d-flex">
+                            <Label check style={cardLabel}>
+                              <Input
+                                defaultValue="option1"
+                                id="exampleRadios1"
+                                name="exampleRadios"
+                                type="radio"
+                              />
+                              Male <span className="form-check-sign" />
+                            </Label>
+                          </div>
+                          <div className="form-check-radio">
+                            <Label check style={cardLabel}>
+                              <Input
+                                defaultValue="option1"
+                                id="exampleRadios1"
+                                name="exampleRadios"
+                                type="radio"
+                              />
+                              Female <span className="form-check-sign" />
+                            </Label>
+                          </div>
+                        </div>
+                      </FormGroup>
+                    </Col>
+                  </Row>
+                  <Row className='d-flex align-items-center justify-content-center mt-3'>
+                    <Col className='pr-1' md='2'>
+                      <FormGroup>
+                        <label style={cardLabel}>Weight of Pet (Lb)</label>
+                        <InputStyling
+                          placeholder=''
+                          type='number' />
+                      </FormGroup>
+                    </Col>
+                    <Col className='pr-1' md='4'>
+                      <FormGroup>
+                        <label style={cardLabel}>Breed of Pet </label>
+                        <InputStyling
+                          defaultValue=''
+                          placeholder=''
+                          type='text'
+                        />
+                      </FormGroup>
+                    </Col>
+                    <Col className='pr-1' md='2'>
+                      <FormGroup>
+                        <label style={cardLabel}>Pet's Current Home</label>
+                        <div className="d-inline-flex align-items-center justify-content-start gap-3 pt-2">
+                          <div className="form-check-radio d-flex">
+                            <Label check style={cardLabel}>
+                              <Input
+                                defaultValue="option1"
+                                id="exampleRadios1"
+                                name="exampleRadios"
+                                type="radio"
+                              />
+                              House <span className="form-check-sign" />
+                            </Label>
+                          </div>
+                          <div className="form-check-radio">
+                            <Label check style={cardLabel}>
+                              <Input
+                                defaultValue="option1"
+                                id="exampleRadios1"
+                                name="exampleRadios"
+                                type="radio"
+                              />
+                              Apartment <span className="form-check-sign" />
+                            </Label>
+                          </div>
+                        </div>
+                      </FormGroup>
+                    </Col>
+                    <Row className='d-flex align-items-center justify-content-center mt-3 mb-4'>
+                      <Col className='ps-1' md='4'>
+                        <FormGroup>
+                          <label style={cardLabel}>List Any Medications/Conditions </label>
+                          <InputStyling
+                            defaultValue=''
+                            placeholder=''
+                            type='text'
+                          />
+                        </FormGroup>
+                      </Col>
+                      <Col className='pr-1' md='4'>
+                        <FormGroup>
+                          <div className='d-inline-flex align-items-center justify-content-start gap-3 pt-4 mt-1'>
+                            <Label check style={cardLabel}>Good with Children?</Label>
+                            <Label check style={cardLabel}>
+                              <Input defaultValue="" type="checkbox" className='me-2' />
+                              Yes<span className="form-check-sign" />
+                            </Label>
+                            <Label check style={cardLabel}>
+                              <Input defaultValue="" type="checkbox" className='me-2' />
+                              No<span className="form-check-sign" />
+                            </Label>
+                          </div>
+                        </FormGroup>
+                      </Col>
+
+                    </Row>
+                  </Row>
+                  <div className='d-flex justify-content-center'>
+                    <Button
+                      onClick={""}
+                      className='btn login-btn px-4 my-3'
+                      type='button'
+                    >
+                      <i className='nc-icon nc-align-left-2 me-2'>
+                      </i>
+                      <small>Submit Application</small>
+                    </Button>
+                  </div>
+                </Form>
+              </UserCardBody>
+            </Card>
+            {/* <Card>
               <CardBody>
                 <div className='places-buttons'>
                   <Row>
@@ -174,10 +495,9 @@ const Rehome = () => {
                         <div>   <PawIcon />
                           <label className='m-2'>Pet's Gender:</label>
                           <input type="radio" id="male" name="gender" value="1" />
-                          <label class="p-1" for="male">Male</label>
-
+                          <label class="p-2" for="male">Male</label>
                           <input type="radio" id="female" name="gender" value="2" />
-                          <label class="m-1" for="female">Female</label>
+                          <label class="m-2" for="female">Female</label>
                         </div>
                       </ListItems>
                       <ListItems>
@@ -221,25 +541,23 @@ const Rehome = () => {
                         </div>
                       </ListItems>
                       <div className='justify-content-center'>
-                      <Button
-                        onClick={""}
-                        className='btn login-btn mt-4 w-25 '
-                        type='button'
-                        
-                      >
-                        <i className='nc-icon nc-align-left-2 me-2'>
-                        </i>
-                        <small>Submit Application</small>
-                      </Button>
+                        <Button
+                          onClick={""}
+                          className='btn login-btn mt-4 w-25 '
+                          type='button'
+                        >
+                          <i className='nc-icon nc-align-left-2 me-2'>
+                          </i>
+                          <small>Submit Application</small>
+                        </Button>
                       </div>
                     </ul>
                   </Row>
                 </div>
               </CardBody>
-            </Card>
+            </Card> */}
           </CardBody>
         </Card>
-
       </div>
 
       {/* <div className='checkbody'>

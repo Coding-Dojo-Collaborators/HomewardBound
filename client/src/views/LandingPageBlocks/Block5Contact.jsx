@@ -25,12 +25,13 @@ export default () => {
   const submitHandler = (e) => {
     e.preventDefault()
     axios.post(process.env.REACT_APP_JAVA_API + 'contact/us', {
-      "name" : name,
-      "email" : email, 
-      "message": message })
+      "name": name,
+      "email": email,
+      "message": message
+    })
       .then(res => {
         console.log(res)
-        if(res.status == 206){
+        if (res.status == 206) {
           let tempError = {}
           for (let i = 0; i < res.data.length; i++) {
             tempError[res.data[i].field] = res.data[i].defaultMessage
@@ -61,9 +62,9 @@ export default () => {
                       <Input placeholder='Name' type='text' name="name" value={name} onChange={e => setName(e.target.value)} />
                     </InputGroup>
                     {
-                    errors.name ? <Alert severity='error'>{errors.name}</Alert>
-                      : ""
-                  }
+                      errors.name ? <Alert severity='error'>{errors.name}</Alert>
+                        : ""
+                    }
                   </Col>
                   <Col md='6'>
                     <label>Email</label>
@@ -74,9 +75,9 @@ export default () => {
                       <Input placeholder='Email' type='text' name="email" value={email} onChange={e => setEmail(e.target.value)} />
                     </InputGroup>
                     {
-                    errors.email ? <Alert severity='error'>{errors.email}</Alert>
-                      : ""
-                  }
+                      errors.email ? <Alert severity='error'>{errors.email}</Alert>
+                        : ""
+                    }
                   </Col>
                 </Row>
                 <label>Message</label>
@@ -86,10 +87,10 @@ export default () => {
                   rows='4'
                   name="message" value={message} onChange={e => setMessage(e.target.value)}
                 />
-                 {
-                    errors.message ? <Alert severity='error'>{errors.message}</Alert>
-                      : ""
-                  }
+                {
+                  errors.message ? <Alert severity='error'>{errors.message}</Alert>
+                    : ""
+                }
                 <Row className='mx-auto'>
                   <Col className='mx-auto mt-3 d-flex justify-content-center' md='3'>
                     <Button

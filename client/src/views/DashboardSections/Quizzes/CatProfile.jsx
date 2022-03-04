@@ -28,13 +28,20 @@ import { styled } from '@mui/material/styles';
 import Checkbox from '@mui/material/Checkbox';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
+// import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+// import Link from '@mui/material/Link';
+import { Box, Grid, Paper } from '@mui/material';
+// import Button from '@mui/material/Button';
 // import { createTheme } from '@mui/material/styles';
 
 // Styles
 import styles from '../../../assets/css/modules/paper-dashboard.module.css';
 
-
-
+// Images
+import catbanner from '../../../assets/img/cats/cat13.jpg';
 
 const CatProfile = () => {
   const [value, setValue] = useState(1);
@@ -75,14 +82,74 @@ const CatProfile = () => {
     lineHeight: '1.5em',
     fontWeight: '300 !important',
   })
+  const linkStyle = {
+    color: "#f47660",
+    textDecoration: "none",
+    "&:hover": {
+      color: "#f47660",
+      fontWeight: '500 !important',
+      textDecoration: "underline"
+    }
+  }
 
   return (
     <>
       <div className={`${styles.content}`} style={divContent}>
+        <Row className='d-flex justify-content-center mt-5'>
+          <Col md='12' className=''>
+            <Paper
+              sx={{
+                position: 'relative',
+                backgroundColor: 'grey.800',
+                color: '#fff',
+                height: '280px',
+                mb: 4,
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center',
+                backgroundImage: `url(${catbanner})`,
+              }}
+            >
+              {/* Increase the priority of the hero background image */}
+              {<img style={{ display: 'none' }} src={catbanner} alt='Cute animal pics' className='rounded' />}
+              <Box className='rounded'
+                sx={{
+                  position: 'absolute',
+                  top: 0,
+                  bottom: 0,
+                  right: 0,
+                  left: 0,
+                  backgroundColor: 'rgba(0,0,0,.3)',
+                }}
+              />
+              <Grid container>
+                <Grid item md={11}>
+                  <Box
+                    sx={{
+                      position: 'relative',
+                      p: { xs: 1, md: 4 },
+                      pr: { md: 0 },
+                    }}
+                  >
+                    <h4 className='mb-3'>
+                      Adopting the Right Cat For You
+                    </h4>
+                    <p className=''>
+                      The kids have been clamoring for a cat. You’ve held them off for as long as humanly possible, but now you must decide whether or not to make the twenty year commitment to a new feline friend. To dog people, taking on a cat seems like no big deal – no house training, numerous daily walks or obedience classes. But if you are a novice at animal care-taking, hair on the furniture, paw prints on countertops and kitty games at 3 A.M. — not to mention litter box training and daily maintenance — can take some getting used to. Time must be found in hectic schedules for grooming, feeding and interactive play. If you are considering adopting a kitten, factor in plenty of time for socialization and supervision to ensure that the end result will be a well-adjusted adult cat.
+                    </p>
+                    <Link href="https://www.petfinder.com/pet-adoption/cat-adoption/cat-adoption-tips/" target='_blank' style={linkStyle}>
+                      Learn More
+                    </Link>
+                  </Box>
+                </Grid>
+              </Grid>
+            </Paper>
+          </Col>
+        </Row>
         <Card>
           <CardHeader>
             <CardTitle tag='h2' className='text-center p-4'>Cats up for Adoption</CardTitle>
-            <p className='card-category px-4'>
+            <p className='card-category px-4 text-center'>
               Browse our newest cats looking for a new loving home!
             </p>
           </CardHeader>

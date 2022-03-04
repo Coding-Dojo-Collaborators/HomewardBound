@@ -28,12 +28,20 @@ import { styled } from '@mui/material/styles';
 import Checkbox from '@mui/material/Checkbox';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
+// import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+// import Link from '@mui/material/Link';
+import { Box, Grid, Paper } from '@mui/material';
+// import Button from '@mui/material/Button';
 // import { createTheme } from '@mui/material/styles';
 
 // Styles
 import styles from '../../../assets/css/modules/paper-dashboard.module.css';
 
-
+// Images
+import dogbanner from '../../../assets/img/dogs/dog14.jpg';
 
 
 const DogProfile = () => {
@@ -75,14 +83,74 @@ const DogProfile = () => {
     lineHeight: '1.5em',
     fontWeight: '300 !important',
   })
+  const linkStyle = {
+    color: "#f47660",
+    textDecoration: "none",
+    "&:hover": {
+      color: "#f47660",
+      fontWeight: '500 !important',
+      textDecoration: "underline"
+    }
+  }
 
   return (
     <>
       <div className={`${styles.content}`} style={divContent}>
+        <Row className='d-flex justify-content-center mt-5'>
+          <Col md='12' className=''>
+            <Paper
+              sx={{
+                position: 'relative',
+                backgroundColor: 'grey.800',
+                color: '#fff',
+                height: '280px',
+                mb: 4,
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center',
+                backgroundImage: `url(${dogbanner})`,
+              }}
+            >
+              {/* Increase the priority of the hero background image */}
+              {<img style={{ display: 'none' }} src={dogbanner} alt='Cute animal pics' className='rounded' />}
+              <Box className='rounded'
+                sx={{
+                  position: 'absolute',
+                  top: 0,
+                  bottom: 0,
+                  right: 0,
+                  left: 0,
+                  backgroundColor: 'rgba(0,0,0,.3)',
+                }}
+              />
+              <Grid container>
+                <Grid item md={7}>
+                  <Box
+                    sx={{
+                      position: 'relative',
+                      p: { xs: 1, md: 4 },
+                      pr: { md: 0 },
+                    }}
+                  >
+                    <h4 className='mb-3'>
+                      What Kind of Dog is Right for You?
+                    </h4>
+                    <p className=''>
+                      Best friends are good listeners and always happy to see you. They are always there to lend a shoulder to cry on. Whether jogging partners or worthy sporting opponents, they spring to your defense whenever needed. Best friends are loyal, steadfast and true. And they always know how to make you laugh! While it may take years to find a new human best friend, your new canine best friend awaits you at the local shelter.
+                    </p>
+                    <Link href="https://www.petfinder.com/pet-adoption/dog-adoption/type-dog-adoption/" target='_blank' style={linkStyle}>
+                      Learn More
+                    </Link>
+                  </Box>
+                </Grid>
+              </Grid>
+            </Paper>
+          </Col>
+        </Row>
         <Card>
           <CardHeader>
             <CardTitle tag='h2' className='text-center p-4'>Dogs up for Adoption</CardTitle>
-            <p className='card-category px-4'>
+            <p className='card-category px-4 text-center'>
               Browse our newest dogs looking for a new loving home!
             </p>
           </CardHeader>

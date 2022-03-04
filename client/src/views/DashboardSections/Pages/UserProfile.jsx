@@ -9,7 +9,7 @@ import {
   Card,
   CardHeader,
   CardBody,
-  CardFooter,
+  // CardFooter,
   CardTitle,
   FormGroup,
   Form,
@@ -138,10 +138,10 @@ export default ({ loggedInUser }) => {
     marginBottom: '1rem !important',
     textAlign: 'center'
   }
-  const UserCardFooter = styled(CardFooter)({
-    paddingTop: '0 !important',
-    padding: '0.75rem 1.25rem',
-  })
+  // const UserCardFooter = styled(CardFooter)({
+  //   paddingTop: '0 !important',
+  //   padding: '0.75rem 1.25rem',
+  // })
   const cardLabel = {
     fontSize: '.8571em',
     marginBottom: '5px',
@@ -184,11 +184,12 @@ export default ({ loggedInUser }) => {
       // flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
-      paddingTop: 10,
+      paddingTop: 0,
       width: '100%',
     },
     preview: {
-      marginTop: 50,
+      marginTop: 25,
+      marginBottom: 25,
       display: 'flex',
       flexDirection: 'column',
     },
@@ -199,6 +200,7 @@ export default ({ loggedInUser }) => {
       background: 'red',
       color: 'white',
       border: 'none',
+      borderRadius: '0 0 12px 12px'
     },
   };
   const UploadIcon = styled(IconButton)({
@@ -206,12 +208,15 @@ export default ({ loggedInUser }) => {
     bottom: 0,
     left: 0,
   })
+  const stickers = {
+    height: '75px'
+  }
 
   return (
     <div
       style={contentDiv}>
       <Row className='d-flex justify-content-center gap-5 mt-5'>
-        <Col md='4'>
+        <Col md='3'>
           <UserCard className={`${styles['card-user']}`}>
             <div className='d-flex justify-content-center w-100'
               style={coverContainer}
@@ -249,18 +254,25 @@ export default ({ loggedInUser }) => {
                   {loggedInUser.firstName} {loggedInUser.lastName}
                 </h5>
                 <p style={userDesc}>
-                  @chetfaker
+                  {loggedInUser.email}
                 </p>
               </div>
-              <p style={userDesc}>
-                'I like the way you work it <br />
-                No diggity <br />I wanna bag it up'
+              <p style={userDesc} className='mb-4'>
+                "Children are cancelled.<br />
+                Pets are the new children.<br />
+                Plants are the new pets."<br />
+              </p>
+              <p className='text-center'>
+                <hr />
+                <img src="https://media.giphy.com/media/SrzrjB19VOY4EwPElN/giphy.gif" alt="dog sticker" style={stickers} />
+                <img src="https://media.giphy.com/media/W5NktqvqlwC9nR85hc/giphy.gif" alt="plant sticker" style={{ height: '125px' }} />
+                <img src="https://media.giphy.com/media/l0MYtNH6ZJPrlcOic/giphy.gif" alt="cat sticker" style={stickers} />
               </p>
             </UserCardBody>
-            <UserCardFooter>
+            {/* <UserCardFooter>
               <hr />
               <div className={`${styles['button-container']}`}>
-                {/* <Row className='d-flex justify-content-center'>
+                <Row className='d-flex justify-content-center'>
                   <Col className='ml-auto' lg='3' md='6' xs='6'>
                     <h5>
                       {
@@ -282,9 +294,9 @@ export default ({ loggedInUser }) => {
                       <small>Cats Owned</small>
                     </h5>
                   </Col>
-                </Row> */}
+                </Row>
               </div>
-            </UserCardFooter>
+            </UserCardFooter> */}
           </UserCard>
         </Col>
         <Col md='6'>
