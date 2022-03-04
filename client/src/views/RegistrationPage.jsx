@@ -61,7 +61,6 @@ export default ({ loggedInUser, setLoggedInUser }) => {
   };
   // ------------ Google Login ------------- //
   const googleSuccess = async (res) => {
-    console.log(res.profileObj);
     axios.post(process.env.REACT_APP_JAVA_API + 'google/login', res.profileObj
     ).then(res => {
       Cookies.set("user_id", res.data, { path: '/' });
@@ -101,6 +100,7 @@ export default ({ loggedInUser, setLoggedInUser }) => {
       "confirm": confirm
     })
       .then(res => {
+        console.log("hi")
         if (res.status === 206) {
           let tempError = {}
           for (let i = 0; i < res.data.length; i++) {
@@ -109,7 +109,7 @@ export default ({ loggedInUser, setLoggedInUser }) => {
           setErrors(tempError);
           return;
         }
-        console.log("response from registering", res);
+        // console.log("response from registering", res);
         Cookies.set('user_id', res.data, { path: '/' });
         setLoggedInUser(jwt_decode(Cookies.get('user_id')));
       })
