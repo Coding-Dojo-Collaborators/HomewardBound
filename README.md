@@ -29,10 +29,10 @@ This project was created with Java Spring Boot backend and a React frontend usin
 Follow us on Github, and connect with us on LinkedIn!
 
 > 🐱‍💻 Eric Toribio *(Backend/Project Leader)* <br>
-<a href="https://github.com/EricToribio"><img src="https://img.shields.io/badge/-GitHub-0D1117?style=for-the-badge&logo=github"/></a>  <a href="https://www.linkedin.com/in/erictoribio/"><img src="https://img.shields.io/badge/-LinkedIn-1572B6?style=for-the-badge&logo=Linkedin"/></a>
+<a href="https://github.com/EricToribio"><img src="https://img.shields.io/badge/-GitHub-282A36?style=for-the-badge&logo=github"/></a>  <a href="https://www.linkedin.com/in/erictoribio/"><img src="https://img.shields.io/badge/-LinkedIn-1572B6?style=for-the-badge&logo=Linkedin"/></a>
 
 >🐱‍👤 Maria *(Frontend/Lead Designer)* <br>
-<a href="https://github.com/MariaMcBride"><img src="https://img.shields.io/badge/-GitHub-0D1117?style=for-the-badge&logo=github"/></a>  <a href="https://www.linkedin.com/in/maria-mcbride/"><img src="https://img.shields.io/badge/-LinkedIn-1572B6?style=for-the-badge&logo=Linkedin"/></a>
+<a href="https://github.com/MariaMcBride"><img src="https://img.shields.io/badge/-GitHub-282A36?style=for-the-badge&logo=github"/></a>  <a href="https://www.linkedin.com/in/maria-mcbride/"><img src="https://img.shields.io/badge/-LinkedIn-1572B6?style=for-the-badge&logo=Linkedin"/></a>
 
 >👨‍💻 Matthew *(Frontend/Overall Support)* <br>
-<a href="https://github.com/Matthew-Sherman1"><img src="https://img.shields.io/badge/-GitHub-0D1117?style=for-the-badge&logo=github"/></a>  <a href="https://www.linkedin.com/in/matthew-sherman-63953222b/"><img src="https://img.shields.io/badge/-LinkedIn-1572B6?style=for-the-badge&logo=Linkedin"/></a>
+<a href="https://github.com/Matthew-Sherman1"><img src="https://img.shields.io/badge/-GitHub-282A36?style=for-the-badge&logo=github"/></a>  <a href="https://www.linkedin.com/in/matthew-sherman-63953222b/"><img src="https://img.shields.io/badge/-LinkedIn-1572B6?style=for-the-badge&logo=Linkedin"/></a>
