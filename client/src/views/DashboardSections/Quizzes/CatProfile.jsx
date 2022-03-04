@@ -168,8 +168,8 @@ const CatProfile = () => {
                         <div class="pic">
                           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo3EvtoELv_W5IoiYUsPvIpt7u8B-atj3PCA&usqp=CAU" />
                         </div>
-                        <h3 class="title">Luna</h3>
-                        <span class="post">Abyssinian Cat</span>
+                        <h3 class="title">Murr</h3>
+                        <span class="post">Lynx Point Siamese</span>
                       </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
@@ -186,7 +186,7 @@ const CatProfile = () => {
                         <div class="pic">
                           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnWgy3njIRPaIt-mkAoKcPtfkpDfKU3l6cPA&usqp=CAU" />
                         </div>
-                        <h3 class="title">Oliver</h3>
+                        <h3 class="title">Liz</h3>
                         <span class="post">American Curl Cat Breed</span>
                       </div>
                     </div>
@@ -195,7 +195,7 @@ const CatProfile = () => {
                         <div class="pic">
                           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdaZubCo6dnCJmhYlITLHOaJRakxJqgsqEew&usqp=CAU" />
                         </div>
-                        <h3 class="title">Leo</h3>
+                        <h3 class="title">Colby</h3>
                         <span class="post">American Shorthair Cat</span>
                       </div>
                     </div>
@@ -206,7 +206,7 @@ const CatProfile = () => {
                         <div class="pic">
                           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShE_v5lKYqUCYkzit3AHRyJHtAKp0gV09Lrg&usqp=CAU" />
                         </div>
-                        <h3 class="title">Loki</h3>
+                        <h3 class="title">Kevni</h3>
                         <span class="post">Australian Mist</span>
                       </div>
                     </div>
@@ -215,7 +215,7 @@ const CatProfile = () => {
                         <div class="pic">
                           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvx-cSDBVLzCVR8yAmqUsdcWWsiLIZZcBIPQ&usqp=CAU" />
                         </div>
-                        <h3 class="title">Bella</h3>
+                        <h3 class="title">Heidi</h3>
                         <span class="post">Bengal</span>
                       </div>
                     </div>
@@ -224,7 +224,7 @@ const CatProfile = () => {
                         <div class="pic">
                           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToJey2FR2kEDYmQSQZFMwo0ia0s34xMvFxZA&usqp=CAU" />
                         </div>
-                        <h3 class="title">Charlie</h3>
+                        <h3 class="title">Cheddar</h3>
                         <span class="post">Bombay</span>
                       </div>
                     </div>
@@ -245,7 +245,7 @@ const CatProfile = () => {
                         <div class="pic">
                           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtwDUT66rGcuOz3urrDnrpYFWn5dMoWTm-Yg&usqp=CAU" />
                         </div>
-                        <h3 class="title">Lucy</h3>
+                        <h3 class="title">Salem</h3>
                         <span class="post">Burmese</span>
                       </div>
                     </div>
@@ -254,7 +254,7 @@ const CatProfile = () => {
                         <div class="pic">
                           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTInqC9zqzS8tbV6UmxCwuO3ik32ZI36ZdW3A&usqp=CAU" />
                         </div>
-                        <h3 class="title">Simba</h3>
+                        <h3 class="title">Wiji</h3>
                         <span class="post">Cyprus</span>
                       </div>
                     </div>
@@ -272,7 +272,7 @@ const CatProfile = () => {
                         <div class="pic">
                           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4olrMzWQhSQjtnJ_SJ1rRt32qC52_R3bK1g&usqp=CAU" />
                         </div>
-                        <h3 class="title">Craig</h3>
+                        <h3 class="title">Craigory</h3>
                         <span class="post">Hairless Cat</span>
                       </div>
                     </div>
