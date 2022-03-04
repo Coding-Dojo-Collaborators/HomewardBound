@@ -128,7 +128,7 @@ export default () => {
             tag={Link} to='/services'
           // onClick={(e) => e.preventDefault()}
           >
-            Find Services
+            Coming Soon
           </Button>
         </Container>
       </div>

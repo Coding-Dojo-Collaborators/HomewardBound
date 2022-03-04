@@ -258,7 +258,7 @@ const Rehome = () => {
           <CardBody className='pb-1'>
             <Card className={`${styles['card-user']}`}>
               <UserCardHeader>
-                <UserCardTitle tag='h4' className='text-center pt-2'>Adoption Form:</UserCardTitle>
+                <UserCardTitle tag='h4' className='text-center pt-2'>Rehoming Form:</UserCardTitle>
               </UserCardHeader>
               <UserCardBody>
                 <Form>

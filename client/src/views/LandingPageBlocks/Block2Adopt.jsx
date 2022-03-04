@@ -1,5 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React from 'react';
+// import { Link } from 'react-router-dom';
 
 // Reactstrap components
 import {
@@ -15,7 +16,6 @@ import './block2.css';
 // Others
 import dog2 from '../../assets/img/dogs/dog2.jpg';
 import cat1 from '../../assets/img/cats/cat1.jpg';
-import { Link } from 'react-router-dom';
 
 export default () => {
   return (
@@ -26,7 +26,8 @@ export default () => {
           <Row className='mx-auto mb-1 d-flex align-items-start gy-0'>
             <Col className='mx-auto' md='5'>
               <Card className='card-profile card-adopt'
-                tag={Link} to='/adoptdog'>
+              // tag={Link} to='/adoptdog'
+              >
                 <img
                   alt='dog'
                   className='img-rounded img-responsive adopt-dog'
@@ -37,7 +38,8 @@ export default () => {
             </Col>
             <Col className='mx-auto' md='5'>
               <Card className='card-profile card-adopt'
-                tag={Link} to='/adoptcat'>
+              // tag={Link} to='/adoptcat'
+              >
                 <img
                   alt='cat'
                   className='img-rounded img-responsive adopt-cat'

@@ -117,7 +117,7 @@ export default ({ loggedInUser, setLoggedInUser }) => {
   };
 
   return (
-    <>
+    <div id='top'>
       <Navbar
         page='register'
         loggedInUser={loggedInUser}
@@ -277,6 +277,6 @@ export default ({ loggedInUser, setLoggedInUser }) => {
           </Row>
         </Container>
       </div>
-    </>
+    </div>
   );
 }

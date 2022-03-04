@@ -50,7 +50,7 @@ export default () => {
             <h4>Each of us has a role to play in creating a better world for animals.</h4>
             <br />
             <Button
-              className='mt-3 btn-outline-light'
+              className='mt-3 btn-outline-light px-3'
               type='button' outline
               size='md'
               tag={Link} to='/register'

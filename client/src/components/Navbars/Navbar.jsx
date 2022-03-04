@@ -152,7 +152,7 @@ export default ({ setLoggedInUser, loggedInUser, page }) => {
                   sx={{
                     height: 70,
                     width: 255,
-                    mb: 3,
+                    mt: 1,
                     textAlign: 'center'
                   }}
                 >
