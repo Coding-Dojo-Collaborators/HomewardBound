@@ -95,7 +95,7 @@ const Rehome = () => {
                       <CardTitle tag='h4'>Adoption Form:</CardTitle>
                     </Col>
                   </Row>
-                  <Row className='p-3 px-5'>
+                  <Row className='p-3 px-5 text-center'>
                     <ul class='list-group'>
                       <ListItems>
                         <div id="todays-date"><PawIcon />
@@ -179,9 +179,7 @@ const Rehome = () => {
                           <input type="radio" id="female" name="gender" value="2" />
                           <label class="m-1" for="female">Female</label>
                         </div>
-
                       </ListItems>
-
                       <ListItems>
                         <div><PawIcon />
                           <label class="m-1" name="petage">Age of Pet: </label>
@@ -217,23 +215,23 @@ const Rehome = () => {
                           <label className='m-2'>Pet's Current Home:</label>
                           <input type="radio" id="House" name="House" value="1" />
                           <label class="p-1" for="House">House</label>
-
                           <input type="radio" id="Apartment" name="Apartment" value="2" />
                           <label class="m-1" for="Apartment">Apartment</label>
-
                           <input type="text" id="other" name="other" placeholder='other' />
-
                         </div>
                       </ListItems>
+                      <div className='justify-content-center'>
                       <Button
                         onClick={""}
-                        className='btn login-btn mt-4 w-25'
+                        className='btn login-btn mt-4 w-25 '
                         type='button'
+                        
                       >
                         <i className='nc-icon nc-align-left-2 me-2'>
                         </i>
                         <small>Submit Application</small>
                       </Button>
+                      </div>
                     </ul>
                   </Row>
                 </div>

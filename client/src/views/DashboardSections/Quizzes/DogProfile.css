@@ -1,13 +1,13 @@
 
  
-.our-team{
+.petprofile{
     border-radius: 15px;
     text-align: center;
     padding: 20px 15px 30px;
     background: #fff;
 
 }
-.our-team .pic{
+.petprofile .pic{
     background: #fff;
     padding: 10px;
     margin-bottom: 25px;
@@ -16,16 +16,17 @@
     height: 100%;
     transition: all 0.5s ease 0s;
 }
-.our-team:hover .pic{
+.petprofile:hover .pic {
     background: #F5593C;
     border-radius: 10%;
 }
 .pic img{
     width: 100%;
-    height: auto;
+    height: 175px;
     border-radius: 10%;
+    display: block;
 }
-.our-team .title{
+.petprofile .title{
     font-weight: 600;
     color: #2e282a;
     text-transform: uppercase;
@@ -33,7 +34,7 @@
     font-size: 20px;
     margin: 0 0 7px 0;
 }
-.our-team .post{
+.petprofile .post{
     color: #F5593C;
     text-transform: capitalize;
     display: block;
@@ -42,7 +43,7 @@
 }
 
 
-.overlay1 {
+/* .overlay1 {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -67,4 +68,4 @@
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
-  }
+  } */
