@@ -98,7 +98,7 @@ export default () => {
                   <h5 className='mb-4'>
                     Adopting a pet is a big step — but we have a feeling your family is ready to grow. Before starting your search, get tips on choosing the right pet for your lifestyle, preparing your home for a furry family member, and even become a training expert before bringing your pet home. For more information about pet adoption, click here.
                   </h5>
-                  <Link href="https://www.petfinder.com/pet-adoption/dog-adoption/the-pet-adoption-guide/" style={linkStyle}>
+                  <Link href="https://www.petfinder.com/pet-adoption/dog-adoption/the-pet-adoption-guide/" target='_blank' style={linkStyle}>
                     Learn More
                   </Link>
                 </Box>
@@ -113,7 +113,7 @@ export default () => {
             return (
               <Col md='4' className='mb-4'>
                 <Card sx={cardLayout} key={i}>
-                  <Link href={post.url}>
+                  <Link href={post.url} target='_blank'>
                     <CardMedia
                       component='img'
                       alt={post.imageLabel}
@@ -131,7 +131,7 @@ export default () => {
                   </CardContent>
                   <CardActions className='p-4'>
                     <Link size='small' className='bg-transparent px-0'
-                      href={post.url} sx={linkStyle}>
+                      href={post.url} target='_blank' sx={linkStyle}>
                       {post.linkText}
                     </Link>
                   </CardActions>
@@ -145,7 +145,7 @@ export default () => {
         <Button
           className='mt-4 login-btn mb-1 px-3 py-2 text-center text-white text-decoration-none'
           type='button'
-          size='md'
+          size='md' target='_blank'
           tag={Link} href='https://www.petfinder.com/pet-adoption/dog-adoption/'
         >
           More Articles on Dog Adoption
