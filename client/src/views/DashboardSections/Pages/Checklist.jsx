@@ -298,7 +298,7 @@ const Checklist = () => {
                             <p className='px-4 mt-4'>It may be a good idea to wait until you select your new dog before you begin shopping for supplies. For example, some items, such as food and water bowls or collars and harnesses, depend upon the size of the dog you will be adopting.</p>
                             <p className='px-4 mt-4'>Also, be sure to find out which food your dog was eating in the shelter or foster home so that you can provide the same in the beginning, again to ease the transition. After the dog has settled in, talk with your veterinarian about switching to the food of your choice.</p>
                             <p className='px-4 mt-4 mb-2'>Once you’ve selected your dog, here’s a checklist of supplies you may need:</p>
-                            <FormGroup class='list-group ps-1 pe-3'>
+                            <FormGroup className='list-group ps-1 pe-3'>
                               <CheckboxLabel
                                 control={<ColoredCheckbox />}
                                 label='Food and water bowls' />
@@ -376,9 +376,9 @@ const Checklist = () => {
                               aria-label='icon label tabs example'
                             >
                               <Tab icon={<PsychologyIcon />} label='CONSIDERATIONS' value='6' />
-                              <Tab icon={<PetsIcon />} label='TIME' value='7' />
-                              <Tab icon={<MoreTimeIcon />} label='COSTS' value='8' />
-                              <Tab icon={<PaidIcon />} label='SHOPPING LIST' value='9' />
+                              <Tab icon={<MoreTimeIcon />} label='TIME' value='7' />
+                              <Tab icon={<PaidIcon />} label='COSTS' value='8' />
+                              <Tab icon={<AddShoppingCartIcon />} label='SHOPPING LIST' value='9' />
                             </TabList>
                           </CardTitle>
                         </CardHeader>
