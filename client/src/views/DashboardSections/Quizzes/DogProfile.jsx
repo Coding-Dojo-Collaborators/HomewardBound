@@ -169,7 +169,6 @@ const DogProfile = () => {
                         <div class="pic">
                           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy-rjRO4reDCYkdHGLEnoDPacstC_3Zc-KXw&usqp=CAU" />
                           <div class="overlay1">
-                            <div class="text1">Hello World</div>
                           </div>
                         </div>
                         <h3 class="title">David</h3>
