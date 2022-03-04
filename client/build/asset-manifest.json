@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/static/css/main.cc781aa2.css",
+    "main.js": "/static/js/main.7d65792e.js",
+    "static/js/27.95291165.chunk.js": "/static/js/27.95291165.chunk.js",
+    "static/media/dogwalking4.jpg": "/static/media/dogwalking4.3b8ae9db7eacf639deb3.jpg",
+    "static/media/fontawesome-webfont.svg?v=4.7.0": "/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
+    "static/media/splashcover.jpg": "/static/media/splashcover.eee082d2c68a04ab7156.jpg",
+    "static/media/registerbg.png": "/static/media/registerbg.5a560a9143cd55376348.png",
+    "static/media/grooming2.jpg": "/static/media/grooming2.dc22b2900e0301f7f26e.jpg",
+    "static/media/bg-profile.jpeg": "/static/media/bg-profile.af1219a742e09fc7b612.jpeg",
+    "static/media/maria.jpg": "/static/media/maria.ecd368a4fe127b3f63bf.jpg",
+    "static/media/petboarding3.jpg": "/static/media/petboarding3.e79b9c05f53a89ec0abb.jpg",
+    "static/media/fontawesome-webfont.eot": "/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
+    "static/media/fontawesome-webfont.ttf?v=4.7.0": "/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
+    "static/media/logo_transparent_background.png": "/static/media/logo_transparent_background.d1e3d5dd78fa56531702.png",
+    "static/media/white_logo_transparent_background.png": "/static/media/white_logo_transparent_background.937ef575bb16e8ffe628.png",
+    "static/media/cat404.jpg": "/static/media/cat404.21af47efaabe9a93d875.jpg",
+    "static/media/fontawesome-webfont.woff?v=4.7.0": "/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
+    "static/media/fontawesome-webfont.woff2?v=4.7.0": "/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
+    "static/media/dog2.jpg": "/static/media/dog2.3f0ce2697d9c58b746e2.jpg",
+    "static/media/pets1.jpg": "/static/media/pets1.1307ef0cc9c59939a814.jpg",
+    "static/media/cat1.jpg": "/static/media/cat1.d50e246e67eadca711c8.jpg",
+    "static/media/vet4.jpg": "/static/media/vet4.ec6cfb00a514e25fb699.jpg",
+    "static/media/nucleo-icons.eot": "/static/media/nucleo-icons.bd42d77b9672555647d1.eot",
+    "static/media/nucleo-icons.ttf": "/static/media/nucleo-icons.4466aeec3386b965a232.ttf",
+    "static/media/toribio.jpg": "/static/media/toribio.d43c9b81d2c1b14659fb.jpg",
+    "static/media/dog404.jpg": "/static/media/dog404.974e596cd5ce76ce33f0.jpg",
+    "static/media/nucleo-icons.woff": "/static/media/nucleo-icons.8e954b749f951b654fc6.woff",
+    "static/media/matthew.jpg": "/static/media/matthew.5c8cdb6d9cf1a95f0717.jpg",
+    "static/media/nucleo-icons.woff2": "/static/media/nucleo-icons.ec16bc4cc4526801004d.woff2",
+    "index.html": "/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.cc781aa2.css",
+    "static/js/main.7d65792e.js"
+  ]
+}

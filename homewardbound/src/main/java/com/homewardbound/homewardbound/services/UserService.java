@@ -28,8 +28,8 @@ public class UserService {
     UserRepository userRepo;
 
     Instant now = Instant.now();
-    String dotenv = Dotenv.load().get("SECRET");
-    byte[] secret = Base64.getDecoder().decode(dotenv);
+    
+    byte[] secret = Base64.getDecoder().decode("o4OdCNjd8mmDN2+/nfHdIB2ZWta80foXqDx2rouL4nw=");
 
     public User oneUser(Long id) {
         Optional<User> user = userRepo.findById(id);

@@ -54,7 +54,7 @@ export default () => {
         // console.log('this is the animals called', options)---gives me an access token
         axios(options)
           .then((response) => {
-            console.log(response)
+            // console.log(response)
             if (mounted) {
               setDogs(response.data.animals)
             }
@@ -76,7 +76,7 @@ export default () => {
         // console.log('this is the animals called', options)---gives me an access token
         axios(options)
           .then((response) => {
-            console.log(response)
+            // console.log(response)
             if (mounted) {
               setCats(response.data.animals)
               setLoading(false)
