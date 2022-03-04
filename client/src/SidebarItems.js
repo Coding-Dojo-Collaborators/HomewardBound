@@ -36,19 +36,51 @@ const SidebarItems = [
   {
     path: '/dogadoption',
     exact: true,
-    name: 'Dog Adoption',
-    icon: 'nc-icon nc-briefcase-24',
+    name: 'Dog Adoption Blog',
+    icon: 'nc-icon nc-layout-11',
     component: DogAdoption,
     layout: ""
   },
   {
     path: '/catadoption',
     exact: true,
-    name: 'Cat Adoption',
-    icon: 'nc-icon nc-briefcase-24',
+    name: 'Cat Adoption Blog',
+    icon: 'nc-icon nc-layout-11',
     component: CatAdoption,
     layout: ""
   },
+  {
+    path: '/adoptadog',
+    exact: true,
+    name: 'Dog Adoptions',
+    icon: 'nc-icon nc-single-copy-04',
+    component: DogProfile,
+    layout: ""
+  },
+  {
+    path: '/adoptacat',
+    exact: true,
+    name: 'Cat Adoptions',
+    icon: 'nc-icon nc-single-copy-04',
+    component: CatProfile,
+    layout: ""
+  },
+  // {
+  //   path: '/dogadoption',
+  //   exact: true,
+  //   name: 'Dog Adoption',
+  //   icon: 'nc-icon nc-briefcase-24',
+  //   component: DogAdoption,
+  //   layout: ""
+  // },
+  // {
+  //   path: '/catadoption',
+  //   exact: true,
+  //   name: 'Cat Adoption',
+  //   icon: 'nc-icon nc-briefcase-24',
+  //   component: CatAdoption,
+  //   layout: ""
+  // },
   {
     path: '/rehome',
     exact: true,
@@ -57,22 +89,22 @@ const SidebarItems = [
     component: Rehome,
     layout: ""
   },
-  {
-    path: '/rehome/dogprofile',
-    exact: true,
-    name: 'Dog Profile',
-    icon: 'nc-icon nc-single-copy-04',
-    component: DogProfile,
-    layout: ""
-  },
-  {
-    path: '/rehome/catprofile',
-    exact: true,
-    name: 'Cat Profile',
-    icon: 'nc-icon nc-single-copy-04',
-    component: CatProfile,
-    layout: ""
-  },
+  // {
+  //   path: '/rehome/dogprofile',
+  //   exact: true,
+  //   name: 'Dog Profile',
+  //   icon: 'nc-icon nc-single-copy-04',
+  //   component: DogProfile,
+  //   layout: ""
+  // },
+  // {
+  //   path: '/rehome/catprofile',
+  //   exact: true,
+  //   name: 'Cat Profile',
+  //   icon: 'nc-icon nc-single-copy-04',
+  //   component: CatProfile,
+  //   layout: ""
+  // },
   {
     path: '/profile',
     exact: true,

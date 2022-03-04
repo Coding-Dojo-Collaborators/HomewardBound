@@ -39,11 +39,11 @@ export default ({ loggedInUser, currentPage, dogs, cats, loading }) => {
           currentPage === 'Dashboard' ? <DashboardMain dogs={dogs} cats={cats} loading={loading} /> :
             // currentPage === 'Adoption' ? <AdoptionOverview /> :
             currentPage === 'Adoption Checklist' ? <Checklist /> :
-              currentPage === 'Dog Adoption' ? <DogAdoption dogs={dogs} /> :
-                currentPage === 'Cat Adoption' ? <CatAdoption cats={cats} /> :
+              currentPage === 'Dog Adoption Blog' ? <DogAdoption dogs={dogs} /> :
+                currentPage === 'Cat Adoption Blog' ? <CatAdoption cats={cats} /> :
                   currentPage === 'Rehome A Pet' ? <Rehome /> :
-                    currentPage === 'Dog Profile' ? <DogProfile /> :
-                      currentPage === 'Cat Profile' ? <CatProfile /> :
+                    currentPage === 'Dog Adoptions' ? <DogProfile /> :
+                      currentPage === 'Cat Adoptions' ? <CatProfile /> :
                         currentPage === 'User Profile' && <UserProfile loggedInUser={loggedInUser} />
         }
       </Box>
