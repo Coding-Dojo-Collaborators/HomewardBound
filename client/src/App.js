@@ -39,8 +39,8 @@ export default () => {
   );
   useEffect(() => {
     let mounted = true;
-    const petFinderKey = process.env.REACT_APP_PET_API_Key1
-    const petFinderSecret = process.env.REACT_APP_PET_API_Secret1
+    const petFinderKey = process.env.REACT_APP_PET_API_Key
+    const petFinderSecret = process.env.REACT_APP_PET_API_Secret
     let gettingToken = `grant_type=client_credentials&client_id=${petFinderKey}&client_secret=${petFinderSecret}`
     axios.post(`https://api.petfinder.com/v2/oauth2/token`, gettingToken)
       .then(accessToken => {
